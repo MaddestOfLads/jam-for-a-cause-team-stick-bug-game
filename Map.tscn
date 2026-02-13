@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bxeoc8yaurxe4"]
+
+[ext_resource type="Texture2D" uid="uid://cujvsfwpdtan4" path="res://icon.svg" id="1_gfjgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi7k"]
+size = Vector2(1939, 1930)
+
+[node name="Map" type="Node2D" unique_id=961070656]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2090223938]
+offset_right = 1920.0
+offset_bottom = 1920.0
+texture = ExtResource("1_gfjgm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=523551847]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=468416571]
+position = Vector2(960, 960)
+shape = SubResource("RectangleShape2D_3vi7k")
