@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bbfrx0mxarvxs"]
+
+[ext_resource type="Texture2D" uid="uid://cujvsfwpdtan4" path="res://icon.svg" id="1_auduq"]
+[ext_resource type="Script" uid="uid://dtrr5w11ck8r5" path="res://Script/bridge.gd" id="2_1kwlc"]
+
+[node name="Bridge" type="Line2D" unique_id=1402355537]
+texture = ExtResource("1_auduq")
+texture_mode = 1
+script = ExtResource("2_1kwlc")

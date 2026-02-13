@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bxeoc8yaurxe4"]
+
+[ext_resource type="Script" uid="uid://en4jx6lwjent" path="res://Script/map.gd" id="1_5mejs"]
+[ext_resource type="Texture2D" uid="uid://cujvsfwpdtan4" path="res://icon.svg" id="2_s12we"]
+[ext_resource type="Script" uid="uid://wiwu6muy3k5y" path="res://Script/camera_pan.gd" id="3_54rcs"]
+[ext_resource type="PackedScene" uid="uid://on1ho4ye3jqs" path="res://Scene/island.tscn" id="4_31wal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi7k"]
+size = Vector2(3840, 3840)
+
+[node name="Map" type="Node2D" unique_id=961070656]
+script = ExtResource("1_5mejs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615771826]
+position = Vector2(1920, 1920)
+scale = Vector2(30, 30)
+texture = ExtResource("2_s12we")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=523551847]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=468416571]
+position = Vector2(1920, 1920)
+shape = SubResource("RectangleShape2D_3vi7k")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1058211037]
+offset = Vector2(1920, 1920)
+script = ExtResource("3_54rcs")
+
+[node name="Islands" type="Node" parent="." unique_id=22276009]
+
+[node name="Island1" parent="Islands" unique_id=1290088679 instance=ExtResource("4_31wal")]
+position = Vector2(1400, 2556)
+island_ID = 1
+
+[node name="Island2" parent="Islands" unique_id=145559495 instance=ExtResource("4_31wal")]
+position = Vector2(2176, 2091)
+island_ID = 2
+
+[node name="Island3" parent="Islands" unique_id=1996463198 instance=ExtResource("4_31wal")]
+position = Vector2(1899, 1275)
+island_ID = 3
