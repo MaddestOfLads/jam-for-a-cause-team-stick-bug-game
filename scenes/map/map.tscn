@@ -8,8 +8,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi7k"]
 size = Vector2(3840, 3840)
 
-[node name="Map" type="Node2D" unique_id=961070656]
+[node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("_test_island_1", "_test_island_2")]
 script = ExtResource("1_ph54e")
+_test_island_1 = NodePath("Islands/Island1")
+_test_island_2 = NodePath("Islands/Island2")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2090223938]
 offset_right = 3840.0

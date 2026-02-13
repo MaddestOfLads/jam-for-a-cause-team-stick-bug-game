@@ -1,4 +1,5 @@
-class_name Connection extends Node
+class_name Connection extends Resource
+
 
 var island_1_ID: int = -1
 var island_2_ID: int = -1
