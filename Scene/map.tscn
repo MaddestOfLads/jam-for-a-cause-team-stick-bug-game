@@ -8,12 +8,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi7k"]
 size = Vector2(3840, 3840)
 
-[node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("camera", "_test_island_1", "_test_island_2", "_test_island_3")]
+[node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("camera", "island_and_bridge_root", "_test_island_1", "_test_island_2", "_test_island_3")]
 script = ExtResource("1_5mejs")
 camera = NodePath("Camera2D")
-_test_island_1 = NodePath("Islands/Island1")
-_test_island_2 = NodePath("Islands/Island2")
-_test_island_3 = NodePath("Islands/Island3")
+island_and_bridge_root = NodePath("IslandAndBridgeRoot")
+_test_island_1 = NodePath("IslandAndBridgeRoot/Island1")
+_test_island_2 = NodePath("IslandAndBridgeRoot/Island2")
+_test_island_3 = NodePath("IslandAndBridgeRoot/Island3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615771826]
 position = Vector2(1920, 1920)
@@ -30,16 +31,13 @@ shape = SubResource("RectangleShape2D_3vi7k")
 offset = Vector2(1920, 1920)
 script = ExtResource("3_54rcs")
 
-[node name="Islands" type="Node" parent="." unique_id=22276009]
+[node name="IslandAndBridgeRoot" type="Node" parent="." unique_id=22276009]
 
-[node name="Island1" parent="Islands" unique_id=1290088679 instance=ExtResource("4_31wal")]
+[node name="Island1" parent="IslandAndBridgeRoot" unique_id=1290088679 instance=ExtResource("4_31wal")]
 position = Vector2(1400, 2556)
-island_ID = 1
 
-[node name="Island2" parent="Islands" unique_id=145559495 instance=ExtResource("4_31wal")]
+[node name="Island2" parent="IslandAndBridgeRoot" unique_id=145559495 instance=ExtResource("4_31wal")]
 position = Vector2(2176, 2091)
-island_ID = 2
 
-[node name="Island3" parent="Islands" unique_id=1996463198 instance=ExtResource("4_31wal")]
+[node name="Island3" parent="IslandAndBridgeRoot" unique_id=1996463198 instance=ExtResource("4_31wal")]
 position = Vector2(1899, 1275)
-island_ID = 3

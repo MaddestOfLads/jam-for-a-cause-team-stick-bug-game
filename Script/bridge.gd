@@ -1,23 +1,38 @@
 class_name Bridge extends Line2D
 
 
-var _island_1: Island = null
-var _island_2: Island = null
+var island_1: Island = null
+var island_2: Island = null
 
 func _init() -> void:
-	self.add_point(Vector2.ZERO)
-	self.add_point(Vector2.ZERO)
+	add_point(Vector2.ZERO)
+	add_point(Vector2.ZERO)
 
-func build(island_1: Island, island_2: Island) -> Bridge:
-	self._island_1 = island_1
-	self._island_2 = island_2
+func build(start_island: Island, end_island: Island) -> Bridge:
+	if(start_island == end_island):
+		return null
 
-	self.points[0] = _island_1.position
-	self.points[1] = _island_2.position
+	island_1 = start_island
+	island_2 = end_island
 
+	set_ends(island_1.position, self.island_2.position)
+	# TODO: change color to normal color
 	return self
 
-func preview(island_1 : Island, cursor_pos : Vector2):
-	self.points[0] = island_1.position
-	self.points[1] = cursor_pos
+func start_bridging(start_island : Island):
+	island_1 = start_island
+	set_ends(start_island.position, start_island.position)
+	# TODO: change color to "bridging" color
 	return
+
+func set_ends(start : Vector2, end : Vector2):
+	if(start != null):
+		points[0] = start
+	if (end != null):
+		points[1] = end
+
+func set_ends_to_islands():
+	if (island_1 != null):
+		points[0] = island_1.position
+	if (island_2 != null):
+		points[1] = island_2.position
