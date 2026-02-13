@@ -13,9 +13,9 @@ script = ExtResource("1_ph54e")
 _test_island_1 = NodePath("Islands/Island1")
 _test_island_2 = NodePath("Islands/Island2")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=2090223938]
-offset_right = 3840.0
-offset_bottom = 3840.0
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615771826]
+position = Vector2(1920, 1920)
+scale = Vector2(30, 30)
 texture = ExtResource("1_sxf4j")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=523551847]
