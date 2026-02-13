@@ -15,7 +15,7 @@ var _drawn_bridge : Bridge = null # Bridge that is currently being drawn; null i
 
 func _ready() -> void:
 	connect_island_signals()
-	spawn_test_bridges()
+	# spawn_test_bridges()
 
 func connect_island_signals():
 	for child : Node in island_and_bridge_root.get_children():
