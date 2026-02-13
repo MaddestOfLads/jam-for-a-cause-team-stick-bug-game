@@ -87,4 +87,6 @@ func stop_drawing_bridge(end_island : Island):
 	else:
 		_drawn_bridge.island_2 = end_island
 		_drawn_bridge.set_ends_to_islands()
+		_drawn_bridge.island_1.add_bridge(_drawn_bridge)
+		_drawn_bridge.island_1.add_bridge(_drawn_bridge)
 	_drawn_bridge = null
