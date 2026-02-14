@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cujvsfwpdtan4" path="res://icon.svg" id="2_s12we"]
 [ext_resource type="Script" uid="uid://wiwu6muy3k5y" path="res://Script/camera.gd" id="3_54rcs"]
 [ext_resource type="PackedScene" uid="uid://on1ho4ye3jqs" path="res://Scene/island.tscn" id="4_31wal"]
+[ext_resource type="PackedScene" uid="uid://cjqkjnfe00wvd" path="res://Scene/ui.tscn" id="5_s12we"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi7k"]
 size = Vector2(3840, 3840)
@@ -12,6 +13,10 @@ size = Vector2(3840, 3840)
 script = ExtResource("1_5mejs")
 camera = NodePath("Camera2D")
 island_and_bridge_root = NodePath("IslandAndBridgeRoot")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=383927901]
+
+[node name="Ui" parent="CanvasLayer" unique_id=1818385894 instance=ExtResource("5_s12we")]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615771826]
 position = Vector2(1920, 1920)
