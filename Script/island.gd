@@ -3,7 +3,7 @@ class_name Island extends Area2D
 
 @export var id: int = -1
 @export var radius_circle : RadiusCircle = null
-@export var radius : int = 5
+@export var base_radius : int = 5
 
 const RADIUS_MULTIPLIER : int = 200
 
@@ -17,7 +17,7 @@ signal island_no_longer_hovered(island)
 var connected_bridges : Array[Bridge] = []
 
 func _ready() -> void:
-	radius_circle.radius = radius * RADIUS_MULTIPLIER
+	radius_circle.radius = base_radius * RADIUS_MULTIPLIER
 	mouse_entered.connect(on_mouse_entered)
 	mouse_exited.connect(on_mouse_exited)
 	modulate = _default_modulate
@@ -46,3 +46,10 @@ func is_other_island_already_connected(other : Island) -> bool:
 		if (connected_bridges[i].island_1 == other or self.connected_bridges[i].island_2 == other):
 			return true
 	return false
+
+func effective_radius() -> int:
+	return (base_radius + connected_bridges.size()) * RADIUS_MULTIPLIER
+
+func is_other_island_within_range(other : Island) -> bool:
+	var dist = position.distance_to(other.position)
+	return (dist <= effective_radius() and dist <= other.effective_radius())
