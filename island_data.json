@@ -1,36 +1,169 @@
 {
+    "tags_and_popups":{
+        "smelly" : "race_A couldn't stand race_B' strong stench.",
+        "perfumed" : "race_A couldn't stand race_B' strong perfume.",
+        "chaotic" : "race_A can't stand race_B' chaos around them.",
+        "organized" : "race_A can't stand race_B' settling... It's too tidied up!",
+        "light emitter" : "race_A' eyes hurt because of the heavy light emitted by race_B",
+        "loud" : "race_A' ears hurt because of the volume of race_B' noise!",
+        "quiet" : "race_B is way too quiet for race_A' liking!",
+        "hurting skin" : "OUCH! They hurt!",
+        "windy" : "With race_B' wind, race_A knows for sure there can't be peace",
+        "furry" : "ACHOOO! It's a highly improbable challenge to survive this allergy for the sake of communal living...",
+        "has pollen" : "ACHOOO! these people are a health hazard for race_A!",
+        "has metal" : "race_B' metal is surely gonna keep race_A really far away",
+        "extroverted" : "Extroverted races? In race_A' surroundings? Not on their watch! race_B' openess makes everyone sick...",
+        "cold" : "race_B is bringing a new freezing environment to race_A' doors, and I'm not sure their coats are ready",
+        "hot" : "Wait... is it hot in here or is it just... race_B...? Wait... maybe it's actually both, and race_A doesn't seem really fond of it",
+        "vividly colored" : "race_A really can't stand for this outrageous display of colorful palettes and general joyfulness to the gaze",
+        "staining" : "race_A finds race_B' ability to constantly stain everything in their surroundings astonishing and unmanageable... This bridge mustn't be done",
+        "has water" : "Water? race_A can't really be around water for... obvious reasons. Don't you think it's a bit cruel to create certain connections?"
+    },
+    "special_tags":{
+        "only long bridges" : "Oh this bridge is way too short for their liking... race_A would love to enjoy the journey before arriving to their destination",
+        "only short bridges" : "This bridge is way too long for race_A' liking... Have you considered the wind? the hours? The sheer tedium of it all?",
+        "no nose" : "*Does nothing*",
+        "no eyes" : "*Does nothing*",
+        "tough skin" : "*Does nothing, this is just to note that this race doesn't hate hurting skin races (like most do)*"
+    },
     "races": {
         "Obskurs" : {
             "Description" : "",
             "Expressed tags" : [],
-            "Incompatible tags" : []
+            "Incompatible tags" : ["vividly colored", "light emitter", "hurting skin"]
         },
-        "Sparkies" : {},
-        "Grumples" : {},
-        "Tympanies" : {},
-        "Bookworms" : {},
-        "Sniffies" : {},
-        "Partylooms" : {},
-        "Zappyfunkies" : {},
-        "Ews" : {},
-        "Wooshywoosh" : {},
-        "Perfeaus" : {},
-        "Rigorins" : {},
-        "Icyglops" : {},
-        "Ferragons" : {},
-        "Magmen" : {},
-        "Swoopers" : {},
-        "Goops" : {},
-        "Gloops" : {},
-        "Lazies" : {},
-        "Joggernauts" : {},
-        "Masozhops" : {},
-        "Frewfrews" : {},
-        "Paperies" : {},
-        "Lovidovi" : {},
-        "Pollies" : {},
-        "Splats" : {},
-        "Bloobs" : {}
+        "Sparkies" : {
+            "Description" : "",
+            "Expressed tags" : ["light emitter", "extroverted"],
+            "Incompatible tags" : ["hurting skin"]
+        },
+        "Grumples" : {
 
+            "Description" : "",
+            "Expressed tags" : ["quiet"],
+            "Incompatible tags" : ["loud", "extroverted", "vividly colored", "hurting skin"]
+        },
+        "Tympanies" : {
+
+            "Description" : "",
+            "Expressed tags" : ["quiet", "extroverted", "furry", "windy"],
+            "Incompatible tags" : ["loud", "hurting skin"]
+        },
+        "Bookworms" : {
+
+            "Description" : "",
+            "Expressed tags" : ["organized", "quiet"],
+            "Incompatible tags" : ["chaotic", "loud", "staining", "cold", "ot", "hurting skin", "has water"]
+        },
+        "Sniffies" : {
+            "Description" : "",
+            "Expressed tags" : [],
+            "Incompatible tags" : ["perfumed", "smelly", "furry", "has pollen", "has metal", "cold", "hurting skin"]
+        },
+        "Partylooms" : {
+            "Description" : "",
+            "Expressed tags" : ["chaotic", "has metal", "loud", "extroverted", "tough skin"],
+            "Incompatible tags" : ["organized", "quiet"]
+        },
+        "Zappyfunkies" : {
+            "Description" : "",
+            "Expressed tags" : ["loud", "extroverted", "tough skin"],
+            "Incompatible tags" : ["light emitter", "quiet"]
+        },
+        "Ews" : {
+            "Description" : "",
+            "Expressed tags" : ["smelly", "tough skin"],
+            "Incompatible tags" : ["windy", "has water"]
+        },
+        "Wooshywoosh" : {
+            "Description" : "",
+            "Expressed tags" : ["extroverted", "windy", "only short bridges", "tough skin", "chaotic"],
+            "Incompatible tags" : ["organized"]
+        },
+        "Perfeaus" : {
+            "Description" : "",
+            "Expressed tags" : ["perfumed", "extroverted", "organized"],
+            "Incompatible tags" : ["chaotic", "staining", "smelly", "hurting skin"]
+        },
+        "Rigorins" : {
+            "Description" : "",
+            "Expressed tags" : ["hurting skin", "extroverted", "organized"],
+            "Incompatible tags" : ["chaotic", "hurting skin"]
+        },
+        "Icyglops" : {
+            "Description" : "",
+            "Expressed tags" : ["cold", "tough skin"],
+            "Incompatible tags" : ["extroverted", "hot"]
+        },
+        "Ferragons" : {
+            "Description" : "",
+            "Expressed tags" : ["has metal", "loud", "tough skin"],
+            "Incompatible tags" : ["has water", "quiet", "hot"]
+        },
+        "Magmen" : {
+            "Description" : "",
+            "Expressed tags" : ["hot", "extroverted", "vividly colored", "hurgin skin", "tough skin", "light emitter"],
+            "Incompatible tags" : ["has water"]
+        },
+        "Swoopers" : {
+            "Description" : "",
+            "Expressed tags" : ["organized"],
+            "Incompatible tags" : ["smelly", "chaotic", "staining", "hurting skin"]
+        },
+        "Goops" : {
+            "Description" : "",
+            "Expressed tags" : ["staining", "vividly colored", "no nose", "extroverted", "tough skin"],
+            "Incompatible tags" : ["has water"]
+        },
+        "Gloops" : {
+            "Description" : "",
+            "Expressed tags" : ["no nose", "extroverted", "staining", "tough skin"],
+            "Incompatible tags" : ["has water"]
+        },
+        "Lazies" : {
+            "Description" : "",
+            "Expressed tags" : ["quiet", "only short bridges"],
+            "Incompatible tags" : ["windy", "loud", "hurting skin", "smelly"]
+        },
+        "Joggernauts" : {
+            "Description" : "",
+            "Expressed tags" : ["only long bridges", "chaotic"],
+            "Incompatible tags" : ["organized", "hurting skin"]
+        },
+        "Masozhops" : {
+            "Description" : "",
+            "Expressed tags" : ["tough skin", "chaotic", "furry"],
+            "Incompatible tags" : ["organized"]
+        },
+        "Frewfrews" : {
+            "Description" : "",
+            "Expressed tags" : ["vividly colored"],
+            "Incompatible tags" : ["only short bridges", "windy", "hurting skin"]
+        },
+        "Paperies" : {
+            "Description" : "",
+            "Expressed tags" : ["hurting skin", "no nose", "no eyes"],
+            "Incompatible tags" : ["windy", "only short bridges", "staining", "has water", "hurting skin"]
+        },
+        "Lovidovis" : {
+            "Description" : "",
+            "Expressed tags" : ["no eyes", "extroverted", "furry"],
+            "Incompatible tags" : ["hurting skin"]
+        },
+        "Pollies" : {
+            "Description" : "",
+            "Expressed tags" : ["has pollen", "hurting skin", "perfumed"],
+            "Incompatible tags" : ["hurting skin"]
+        },
+        "Splats" : {
+            "Description" : "",
+            "Expressed tags" : ["staining", "vividly colored", "no nose", "smelly", "tough skin"],
+            "Incompatible tags" : ["has water", "extroverted"]
+        },
+        "Bloobs" : {
+            "Description" : "",
+            "Expressed tags" : ["has water", "organized", "extroverted", "tough skin"],
+            "Incompatible tags" : ["staining", "chaotic"]
+        }
     }
 }
