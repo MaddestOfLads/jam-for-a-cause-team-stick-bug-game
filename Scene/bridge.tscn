@@ -1,17 +1,10 @@
 [gd_scene format=3 uid="uid://bbfrx0mxarvxs"]
 
-[ext_resource type="Texture2D" uid="uid://cujvsfwpdtan4" path="res://icon.svg" id="1_auduq"]
 [ext_resource type="Script" uid="uid://dtrr5w11ck8r5" path="res://Script/bridge.gd" id="2_1kwlc"]
 
-[node name="Bridge" type="Line2D" unique_id=1402355537 node_paths=PackedStringArray("line_collider")]
-texture = ExtResource("1_auduq")
-texture_mode = 1
+[node name="Bridge" type="Area2D" unique_id=1004947237 node_paths=PackedStringArray("line_collider")]
+z_index = 2
 script = ExtResource("2_1kwlc")
-line_collider = NodePath("Area2D/CollisionShape2D")
+line_collider = NodePath("CollisionShape2D")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=147385870]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1171148491]
-
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1171148491]

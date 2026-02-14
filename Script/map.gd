@@ -7,23 +7,17 @@ const _BRIDGE = preload("uid://bbfrx0mxarvxs")
 @export var camera : Camera2D = null
 @export var island_and_bridge_root : Node = null
 
-var _hovered_island : Island = null # Used for drawing bridges; updated through signals emited by islands
-var _hovered_bridge: Bridge = null
 var _drawn_bridge : Bridge = null # Bridge that is currently being drawn; null if no bridge is being drawn.
 
+var _mouse_query: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
+var _mouse_intersections: Array = []
+var _hovered_entity: Node = null
 
-func _ready() -> void:
-	connect_island_signals()
-
-func connect_island_signals():
-	for child : Node in island_and_bridge_root.get_children():
-		if child is Island:
-			child.island_hovered.connect(on_island_hovered)
-			child.island_no_longer_hovered.connect(on_island_no_longer_hovered)
 
 func _unhandled_input(event: InputEvent) -> void:
 	'''
 	For mouse movement:
+		- Queries intersection with pointer, gets current hovered entity with max Z Index
 		- If mouse is unclicked and there's a bridge being drawn, stop drawing bridge
 		- If mouse is clicked:
 			- If a bridge is already being drawn, move end of the bridge
@@ -37,38 +31,29 @@ func _unhandled_input(event: InputEvent) -> void:
 	'''
 
 	if event is InputEventMouseMotion:
+		_hovered_entity = get_hovered_entity()
+
 		if (not Input.is_action_pressed("left_click") and _drawn_bridge != null):
-			stop_drawing_bridge(_hovered_island)
+			stop_drawing_bridge()
 
 		elif Input.is_action_pressed("left_click"):
 			if (_drawn_bridge != null):
-				_drawn_bridge.points[1] += event.relative / camera.zoom
-			elif (_hovered_island != null):
-				start_drawing_bridge(_hovered_island)
+				_drawn_bridge.line.points[1] += (event.relative / camera.zoom)
+			elif _hovered_entity is Island:
+				start_drawing_bridge(_hovered_entity)
 			else:
 				camera.position -= event.relative / camera.zoom
-	
+
 	elif event is InputEventMouseButton:
 		if event.is_pressed():
-			if event.button_index == MOUSE_BUTTON_LEFT and _hovered_bridge != null:
-				_hovered_bridge.burn_bridge()
-				_hovered_bridge = null
+			if event.button_index == MOUSE_BUTTON_LEFT and _hovered_entity is Bridge:
+				_hovered_entity.burn_bridge()
+
 			elif event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				camera.zoom_out()
+
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				camera.zoom_in()
-
-func on_bridge_hovered(bridge: Bridge) -> void:
-	_hovered_bridge = bridge
-		
-func on_bridge_unhovered() -> void:
-	_hovered_bridge = null
-
-func on_island_hovered(island : Island):
-	_hovered_island = island
-
-func on_island_no_longer_hovered():
-	_hovered_island = null
 
 func start_drawing_bridge(start_island : Island):
 	_drawn_bridge = _BRIDGE.instantiate()
@@ -76,24 +61,36 @@ func start_drawing_bridge(start_island : Island):
 	island_and_bridge_root.add_child(_drawn_bridge)
 	return
 
-func stop_drawing_bridge(end_island : Island):
-	if (end_island == null && _drawn_bridge != null):
+func stop_drawing_bridge():
+	if (_hovered_entity == null or not _hovered_entity is Island) and _drawn_bridge != null:
 		print("Bridge failed!")
 		_drawn_bridge.queue_free()
-	elif (end_island == _drawn_bridge.island_1):
+	elif (_hovered_entity is Island and _hovered_entity == _drawn_bridge.island_1):
 		print("Can't bridge an island to itself!")
 		_drawn_bridge.queue_free()
 		pass # TODO: show a "same island" popup
-	elif(end_island.is_other_island_already_connected(_drawn_bridge.island_1)):
+	elif (_hovered_entity is Island and _hovered_entity.is_other_island_already_connected(_drawn_bridge.island_1)):
 		print("Island already connected!")
 		_drawn_bridge.queue_free()
 		pass # TODO: show an "island already connected" popup
 	else:
-		_drawn_bridge.island_2 = end_island
+		_drawn_bridge.island_2 = _hovered_entity
 		_drawn_bridge.set_ends_to_islands()
 		_drawn_bridge.island_1.add_bridge(_drawn_bridge)
 		_drawn_bridge.island_2.add_bridge(_drawn_bridge)
 		_drawn_bridge.resize_collider()
-		_drawn_bridge.bridge_hovered.connect(on_bridge_hovered)
-		_drawn_bridge.bridge_unhovered.connect(on_bridge_unhovered)
+		_drawn_bridge.mouse_entered.connect(_drawn_bridge.on_mouse_entered)
+		_drawn_bridge.mouse_exited.connect(_drawn_bridge.on_mouse_exited)
 	_drawn_bridge = null
+
+# Returns top-most hovered collider by Z Index
+func get_hovered_entity() -> Node:
+	_mouse_query.position = get_global_mouse_position()
+	_mouse_query.collide_with_areas = true
+	_mouse_intersections = get_world_2d().direct_space_state.intersect_point(_mouse_query)
+	_mouse_intersections.sort_custom(func(a, b): return a["collider"].z_index > b["collider"].z_index)
+	
+	if _mouse_intersections.size() > 0:
+		return _mouse_intersections[0]["collider"]
+
+	return null
