@@ -10,7 +10,7 @@ var _target_zoom: float = 1.0
 
 
 func _physics_process(delta: float) -> void:
-	if(not is_equal_approx(zoom.x, _target_zoom)): # Changed from set_physics_process() to an if statement because disabling physics process is generally not recommended if it isn't needed (cause physics_process often gets additional functionality down the line and disabling it can mess things up later if you want to add more stuff to it)
+	if (not is_equal_approx(zoom.x, _target_zoom)): # Changed from set_physics_process() to an if statement because disabling physics process is generally not recommended if it isn't needed (cause physics_process often gets additional functionality down the line and disabling it can mess things up later if you want to add more stuff to it)
 		zoom = lerp(zoom, _target_zoom * Vector2.ONE, _zoom_speed * delta)
 
 # Moved zoom/pan logic to map.gd because dragging from an island shouldn't pan the camera,

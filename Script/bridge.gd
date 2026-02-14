@@ -1,29 +1,46 @@
 class_name Bridge extends Line2D
 
-
 var island_1: Island = null
 var island_2: Island = null
+
+@export var line_collider: CollisionShape2D = null
+const COLLIDER_PADDING: int = 4
+
+signal bridge_hovered(bridge)
+signal bridge_unhovered(bridge)
+
 
 func _init() -> void:
 	add_point(Vector2.ZERO)
 	add_point(Vector2.ZERO)
 
-func build(start_island: Island, end_island: Island) -> Bridge:
-	if(start_island == end_island):
-		return null
-
-	island_1 = start_island
-	island_2 = end_island
-
-	set_ends(island_1.position, island_2.position)
-	# TODO: change color to normal color
-	return self
+#func build(start_island: Island, end_island: Island) -> Bridge:
+	#if(start_island == end_island):
+		#return null
+#
+	#island_1 = start_island
+	#island_2 = end_island
+#
+	#set_ends_to_islands()
+	#island_1.add_bridge(self)
+	#island_2.add_bridge(self)
+	#resize_collider()
+#
+	## TODO: change color to normal color
+	#return self
 
 func start_bridging(start_island : Island):
 	island_1 = start_island
 	set_ends(start_island.position, start_island.position)
 	# TODO: change color to "bridging" color
-	return
+	
+func burn_bridge() -> void:
+	if (island_1 != null):
+		island_1.remove_bridge(self)
+	if (island_2 != null):
+		island_2.remove_bridge(self)
+	
+	queue_free()
 
 func set_ends(start : Vector2, end : Vector2):
 	if (start != null):
@@ -36,3 +53,20 @@ func set_ends_to_islands():
 		points[0] = island_1.position
 	if (island_2 != null):
 		points[1] = island_2.position
+		
+func resize_collider() -> void:
+	line_collider.position = (points[0] + points[1]) / 2
+	line_collider.rotation = points[0].direction_to(points[1]).angle()
+	
+	var length = points[0].distance_to(points[1])
+	var rect = RectangleShape2D.new()
+	rect.size = Vector2(length, width + COLLIDER_PADDING)
+	line_collider.shape = rect
+
+func _on_area_2d_mouse_entered() -> void:
+	#modulate = _hovered_modulate
+	bridge_hovered.emit(self)
+
+func _on_area_2d_mouse_exited() -> void:
+	#modulate = _default_modulate
+	bridge_unhovered.emit()
