@@ -3,6 +3,9 @@ class_name Bridge extends Line2D
 var island_1: Island = null
 var island_2: Island = null
 
+var _default_modulate : Color = Color(0.97, 0.388, 1.0, 1.0)
+var _hovered_modulate : Color = Color(1.0, 0.5, 0.5)
+
 @export var line_collider: CollisionShape2D = null
 const COLLIDER_PADDING: int = 4
 
@@ -13,6 +16,7 @@ signal bridge_unhovered(bridge)
 func _init() -> void:
 	add_point(Vector2.ZERO)
 	add_point(Vector2.ZERO)
+	modulate = _default_modulate
 
 #func build(start_island: Island, end_island: Island) -> Bridge:
 	#if(start_island == end_island):
@@ -64,9 +68,9 @@ func resize_collider() -> void:
 	line_collider.shape = rect
 
 func _on_area_2d_mouse_entered() -> void:
-	#modulate = _hovered_modulate
+	modulate = _hovered_modulate
 	bridge_hovered.emit(self)
 
 func _on_area_2d_mouse_exited() -> void:
-	#modulate = _default_modulate
+	modulate = _default_modulate
 	bridge_unhovered.emit()
