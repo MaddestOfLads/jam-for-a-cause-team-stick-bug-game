@@ -1,0 +1,36 @@
+{
+    "races": {
+        "Obskurs" : {
+            "Description" : "",
+            "Expressed tags" : [],
+            "Incompatible tags" : []
+        },
+        "Sparkies" : {},
+        "Grumples" : {},
+        "Tympanies" : {},
+        "Bookworms" : {},
+        "Sniffies" : {},
+        "Partylooms" : {},
+        "Zappyfunkies" : {},
+        "Ews" : {},
+        "Wooshywoosh" : {},
+        "Perfeaus" : {},
+        "Rigorins" : {},
+        "Icyglops" : {},
+        "Ferragons" : {},
+        "Magmen" : {},
+        "Swoopers" : {},
+        "Goops" : {},
+        "Gloops" : {},
+        "Lazies" : {},
+        "Joggernauts" : {},
+        "Masozhops" : {},
+        "Frewfrews" : {},
+        "Paperies" : {},
+        "Lovidovi" : {},
+        "Pollies" : {},
+        "Splats" : {},
+        "Bloobs" : {}
+
+    }
+}

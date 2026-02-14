@@ -2,16 +2,23 @@
 
 [ext_resource type="Script" uid="uid://cx1j5ug5x8k2f" path="res://Script/island.gd" id="1_bm5u3"]
 [ext_resource type="Texture2D" uid="uid://cujvsfwpdtan4" path="res://icon.svg" id="2_w07yj"]
+[ext_resource type="Script" uid="uid://4uui4wr3oe4m" path="res://Scene/radius_circle.gd" id="3_c7upt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk6ow"]
 size = Vector2(128, 128)
 
-[node name="Island" type="Area2D" unique_id=2017080390]
+[node name="Island" type="Area2D" unique_id=2017080390 node_paths=PackedStringArray("radius_circle")]
 z_index = 1
 script = ExtResource("1_bm5u3")
+radius_circle = NodePath("RadiusCircle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=19922822]
 shape = SubResource("RectangleShape2D_sk6ow")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1469256903]
 texture = ExtResource("2_w07yj")
+
+[node name="RadiusCircle" type="Node2D" parent="." unique_id=49595962]
+visible = false
+z_index = -1
+script = ExtResource("3_c7upt")
