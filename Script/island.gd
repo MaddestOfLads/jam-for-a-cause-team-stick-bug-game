@@ -1,5 +1,6 @@
 class_name Island extends Area2D
 
+
 @export var id: int = -1
 
 var _default_modulate : Color = Color(1.0, 0.5, 0.5)
@@ -11,30 +12,31 @@ signal island_no_longer_hovered(island)
 
 var connected_bridges : Array[Bridge] = []
 
+
 func _ready() -> void:
-    mouse_entered.connect(on_mouse_entered)
-    mouse_exited.connect(on_mouse_exited)
-    modulate = _default_modulate
+	mouse_entered.connect(on_mouse_entered)
+	mouse_exited.connect(on_mouse_exited)
+	modulate = _default_modulate
 
 func on_mouse_entered():
-    modulate = _hovered_modulate
-    island_hovered.emit(self)
+	modulate = _hovered_modulate
+	island_hovered.emit(self)
 
 func on_mouse_exited():
-    modulate = _default_modulate
-    island_no_longer_hovered.emit()
+	modulate = _default_modulate
+	island_no_longer_hovered.emit()
 
 func add_bridge(bridge : Bridge):
-    connected_bridges.append(bridge)
+	connected_bridges.append(bridge)
 
 func remove_bridge(bridge : Bridge):
-    for i in range(connected_bridges.size()):
-        if (connected_bridges[i] == bridge):
-            connected_bridges.remove_at(i)
-            break
+	for i in range(connected_bridges.size()):
+		if (connected_bridges[i] == bridge):
+			connected_bridges.remove_at(i)
+			break
 
 func is_other_island_already_connected(other : Island) -> bool:
-    for i in range(connected_bridges.size()):
-        if (connected_bridges[i].island_1 == other or self.connected_bridges[i].island_2 == other):
-            return true
-    return false
+	for i in range(connected_bridges.size()):
+		if (connected_bridges[i].island_1 == other or self.connected_bridges[i].island_2 == other):
+			return true
+	return false

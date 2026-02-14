@@ -15,7 +15,7 @@ func build(start_island: Island, end_island: Island) -> Bridge:
 	island_1 = start_island
 	island_2 = end_island
 
-	set_ends(island_1.position, self.island_2.position)
+	set_ends(island_1.position, island_2.position)
 	# TODO: change color to normal color
 	return self
 
@@ -26,7 +26,7 @@ func start_bridging(start_island : Island):
 	return
 
 func set_ends(start : Vector2, end : Vector2):
-	if(start != null):
+	if (start != null):
 		points[0] = start
 	if (end != null):
 		points[1] = end

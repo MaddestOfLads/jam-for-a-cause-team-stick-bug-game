@@ -13,6 +13,7 @@ const _BRIDGE = preload("uid://bbfrx0mxarvxs")
 var _hovered_island : Island = null # Used for drawing bridges; updated through signals emited by islands
 var _drawn_bridge : Bridge = null # Bridge that is currently being drawn; null if no bridge is being drawn.
 
+
 func _ready() -> void:
 	connect_island_signals()
 	# spawn_test_bridges()
@@ -80,9 +81,11 @@ func stop_drawing_bridge(end_island : Island):
 		_drawn_bridge.queue_free()
 	elif (end_island == _drawn_bridge.island_1):
 		print("Can't bridge an island to itself!")
+		_drawn_bridge.queue_free()
 		pass # TODO: show a "same island" popup
 	elif(end_island.is_other_island_already_connected(_drawn_bridge.island_1)):
 		print("Island already connected!")
+		_drawn_bridge.queue_free()
 		pass # TODO: show an "island already connected" popup
 	else:
 		_drawn_bridge.island_2 = end_island
