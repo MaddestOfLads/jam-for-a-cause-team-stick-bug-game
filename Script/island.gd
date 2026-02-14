@@ -17,7 +17,7 @@ signal island_no_longer_hovered(island)
 var connected_bridges : Array[Bridge] = []
 
 func _ready() -> void:
-	radius_circle.radius = base_radius * RADIUS_MULTIPLIER
+	radius_circle.radius = effective_radius()
 	mouse_entered.connect(on_mouse_entered)
 	mouse_exited.connect(on_mouse_exited)
 	modulate = _default_modulate
