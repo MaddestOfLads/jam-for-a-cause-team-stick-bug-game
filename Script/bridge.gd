@@ -4,8 +4,9 @@ class_name Bridge extends Area2D
 var island_1: Island = null
 var island_2: Island = null
 
-var _default_modulate : Color = Color(0.97, 0.388, 1.0, 1.0)
-var _hovered_modulate : Color = Color(1.0, 0.5, 0.5)
+var _default_modulate : Color = Color(0.0, 1.0, 0.0, 1.0)
+var _preview_modulate : Color = Color(1.0, 1.0, 0.0, 1.0)
+var _hovered_modulate : Color = Color(1.0, 0.0, 0.0, 1.0)
 
 @export var line_collider: CollisionShape2D = null
 var line: Line2D = null
@@ -30,11 +31,15 @@ func on_mouse_exited() -> void:
 	modulate = _default_modulate
 	bridge_unhovered.emit()
 
-func build(start_island: Island, end_island: Island) -> Bridge:
-	if(start_island == end_island):
+func start_bridge_preview(start_island : Island) -> void:
+	modulate = _preview_modulate
+	island_1 = start_island
+	set_ends(start_island.position, start_island.position)
+
+func build_bridge(end_island: Island) -> Bridge:
+	if(island_1 == end_island):
 		return null
 
-	island_1 = start_island
 	island_2 = end_island
 
 	set_ends_to_islands()
@@ -42,14 +47,12 @@ func build(start_island: Island, end_island: Island) -> Bridge:
 	island_2.add_bridge(self)
 	resize_collider()
 
-	# TODO: change color to normal color
+	mouse_entered.connect(on_mouse_entered)
+	mouse_exited.connect(on_mouse_exited)
+
+	modulate = _default_modulate
 	return self
 
-func start_bridging(start_island : Island):
-	island_1 = start_island
-	set_ends(start_island.position, start_island.position)
-	# TODO: change color to "bridging" color
-	
 func burn_bridge() -> void:
 	if (island_1 != null):
 		island_1.remove_bridge(self)
