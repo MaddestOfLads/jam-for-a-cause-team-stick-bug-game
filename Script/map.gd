@@ -12,6 +12,8 @@ var _drawn_bridge : Bridge = null # Bridge that is currently being drawn; null i
 var _mouse_query: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 var _mouse_intersections: Array = []
 var _hovered_entity: Node = null
+var _drag_start_entity: Node = null
+var _drag_end_entity: Node = null
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -34,6 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_hovered_entity = get_hovered_entity()
 
 		if (not Input.is_action_pressed("left_click") and _drawn_bridge != null):
+			_drag_end_entity = _hovered_entity
 			stop_drawing_bridge()
 
 		elif Input.is_action_pressed("left_click"):
@@ -41,6 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				_drawn_bridge.line.points[1] += (event.relative / camera.zoom)
 			elif _hovered_entity is Island:
 				start_drawing_bridge(_hovered_entity)
+				_drag_start_entity = _hovered_entity
 			else:
 				camera.position -= event.relative / camera.zoom
 
@@ -55,13 +59,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				camera.zoom_in()
 
-func start_drawing_bridge(start_island : Island):
+func start_drawing_bridge(start_island : Island) -> void:
 	_drawn_bridge = _BRIDGE.instantiate()
-	_drawn_bridge.start_bridging(start_island)
+	_drawn_bridge.start_bridge_preview(start_island)
 	island_and_bridge_root.add_child(_drawn_bridge)
-	return
 
-func stop_drawing_bridge():
+func stop_drawing_bridge() -> void:
 	if (_hovered_entity == null or not _hovered_entity is Island) and _drawn_bridge != null:
 		print("Bridge failed!")
 		_drawn_bridge.queue_free()
@@ -74,14 +77,10 @@ func stop_drawing_bridge():
 		_drawn_bridge.queue_free()
 		pass # TODO: show an "island already connected" popup
 	else:
-		_drawn_bridge.island_2 = _hovered_entity
-		_drawn_bridge.set_ends_to_islands()
-		_drawn_bridge.island_1.add_bridge(_drawn_bridge)
-		_drawn_bridge.island_2.add_bridge(_drawn_bridge)
-		_drawn_bridge.resize_collider()
-		_drawn_bridge.mouse_entered.connect(_drawn_bridge.on_mouse_entered)
-		_drawn_bridge.mouse_exited.connect(_drawn_bridge.on_mouse_exited)
+		_drawn_bridge.build_bridge(_hovered_entity)
 	_drawn_bridge = null
+	_drag_start_entity = null
+	_drag_end_entity = null
 
 # Returns top-most hovered collider by Z Index
 func get_hovered_entity() -> Node:
