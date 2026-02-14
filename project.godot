@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="STICKBUG"
 
+[gui]
+
+theme/custom="uid://ywn2pwldyj1q"
+
 [input]
 
 left_click={
