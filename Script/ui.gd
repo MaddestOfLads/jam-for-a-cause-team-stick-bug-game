@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func set_details(race: RaceDB.Races, race_description: String, race_portrait: Texture2D) -> void:
 	if race_name_label and race_description_label and race_image_texture_rect:
-		race_name_label.text = RaceDB.RaceNameDict[race]
+		race_name_label.text = RaceDb.RaceNameDict[race]
 		# TODO: Replace these with DB lookups after loading .json as well to reduce risk of typos?
 		race_description_label.text = race_description
 		race_image_texture_rect.texture = race_portrait

@@ -5,7 +5,6 @@ const _BRIDGE = preload("uid://bbfrx0mxarvxs")
 
 @export var connection_array: Array[Connection] = []
 @export var camera : Camera2D = null
-@export var race_db: RaceDB = null
 @export var island_and_bridge_root : Node = null
 
 var _drawn_bridge : Bridge = null # Bridge that is currently being drawn; null if no bridge is being drawn.

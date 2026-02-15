@@ -1,6 +1,8 @@
 class_name RaceDB extends Node
 
 
+const _ISLAND_DATA_JSON = preload("res://island_data.json")
+
 # Const json dict key refs
 const _TAGS_AND_POPUPS = "tags_and_popups"
 const _SPECIAL_TAGS = "special_tags"
@@ -69,12 +71,11 @@ const RaceNameDict := {
 	Races.Bloobs: "Bloobs",
 }
 
-@export var _island_data: JSON = null
 var _island_data_variant: Variant = null
 
 
 func _ready() -> void:
-	_island_data_variant = _island_data.data
+	_island_data_variant = _ISLAND_DATA_JSON.data
 
 func get_description(race: Races) -> String:
 	return _island_data_variant[_RACES][RaceNameDict[race]][_DESCRIPTION]
