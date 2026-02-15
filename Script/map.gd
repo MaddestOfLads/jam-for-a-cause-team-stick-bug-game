@@ -5,6 +5,7 @@ const _BRIDGE = preload("uid://bbfrx0mxarvxs")
 
 @export var connection_array: Array[Connection] = []
 @export var camera : Camera2D = null
+@export var ui: Ui = null
 @export var island_and_bridge_root : Node = null
 
 var _drawn_bridge : Bridge = null # Bridge that is currently being drawn; null if no bridge is being drawn.
@@ -14,6 +15,15 @@ var _mouse_intersections: Array = []
 var _hovered_entity: Node = null
 var _drag_start_entity: Node = null
 var _drag_end_entity: Node = null
+var _is_dragging: bool = false
+
+
+#func _ready() -> void:
+	## TODO: Move to island_and_bridge_root.gd?
+	#for node in island_and_bridge_root.get_children():
+		#if node is Island:
+			#node.island_hovered.connect(ui.set_details)
+			#node.island_no_longer_hovered.connect(ui.clear_details)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -37,16 +47,34 @@ func _unhandled_input(event: InputEvent) -> void:
 
 		if (not Input.is_action_pressed("left_click") and _drawn_bridge != null):
 			_drag_end_entity = _hovered_entity
+			ui.clear_details()
 			stop_drawing_bridge()
 
 		elif Input.is_action_pressed("left_click"):
 			if (_drawn_bridge != null):
 				_drawn_bridge.line.points[1] += (event.relative / camera.zoom)
+
+				if _hovered_entity == null:
+					ui.prev_details()
+
+				elif _hovered_entity is Island and _hovered_entity != _drag_start_entity:
+					ui.set_details(_hovered_entity)
+
 			elif _hovered_entity is Island:
 				start_drawing_bridge(_hovered_entity)
 				_drag_start_entity = _hovered_entity
+				ui.set_details(_hovered_entity)
+
 			else:
 				camera.position -= event.relative / camera.zoom
+
+		else:
+			if _hovered_entity == null:
+				ui.clear_details()
+
+			elif _hovered_entity is Island:
+				ui.set_details(_hovered_entity)
+
 
 	elif event is InputEventMouseButton:
 		if event.is_pressed():
@@ -63,6 +91,7 @@ func start_drawing_bridge(start_island : Island) -> void:
 	_drawn_bridge = _BRIDGE.instantiate()
 	_drawn_bridge.start_bridge_preview(start_island)
 	island_and_bridge_root.add_child(_drawn_bridge)
+	ui.set_prev(start_island)
 
 func stop_drawing_bridge() -> void:
 	if (_hovered_entity == null or not _hovered_entity is Island) and _drawn_bridge != null:
@@ -78,9 +107,12 @@ func stop_drawing_bridge() -> void:
 		pass # TODO: show an "island already connected" popup
 	else:
 		_drawn_bridge.build_bridge(_hovered_entity)
+	
 	_drawn_bridge = null
 	_drag_start_entity = null
 	_drag_end_entity = null
+
+	ui.clear_details()
 
 # Returns top-most hovered collider by Z Index
 func get_hovered_entity() -> Node:

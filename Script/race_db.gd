@@ -81,6 +81,9 @@ func _ready() -> void:
 	_valid_tags.merge(_island_data_variant[_SPECIAL_TAGS] as Dictionary, true)
 	validate_tags()
 
+func get_race_name_as_text(race: Races) -> String:
+	return RaceNameDict[race]
+
 func get_description(race: Races) -> String:
 	return _island_data_variant[_RACES][RaceNameDict[race]][_DESCRIPTION]
 

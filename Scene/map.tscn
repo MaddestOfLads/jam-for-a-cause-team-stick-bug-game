@@ -7,9 +7,10 @@
 [ext_resource type="Script" uid="uid://cp6cpsfbfxh5i" path="res://Script/island_and_bridge_root.gd" id="5_54rcs"]
 [ext_resource type="PackedScene" uid="uid://cjqkjnfe00wvd" path="res://Scene/ui.tscn" id="5_s12we"]
 
-[node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("camera", "island_and_bridge_root")]
+[node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("camera", "ui", "island_and_bridge_root")]
 script = ExtResource("1_5mejs")
 camera = NodePath("Camera2D")
+ui = NodePath("CanvasLayer/Ui")
 island_and_bridge_root = NodePath("IslandAndBridgeRoot")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=383927901]
@@ -33,6 +34,8 @@ position = Vector2(1400, 2556)
 
 [node name="Island2" parent="IslandAndBridgeRoot" unique_id=145559495 instance=ExtResource("4_31wal")]
 position = Vector2(2176, 2091)
+inhabiting_race = 26
 
 [node name="Island3" parent="IslandAndBridgeRoot" unique_id=1996463198 instance=ExtResource("4_31wal")]
 position = Vector2(1899, 1275)
+inhabiting_race = 4
