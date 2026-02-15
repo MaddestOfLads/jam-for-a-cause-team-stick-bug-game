@@ -72,16 +72,30 @@ const RaceNameDict := {
 }
 
 var _island_data_variant: Variant = null
+var _valid_tags: Dictionary
 
 
 func _ready() -> void:
 	_island_data_variant = _ISLAND_DATA_JSON.data
+	_valid_tags = _island_data_variant[_TAGS_AND_POPUPS] as Dictionary
+	_valid_tags.merge(_island_data_variant[_SPECIAL_TAGS] as Dictionary, true)
 
 func get_description(race: Races) -> String:
 	return _island_data_variant[_RACES][RaceNameDict[race]][_DESCRIPTION]
 
 func get_expressed_tags(race: Races) -> Array:
-	return _island_data_variant[_RACES][RaceNameDict[race]][_EXPRESSED_TAGS]
+	var expressed_tags = _island_data_variant[_RACES][RaceNameDict[race]][_EXPRESSED_TAGS]
+	validate_tags(expressed_tags)
+
+	return expressed_tags
 
 func get_incompatible_tags(race: Races) -> Array:
-	return _island_data_variant[_RACES][RaceNameDict[race]][_INCOMPATIBLE_TAGS]
+	var incompatible_tags = _island_data_variant[_RACES][RaceNameDict[race]][_INCOMPATIBLE_TAGS]
+	validate_tags(incompatible_tags)
+	
+	return incompatible_tags
+
+func validate_tags(tag_array: Array) -> void:
+	for tag in tag_array:
+		if tag not in _valid_tags:
+			assert(tag == "", "Tag %s is not a valid tag" % tag)
