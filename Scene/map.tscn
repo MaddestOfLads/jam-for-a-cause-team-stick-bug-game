@@ -3,14 +3,21 @@
 [ext_resource type="Script" uid="uid://en4jx6lwjent" path="res://Script/map.gd" id="1_5mejs"]
 [ext_resource type="Texture2D" uid="uid://cujvsfwpdtan4" path="res://icon.svg" id="2_s12we"]
 [ext_resource type="Script" uid="uid://wiwu6muy3k5y" path="res://Script/camera.gd" id="3_54rcs"]
+[ext_resource type="JSON" path="res://island_data.json" id="3_qftbs"]
 [ext_resource type="PackedScene" uid="uid://on1ho4ye3jqs" path="res://Scene/island.tscn" id="4_31wal"]
 [ext_resource type="Script" uid="uid://cp6cpsfbfxh5i" path="res://Script/island_and_bridge_root.gd" id="5_54rcs"]
 [ext_resource type="PackedScene" uid="uid://cjqkjnfe00wvd" path="res://Scene/ui.tscn" id="5_s12we"]
+[ext_resource type="Script" uid="uid://csmho6khpwhrj" path="res://Script/race_db.gd" id="7_31wal"]
 
-[node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("camera", "island_and_bridge_root")]
+[node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("camera", "race_db", "island_and_bridge_root")]
 script = ExtResource("1_5mejs")
 camera = NodePath("Camera2D")
+race_db = NodePath("RaceDB")
 island_and_bridge_root = NodePath("IslandAndBridgeRoot")
+
+[node name="RaceDB" type="Node" parent="." unique_id=2065315108]
+script = ExtResource("7_31wal")
+_island_data = ExtResource("3_qftbs")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=383927901]
 

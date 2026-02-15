@@ -1,7 +1,7 @@
 class_name Island extends Area2D
 
 
-@export var id: int = -1
+@export var inhabiting_race: RaceDB.Races
 @export var radius_circle : RadiusCircle = null
 @export var base_radius : int = 5
 
@@ -15,6 +15,7 @@ signal island_hovered(island)
 signal island_no_longer_hovered(island)
 
 var connected_bridges : Array[Bridge] = []
+
 
 func _ready() -> void:
 	radius_circle.radius = effective_radius()

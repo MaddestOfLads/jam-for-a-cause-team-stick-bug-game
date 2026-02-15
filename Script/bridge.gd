@@ -1,6 +1,5 @@
 class_name Bridge extends Area2D
 
-
 var island_1: Island = null
 var island_2: Island = null
 
