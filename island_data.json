@@ -1,166 +1,475 @@
 {
-	"tags_and_popups":{
-		"smelly" : "race_A couldn't stand race_B' strong stench.",
-		"perfumed" : "race_A couldn't stand race_B' strong perfume.",
-		"chaotic" : "race_A can't stand race_B' chaos around them.",
-		"organized" : "race_A can't stand race_B' settling... It's too tidied up!",
-		"light emitter" : "race_A' eyes hurt because of the heavy light emitted by race_B",
-		"loud" : "race_A' ears hurt because of the volume of race_B' noise!",
-		"quiet" : "race_B is way too quiet for race_A' liking!",
-		"hurting skin" : "OUCH! They hurt!",
-		"windy" : "With race_B' wind, race_A knows for sure there can't be peace",
-		"furry" : "ACHOOO! It's a highly improbable challenge to survive this allergy for the sake of communal living...",
-		"has pollen" : "ACHOOO! these people are a health hazard for race_A!",
-		"has metal" : "race_B' metal is surely gonna keep race_A really far away",
-		"extroverted" : "Extroverted races? In race_A' surroundings? Not on their watch! race_B' openess makes everyone sick...",
-		"cold" : "race_B is bringing a new freezing environment to race_A' doors, and I'm not sure their coats are ready",
-		"hot" : "Wait... is it hot in here or is it just... race_B...? Wait... maybe it's actually both, and race_A doesn't seem really fond of it",
-		"vividly colored" : "race_A really can't stand for this outrageous display of colorful palettes and general joyfulness to the gaze",
-		"staining" : "race_A finds race_B' ability to constantly stain everything in their surroundings astonishing and unmanageable... This bridge mustn't be done",
-		"has water" : "Water? race_A can't really be around water for... obvious reasons. Don't you think it's a bit cruel to create certain connections?"
+	"tags_and_popups": {
+		"smelly": "race_A couldn't stand race_B' strong stench.",
+		"perfumed": "race_A couldn't stand race_B' strong perfume.",
+		"chaotic": "race_A can't stand race_B' chaos around them.",
+		"organized": "race_A can't stand race_B' settling... It's too tidied up!",
+		"light emitter": "race_A' eyes hurt because of the heavy light emitted by race_B",
+		"loud": "race_A' ears hurt because of the volume of race_B' noise!",
+		"quiet": "race_B is way too quiet for race_A' liking!",
+		"hurting skin": "OUCH! They hurt!",
+		"windy": "With race_B' wind, race_A knows for sure there can't be peace",
+		"furry": "ACHOOO! It's a highly improbable challenge to survive this allergy for the sake of communal living...",
+		"has pollen": "ACHOOO! these people are a health hazard for race_A!",
+		"has metal": "race_B' metal is surely gonna keep race_A really far away",
+		"extroverted": "Extroverted races? In race_A' surroundings? Not on their watch! race_B' openess makes everyone sick...",
+		"cold": "race_B is bringing a new freezing environment to race_A' doors, and I'm not sure their coats are ready",
+		"hot": "Wait... is it hot in here or is it just... race_B...? Wait... maybe it's actually both, and race_A doesn't seem really fond of it",
+		"vividly colored": "race_A really can't stand for this outrageous display of colorful palettes and general joyfulness to the gaze",
+		"staining": "race_A finds race_B' ability to constantly stain everything in their surroundings astonishing and unmanageable... This bridge mustn't be done",
+		"has water": "Water? race_A can't really be around water for... obvious reasons. Don't you think it's a bit cruel to create certain connections?"
 	},
-	"special_tags":{
-		"only long bridges" : "Oh this bridge is way too short for their liking... race_A would love to enjoy the journey before arriving to their destination",
-		"only short bridges" : "This bridge is way too long for race_A's liking... Have you considered the wind? the hours? The sheer tedium of it all?",
-		"no nose" : "*Does nothing*",
-		"no eyes" : "*Does nothing*",
-		"tough skin" : "*Does nothing, this is just an indicator that this race doesn't have hurting skin in hated tags (like most do)*"
+	"special_tags": {
+		"only long bridges": "Oh this bridge is way too short for their liking... race_A would love to enjoy the journey before arriving to their destination",
+		"only short bridges": "This bridge is way too long for race_A's liking... Have you considered the wind? the hours? The sheer tedium of it all?",
+		"no nose": "*Does nothing*",
+		"no eyes": "*Does nothing*",
+		"tough skin": "*Does nothing, this is just an indicator that this race doesn't have hurting skin in hated tags (like most do)*"
 	},
 	"races": {
-		"Obskurs" : {
-			"Description" : "Obskurs are always in monochromatic capes, they hate light sources and reflections and tend to prefer the darkness overall. They prefer to be surrounded by darker environments, so no light sources and no vibrant colors.",
-			"Expressed tags" : [],
-			"Incompatible tags" : ["vividly colored", "light emitter", "hurting skin"]
+		"Obskurs": {
+			"Description": "Obskurs are always in monochromatic capes, they hate light sources and reflections and tend to prefer the darkness overall. They prefer to be surrounded by darker environments, so no light sources and no vibrant colors.",
+			"Expressed tags": [],
+			"Incompatible tags": [
+				"vividly colored",
+				"light emitter",
+				"hurting skin"
+			]
 		},
-		"Sparkies" : {
-			"Description" : "Unlike obskurs, these small drops of light on legs love to shine through! They greet people by emitting pulsating light with their own bodies, and they tend to be really expansive and extroverted.",
-			"Expressed tags" : ["light emitter", "extroverted"],
-			"Incompatible tags" : ["hurting skin"]
+		"Sparkies": {
+			"Description": "Unlike obskurs, these small drops of light on legs love to shine through! They greet people by emitting pulsating light with their own bodies, and they tend to be really expansive and extroverted.",
+			"Expressed tags": [
+				"light emitter",
+				"extroverted"
+			],
+			"Incompatible tags": [
+				"hurting skin"
+			]
 		},
-		"Grumples" : {
-			"Description" : "Grumples hate to perceive happiness and extroversion in general, to them it's like expressing weakness. Suffering, anger and sadness show how strong an individual is because they show how much they have endured, so they won't be cool if bridged with aliens of vibrant colors and party people.",
-			"Expressed tags" : ["quiet"],
-			"Incompatible tags" : ["loud", "extroverted", "vividly colored", "hurting skin"]
+		"Grumples": {
+			"Description": "Grumples hate to perceive happiness and extroversion in general, to them it's like expressing weakness. Suffering, anger and sadness show how strong an individual is because they show how much they have endured, so they won't be cool if bridged with aliens of vibrant colors and party people.",
+			"Expressed tags": [
+				"quiet"
+			],
+			"Incompatible tags": [
+				"loud",
+				"extroverted",
+				"vividly colored",
+				"hurting skin"
+			]
 		},
-		"Tympanies" : {
-			"Description" : "Tympanies have typically really big ears, much more prone to pick up extremely loud sounds. These furry fellows enjoy quietness and stillness, but are still extroverted, they'll flap their ears to say hi with a breeze.",
-			"Expressed tags" : ["quiet", "extroverted", "furry", "windy"],
-			"Incompatible tags" : ["loud", "hurting skin"]
+		"Tympanies": {
+			"Description": "Tympanies have typically really big ears, much more prone to pick up extremely loud sounds. These furry fellows enjoy quietness and stillness, but are still extroverted, they'll flap their ears to say hi with a breeze.",
+			"Expressed tags": [
+				"quiet",
+				"extroverted",
+				"furry",
+				"windy"
+			],
+			"Incompatible tags": [
+				"loud",
+				"hurting skin"
+			]
 		},
-		"Bookworms" : {
-			"Description" : "They’re literal sentient gigantic worms, slimy and quiet. Their culture is all about keeping knowledge, preserving books and storytelling. They would prefer a good light source around, to enjoy their books at night, and, as you may have already guessed, silence. They would hate it if anything happened to their precious books, so they prefer to keep those clean, well preserved at the correct temperature. They have no noses and smell like books!",
-			"Expressed tags" : ["organized", "quiet"],
-			"Incompatible tags" : ["chaotic", "loud", "staining", "cold", "hot", "hurting skin", "has water"]
+		"Bookworms": {
+			"Description": "They’re literal sentient gigantic worms, slimy and quiet. Their culture is all about keeping knowledge, preserving books and storytelling. They would prefer a good light source around, to enjoy their books at night, and, as you may have already guessed, silence. They would hate it if anything happened to their precious books, so they prefer to keep those clean, well preserved at the correct temperature. They have no noses and smell like books!",
+			"Expressed tags": [
+				"organized",
+				"quiet"
+			],
+			"Incompatible tags": [
+				"chaotic",
+				"loud",
+				"staining",
+				"cold",
+				"hot",
+				"hurting skin",
+				"has water"
+			]
 		},
-		"Sniffies" : {
-			"Description" : "They have big noses of unique shapes that they decorate to show hierarchical ranking amongst their tribe. Their weaknesses? They have really sensitive noses, so they don't like cold environments, strong smells of any kind, and they are allergic to furs, pollens and some metal alloys like iron. They hate tickling sensations to their noses.",
-			"Expressed tags" : [],
-			"Incompatible tags" : ["perfumed", "smelly", "furry", "has pollen", "has metal", "cold", "hurting skin"]
+		"Sniffies": {
+			"Description": "They have big noses of unique shapes that they decorate to show hierarchical ranking amongst their tribe. Their weaknesses? They have really sensitive noses, so they don't like cold environments, strong smells of any kind, and they are allergic to furs, pollens and some metal alloys like iron. They hate tickling sensations to their noses.",
+			"Expressed tags": [],
+			"Incompatible tags": [
+				"perfumed",
+				"smelly",
+				"furry",
+				"has pollen",
+				"has metal",
+				"cold",
+				"hurting skin"
+			]
 		},
-		"Partylooms" : {
-			"Description" : "Aggressive mohawks, studded clothes, constant punk music and screaming about life on the island, that's what partylooms are about. They were a boring bunch, but on earth they saw these “punk people”, and they were so ecstatic that they just decided to embody that culture and share it with everyone they meet. These thick skinned fellows would love to meet someone with a passion as fiery as theirs.",
-			"Expressed tags" : ["chaotic", "has metal", "loud", "extroverted", "tough skin"],
-			"Incompatible tags" : ["organized", "quiet"]
+		"Partylooms": {
+			"Description": "Aggressive mohawks, studded clothes, constant punk music and screaming about life on the island, that's what partylooms are about. They were a boring bunch, but on earth they saw these “punk people”, and they were so ecstatic that they just decided to embody that culture and share it with everyone they meet. These thick skinned fellows would love to meet someone with a passion as fiery as theirs.",
+			"Expressed tags": [
+				"chaotic",
+				"has metal",
+				"loud",
+				"extroverted",
+				"tough skin"
+			],
+			"Incompatible tags": [
+				"organized",
+				"quiet"
+			]
 		},
-		"Zappyfunkies" : {
-			"Description" : "Every single one of these little extroverted folks really loves their music. They each have a single kind of music they just listen to until the end of time, and they dress to coordinate visuals with the sounds they bring. They're thick skinned and they have evolved natural speakers on their belly that just constantly emit their favorite songs and have really a lot of eyes that are really weak to bright lights.",
-			"Expressed tags" : ["loud", "extroverted", "tough skin"],
-			"Incompatible tags" : ["light emitter", "quiet"]
+		"Zappyfunkies": {
+			"Description": "Every single one of these little extroverted folks really loves their music. They each have a single kind of music they just listen to until the end of time, and they dress to coordinate visuals with the sounds they bring. They're thick skinned and they have evolved natural speakers on their belly that just constantly emit their favorite songs and have really a lot of eyes that are really weak to bright lights.",
+			"Expressed tags": [
+				"loud",
+				"extroverted",
+				"tough skin"
+			],
+			"Incompatible tags": [
+				"light emitter",
+				"quiet"
+			]
 		},
-		"Ews" : {
-			"Description" : "Strength is subjective. To them? Being a powerful presence implies making an impact on the first approach, being memorable and instantly recognizable. Some would argue that the first and most important sense that you use is sight, but for these blind gentlemen? It's all about the stench. It's deeply personal, singular and recognizable, they identify each other by smell and they can't associate with creatures that push odor away (windy creatures)",
-			"Expressed tags" : ["smelly", "tough skin"],
-			"Incompatible tags" : ["windy", "has water"]
+		"Ews": {
+			"Description": "Strength is subjective. To them? Being a powerful presence implies making an impact on the first approach, being memorable and instantly recognizable. Some would argue that the first and most important sense that you use is sight, but for these blind gentlemen? It's all about the stench. It's deeply personal, singular and recognizable, they identify each other by smell and they can't associate with creatures that push odor away (windy creatures)",
+			"Expressed tags": [
+				"smelly",
+				"tough skin"
+			],
+			"Incompatible tags": [
+				"windy",
+				"has water"
+			]
 		},
-		"Wooshywoosh" : {
-			"Description" : "Gusts of wind came together and became sentient! They're really fidgety and expansive wind swirls, so they prefer short bridges and general openness. With their joyfulness, they'll blow you right away.",
-			"Expressed tags" : ["extroverted", "windy", "only short bridges", "tough skin", "chaotic"],
-			"Incompatible tags" : ["organized"]
+		"Wooshywoosh": {
+			"Description": "Gusts of wind came together and became sentient! They're really fidgety and expansive wind swirls, so they prefer short bridges and general openness. With their joyfulness, they'll blow you right away.",
+			"Expressed tags": [
+				"extroverted",
+				"windy",
+				"only short bridges",
+				"tough skin",
+				"chaotic"
+			],
+			"Incompatible tags": [
+				"organized"
+			]
 		},
-		"Perfeaus" : {
-			"Description" : "Perfeaus are exceptionally smelly, they love strong perfumes and they have a unique strong floral scent. Their motherland is a flowery field, and they're really nostalgic, so they constantly try to smell and look like flowers as a tribute to their origins. They'd love to be close to flowers and cleanliness that align with their harmonic way of living, and they would never want bad smells to ruin what they prepared for so long.",
-			"Expressed tags" : ["perfumed", "extroverted", "organized"],
-			"Incompatible tags" : ["chaotic", "staining", "smelly", "hurting skin"]
+		"Perfeaus": {
+			"Description": "Perfeaus are exceptionally smelly, they love strong perfumes and they have a unique strong floral scent. Their motherland is a flowery field, and they're really nostalgic, so they constantly try to smell and look like flowers as a tribute to their origins. They'd love to be close to flowers and cleanliness that align with their harmonic way of living, and they would never want bad smells to ruin what they prepared for so long.",
+			"Expressed tags": [
+				"perfumed",
+				"extroverted",
+				"organized"
+			],
+			"Incompatible tags": [
+				"chaotic",
+				"staining",
+				"smelly",
+				"hurting skin"
+			]
 		},
-		"Rigorins" : {
-			"Description" : "Rigorins are living monochromatic geometrical shapes, they are more used to perceive order because their everyday existence is pretty… square. They have no nose, they like to have everything in their specific location because “fitting is winning”. They just hate general chaos and disorderly behavior, but they're more than friendly, sharing big hugs with their mostly pointy bodies!",
-			"Expressed tags" : ["hurting skin", "extroverted", "organized"],
-			"Incompatible tags" : ["chaotic", "hurting skin"]
+		"Rigorins": {
+			"Description": "Rigorins are living monochromatic geometrical shapes, they are more used to perceive order because their everyday existence is pretty… square. They have no nose, they like to have everything in their specific location because “fitting is winning”. They just hate general chaos and disorderly behavior, but they're more than friendly, sharing big hugs with their mostly pointy bodies!",
+			"Expressed tags": [
+				"hurting skin",
+				"extroverted",
+				"organized"
+			],
+			"Incompatible tags": [
+				"chaotic",
+				"hurting skin"
+			]
 		},
-		"Icyglops" : {
-			"Description" : "Icy in material and in behavior, these cold fellas will leave you freezing. They're not expansive and joyful at all, they enjoy harsh and cold behaviors almost more than their harsh and cold environment. Heat erodes their thick skinned bodies and their self esteem, which, with these egotistical icicles, you'd expect to be a good thing, but they really wouldn't agree. ",
-			"Expressed tags" : ["cold", "tough skin"],
-			"Incompatible tags" : ["extroverted", "hot"]
+		"Icyglops": {
+			"Description": "Icy in material and in behavior, these cold fellas will leave you freezing. They're not expansive and joyful at all, they enjoy harsh and cold behaviors almost more than their harsh and cold environment. Heat erodes their thick skinned bodies and their self esteem, which, with these egotistical icicles, you'd expect to be a good thing, but they really wouldn't agree. ",
+			"Expressed tags": [
+				"cold",
+				"tough skin"
+			],
+			"Incompatible tags": [
+				"extroverted",
+				"hot"
+			]
 		},
-		"Ferragons" : {
-			"Description" : "Ferragons are entirely made of iron and constantly scared because of the fact that they live entirely surrounded by water and, after melting, their first cause of death is rust. They make a lot of noise when moving. They want as much help as possible and to be deeply connected with folks that aren't hot or made of water, so that they can be helpful if an emergency strikes.",
-			"Expressed tags" : ["has metal", "loud", "tough skin"],
-			"Incompatible tags" : ["has water", "quiet", "hot"]
+		"Ferragons": {
+			"Description": "Ferragons are entirely made of iron and constantly scared because of the fact that they live entirely surrounded by water and, after melting, their first cause of death is rust. They make a lot of noise when moving. They want as much help as possible and to be deeply connected with folks that aren't hot or made of water, so that they can be helpful if an emergency strikes.",
+			"Expressed tags": [
+				"has metal",
+				"loud",
+				"tough skin"
+			],
+			"Incompatible tags": [
+				"has water",
+				"quiet",
+				"hot"
+			]
 		},
-		"Magmen" : {
-			"Description" : "Their beautiful shades of vibrant reds, yellows and oranges that glow in the dark reflect their overall cheerful personalities. They're really touchy, they love to give hugs that are way too warm for almost anyone's liking. They bring a characteristic burnt scent that's unique to them.",
-			"Expressed tags" : ["hot", "extroverted", "vividly colored", "hurting skin", "tough skin", "light emitter"],
-			"Incompatible tags" : ["has water"]
+		"Magmen": {
+			"Description": "Their beautiful shades of vibrant reds, yellows and oranges that glow in the dark reflect their overall cheerful personalities. They're really touchy, they love to give hugs that are way too warm for almost anyone's liking. They bring a characteristic burnt scent that's unique to them.",
+			"Expressed tags": [
+				"hot",
+				"extroverted",
+				"vividly colored",
+				"hurting skin",
+				"tough skin",
+				"light emitter"
+			],
+			"Incompatible tags": [
+				"has water"
+			]
 		},
-		"Swoopers" : {
-			"Description" : "They swoop and sweep, and they sweep and swoop, keeping everything as clean as possible for cultural and sanitary reasons, being fragile and heavily prone to diseases. They love precision and order, good perfumes and nice flowers. They have elongated torsos and everyone wears little yellow gowns, from afar they look like brooms.",
-			"Expressed tags" : ["organized"],
-			"Incompatible tags" : ["smelly", "chaotic", "staining", "hurting skin"]
+		"Swoopers": {
+			"Description": "They swoop and sweep, and they sweep and swoop, keeping everything as clean as possible for cultural and sanitary reasons, being fragile and heavily prone to diseases. They love precision and order, good perfumes and nice flowers. They have elongated torsos and everyone wears little yellow gowns, from afar they look like brooms.",
+			"Expressed tags": [
+				"organized"
+			],
+			"Incompatible tags": [
+				"smelly",
+				"chaotic",
+				"staining",
+				"hurting skin"
+			]
 		},
-		"Goops" : {
-			"Description" : "These wonderful jellofolks are really similar to gloops in behavior. They're colorful, slimy and slippery, they are touchy and they love to make an impression…they surely leave a mark. They slide around to move, leaving a jello trail behind themselves which makes the bridges they're connected to much harder to traverse, but they're really lovable, so watch out and try to not… fall… for them…",
-			"Expressed tags" : ["staining", "vividly colored", "no nose", "extroverted", "tough skin"],
-			"Incompatible tags" : ["has water"]
+		"Goops": {
+			"Description": "These wonderful jellofolks are really similar to gloops in behavior. They're colorful, slimy and slippery, they are touchy and they love to make an impression…they surely leave a mark. They slide around to move, leaving a jello trail behind themselves which makes the bridges they're connected to much harder to traverse, but they're really lovable, so watch out and try to not… fall… for them…",
+			"Expressed tags": [
+				"staining",
+				"vividly colored",
+				"no nose",
+				"extroverted",
+				"tough skin"
+			],
+			"Incompatible tags": [
+				"has water"
+			]
 		},
-		"Gloops" : {
-			"Description" : "These delightful gluefolks are really similar to goops in behavior. They're all white, clingy and sticky and they love to make an impression… they really stick out. They slide around to move, leaving a glue trail behind themselves which makes the bridges they're connected to much harder to traverse, and they could easily get… attached…",
-			"Expressed tags" : ["no nose", "extroverted", "staining", "tough skin"],
-			"Incompatible tags" : ["has water"]
+		"Gloops": {
+			"Description": "These delightful gluefolks are really similar to goops in behavior. They're all white, clingy and sticky and they love to make an impression… they really stick out. They slide around to move, leaving a glue trail behind themselves which makes the bridges they're connected to much harder to traverse, and they could easily get… attached…",
+			"Expressed tags": [
+				"no nose",
+				"extroverted",
+				"staining",
+				"tough skin"
+			],
+			"Incompatible tags": [
+				"has water"
+			]
 		},
-		"Lazies" : {
-			"Description" : "Slothful aliens that value comfort and stillness, with short legs and a cutesy appearance, they really hate to travel long distances and love to take naps. They hate whatever can disturb their peace and whatever requires work or reminds them of work, so no loudness, no movement and NO wind.",
-			"Expressed tags" : ["quiet", "only short bridges"],
-			"Incompatible tags" : ["windy", "loud", "hurting skin", "smelly"]
+		"Lazies": {
+			"Description": "Slothful aliens that value comfort and stillness, with short legs and a cutesy appearance, they really hate to travel long distances and love to take naps. They hate whatever can disturb their peace and whatever requires work or reminds them of work, so no loudness, no movement and NO wind.",
+			"Expressed tags": [
+				"quiet",
+				"only short bridges"
+			],
+			"Incompatible tags": [
+				"windy",
+				"loud",
+				"hurting skin",
+				"smelly"
+			]
 		},
-		"Joggernauts" : {
-			"Description" : "Long legs and hard spirits, these long legged fellows just love prancing around and running, taking long walks and generally moving. They love to dance if music is around, and they like to travel far and wide, absorbing variety and novelty. They prefer difficult terrains and treacherous paths surrounded by rocks. Bonus: they have cool shoes.",
-			"Expressed tags" : ["only long bridges", "chaotic"],
-			"Incompatible tags" : ["organized", "hurting skin"]
+		"Joggernauts": {
+			"Description": "Long legs and hard spirits, these long legged fellows just love prancing around and running, taking long walks and generally moving. They love to dance if music is around, and they like to travel far and wide, absorbing variety and novelty. They prefer difficult terrains and treacherous paths surrounded by rocks. Bonus: they have cool shoes.",
+			"Expressed tags": [
+				"only long bridges",
+				"chaotic"
+			],
+			"Incompatible tags": [
+				"organized",
+				"hurting skin"
+			]
 		},
-		"Masozhops" : {
-			"Description" : "Suffering is a status symbol, these hardcorefully furried fellows just love suffering, and the more it hurts the better. Does it hurt their eyes? good. Does it hurt their nose? splendid. Does it hurt their body? fantastic, they don't just tolerate it, they PREFER it. They are chaotic and hate whatever is clean, orderly and tidy.",
-			"Expressed tags" : ["tough skin", "chaotic", "furry"],
-			"Incompatible tags" : ["organized"]
+		"Masozhops": {
+			"Description": "Suffering is a status symbol, these hardcorefully furried fellows just love suffering, and the more it hurts the better. Does it hurt their eyes? good. Does it hurt their nose? splendid. Does it hurt their body? fantastic, they don't just tolerate it, they PREFER it. They are chaotic and hate whatever is clean, orderly and tidy.",
+			"Expressed tags": [
+				"tough skin",
+				"chaotic",
+				"furry"
+			],
+			"Incompatible tags": [
+				"organized"
+			]
 		},
-		"Frewfrews" : {
-			"Description" : "They're really lightweight folks. Made of colorful feathers, the frewfrews are really vulnerable to winds that can blow them away in any shape or form. They prefer to travel to sections that are at least partially protected by rocks and they absolutely have to avoid long bridges that get more windy.",
-			"Expressed tags" : ["vividly colored"],
-			"Incompatible tags" : ["only short bridges", "windy", "hurting skin"]
+		"Frewfrews": {
+			"Description": "They're really lightweight folks. Made of colorful feathers, the frewfrews are really vulnerable to winds that can blow them away in any shape or form. They prefer to travel to sections that are at least partially protected by rocks and they absolutely have to avoid long bridges that get more windy.",
+			"Expressed tags": [
+				"vividly colored"
+			],
+			"Incompatible tags": [
+				"only short bridges",
+				"windy",
+				"hurting skin"
+			]
 		},
-		"Paperies" : {
-			"Description" : "Origami folks, they are all totally clean and white, being made of regular paper. They are really vulnerable to winds that can blow them away, paint and water, and they prefer to travel to sections that are at least partially protected by rocks and they absolutely have to avoid long bridges that get more windy. They deeply enjoy the geometry of it all.",
-			"Expressed tags" : ["hurting skin", "no nose", "no eyes"],
-			"Incompatible tags" : ["windy", "only short bridges", "staining", "has water", "hurting skin"]
+		"Paperies": {
+			"Description": "Origami folks, they are all totally clean and white, being made of regular paper. They are really vulnerable to winds that can blow them away, paint and water, and they prefer to travel to sections that are at least partially protected by rocks and they absolutely have to avoid long bridges that get more windy. They deeply enjoy the geometry of it all.",
+			"Expressed tags": [
+				"hurting skin",
+				"no nose",
+				"no eyes"
+			],
+			"Incompatible tags": [
+				"windy",
+				"only short bridges",
+				"staining",
+				"has water",
+				"hurting skin"
+			]
 		},
-		"Lovidovis" : {
-			"Description" : "These bundles of fur and joy just really want to spread love and affection all around. They're really touchy, and they love to feel unique textures when they hug and greet folks. Furs, feathers, goop, glue etc are more than welcome, they just make you unique to their sensitive skins, though they wash shortly after. Just, watch out for cuts or burns!",
-			"Expressed tags" : ["no eyes", "extroverted", "furry"],
-			"Incompatible tags" : ["hurting skin"]
+		"Lovidovis": {
+			"Description": "These bundles of fur and joy just really want to spread love and affection all around. They're really touchy, and they love to feel unique textures when they hug and greet folks. Furs, feathers, goop, glue etc are more than welcome, they just make you unique to their sensitive skins, though they wash shortly after. Just, watch out for cuts or burns!",
+			"Expressed tags": [
+				"no eyes",
+				"extroverted",
+				"furry"
+			],
+			"Incompatible tags": [
+				"hurting skin"
+			]
 		},
-		"Pollies" : {
-			"Description" : "Pollies are aliens entirely made of various unique plants. Some spiny, some big, some small, some make fruit and some make flowers, but all of them have pollen and enjoy bright light, water and some good music around.",
-			"Expressed tags" : ["has pollen", "hurting skin", "perfumed"],
-			"Incompatible tags" : ["hurting skin"]
+		"Pollies": {
+			"Description": "Pollies are aliens entirely made of various unique plants. Some spiny, some big, some small, some make fruit and some make flowers, but all of them have pollen and enjoy bright light, water and some good music around.",
+			"Expressed tags": [
+				"has pollen",
+				"hurting skin",
+				"perfumed"
+			],
+			"Incompatible tags": [
+				"hurting skin"
+			]
 		},
-		"Splats" : {
-			"Description" : "Paintfolks entirely made of deeply vibrant paintlike substance! They're more liquid than goops and gloops, but when they run around they leave behind fun paint splatters and they love to do so, it's their unique way to express themselves and leave a mark on the world. It's their artistic heritage, what they use to do almost everything. Despite their appearance, they tend to be introverted and hate interacting with other folks that are too happy and outgoing.",
-			"Expressed tags" : ["staining", "vividly colored", "no nose", "smelly", "tough skin"],
-			"Incompatible tags" : ["has water", "extroverted"]
+		"Splats": {
+			"Description": "Paintfolks entirely made of deeply vibrant paintlike substance! They're more liquid than goops and gloops, but when they run around they leave behind fun paint splatters and they love to do so, it's their unique way to express themselves and leave a mark on the world. It's their artistic heritage, what they use to do almost everything. Despite their appearance, they tend to be introverted and hate interacting with other folks that are too happy and outgoing.",
+			"Expressed tags": [
+				"staining",
+				"vividly colored",
+				"no nose",
+				"smelly",
+				"tough skin"
+			],
+			"Incompatible tags": [
+				"has water",
+				"extroverted"
+			]
 		},
-		"Bloobs" : {
-			"Description" : "Bloobs have an entirely watery appearance. They tend to prefer cleaner environments, not wanting to get their body polluted. The body is a temple, so they prioritize healthy lifestyles and habits and try to surround themselves with openness and love.",
-			"Expressed tags" : ["has water", "organized", "extroverted", "tough skin"],
-			"Incompatible tags" : ["staining", "chaotic"]
+		"Bloobs": {
+			"Description": "Bloobs have an entirely watery appearance. They tend to prefer cleaner environments, not wanting to get their body polluted. The body is a temple, so they prioritize healthy lifestyles and habits and try to surround themselves with openness and love.",
+			"Expressed tags": [
+				"has water",
+				"organized",
+				"extroverted",
+				"tough skin"
+			],
+			"Incompatible tags": [
+				"staining",
+				"chaotic"
+			]
 		}
-	}
+	},
+	"needed_connections": [
+		[
+			"Sniffies",
+			"Frewfrews",
+			false,
+			"a-a-a-a-a-ACHOOOOO! Frewfrews are way too tickly for sniffies!"
+		],
+		[
+			"Bookworms",
+			"Sparkies",
+			true,
+			"Oh, neat! Bookworms really needed a nightlight to read books after sundown! Great thinking!"
+		],
+		[
+			"Magmen",
+			"Partylooms",
+			true,
+			"Oh hell yeah you brought sentient magma to a party and you just KNOW any party is gonna be FIRE!"
+		],
+		[
+			"Pollies",
+			"Sparkies",
+			true,
+			"Any plantfolk needs light to prosper!"
+		],
+		[
+			"Pollies",
+			"Zappyfunkies",
+			true,
+			"Everyone knows that good music makes plantfolks grow well!"
+		],
+		[
+			"Perfeaus",
+			"Ews",
+			false,
+			"You really wanted to mix such strong odors... I'm counting this as an attempt to create chemical weapons. Never do this again."
+		],
+		[
+			"Swoopers",
+			"Wooshywoosh",
+			false,
+			"I'm sure the tornado people and the brooms obsessed with order will be delighted to meet each other. Wisdom is chasing you, but we can all see you're faster, huh..."
+		],
+		[
+			"Perfeaus",
+			"Pollies",
+			true,
+			"It's a bit like cousins meeting, The ones that smell like flowers encounter the ones that look like plants. Isn't it magical?"
+		],
+		[
+			"Swoopers",
+			"Bloobs",
+			true,
+			"That's a dream team for cleaning if I've ever seen one, I'm almost proud of you."
+		],
+		[
+			"Goops",
+			"Gloops",
+			true,
+			"They're so similar in many ways, You wouldn't even notice they mixed up. It's a really harmonic match, nice work!"
+		],
+		[
+			"Goops",
+			"Joggernauts",
+			true,
+			"Despite the bridge being shorter than the Joggernauts' liking, they seem to love it! it's really difficult to traverse because it's gooey and slippery, so this matchup is a success!"
+		],
+		[
+			"Gloops",
+			"Joggernauts",
+			true,
+			"A gluey like substance covers a really long bridge. it would normally sound like a hassle to get over with, but for the Joggernauts is a super fun daily challenge. Great connection!"
+		],
+		[
+			"Gloops",
+			"Lovidovis",
+			true,
+			"You found the two clingiest categories and put them together. That's a whole lot of love and a free waxing for the lovidovis, though they don't seem to care about that. Spot on!"
+		],
+		[
+			"Lazies",
+			"Joggernauts",
+			false,
+			"Yeah sure, make some runners go to the sleepy convention through the shortest route possible. It's a wonder how you managed to survive with two braincells racing for third place."
+		],
+		[
+			"Masozhops",
+			"Magmen",
+			true,
+			"It leaves the masochzops' skin marked with the passion of that dangerous hug. An odd match, but a match nonetheless."
+		],
+		[
+			"Masozhops",
+			"Paperies",
+			true,
+			"Blood comes gushing out of the thousand cuts on the masochzops' skin and they're just so happy about it... Leaves the paperies a bit weirded out at first, but whatever floats their paper boat I guess..."
+		],
+		[
+			"Masozhops",
+			"Pollies",
+			true,
+			"it feels like needles piercing through the masochzops' already battered skin. The striking red of their blood truly matches the luscious green of the pollies. "
+		],
+		[
+			"Bloobs",
+			"Pollies",
+			true,
+			"This particular bond feels nurturing and healing. What plantfolk doesn't enjoy some good water once in a while?"
+		]
+	]
 }

@@ -16,6 +16,7 @@ func _ready() -> void:
 	popup_ui.hide()
 
 func set_details(island: Island) -> void:
+	popup_ui.hide()
 	if race_name_label and race_description_label and race_image_texture_rect:
 		race_name_label.text = RaceDb.get_race_name_as_text(island.inhabiting_race)
 		race_description_label.text = RaceDb.get_description(island.inhabiting_race)
@@ -49,10 +50,6 @@ func clear_details() -> void:
 func set_prev(island: Island) -> void:
 	_prev_island = island
 
-func show_popup(race1 : RaceDB.Races, race2 : RaceDB.Races):
+func show_popup(text : String):
+	popup_label.text = text
 	popup_ui.show()
-	# TODO: get text from DB, replace race_A and race_B in text with race names, and 
-	return
-
-func hide_popup():
-	popup_ui.hide()

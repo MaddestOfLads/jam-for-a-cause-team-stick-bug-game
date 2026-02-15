@@ -70,8 +70,16 @@ mouse_filter = 2
 
 [node name="PopupContainer" type="PanelContainer" parent="." unique_id=1437084460]
 layout_mode = 1
-offset_right = 10.0
-offset_bottom = 10.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -266.0
+offset_top = -43.0
+offset_right = 266.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="PopupContainer" unique_id=555889398]
 layout_mode = 2

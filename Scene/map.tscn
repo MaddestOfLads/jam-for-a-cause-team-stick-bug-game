@@ -15,7 +15,6 @@ island_and_bridge_root = NodePath("IslandAndBridgeRoot")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=383927901]
 
 [node name="Ui" parent="CanvasLayer" unique_id=1818385894 instance=ExtResource("5_s12we")]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615771826]
 texture = ExtResource("3_31wal")

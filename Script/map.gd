@@ -13,6 +13,7 @@ var _drawn_bridge : Bridge = null # Bridge that is currently being drawn; null i
 var _mouse_query: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
 var _mouse_intersections: Array = []
 var _hovered_entity: Node = null
+var _prev_hovered_entity : Node = null
 var _drag_start_entity: Node = null
 var _drag_end_entity: Node = null
 var _is_dragging: bool = false
@@ -43,6 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	'''
 
 	if event is InputEventMouseMotion:
+		_prev_hovered_entity = _hovered_entity
 		_hovered_entity = get_hovered_entity()
 
 		if (not Input.is_action_pressed("left_click") and _drawn_bridge != null):
@@ -72,7 +74,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if _hovered_entity == null:
 				ui.clear_details()
 
-			elif _hovered_entity is Island:
+			elif _hovered_entity is Island and _prev_hovered_entity == null:
 				ui.set_details(_hovered_entity)
 
 
@@ -100,11 +102,13 @@ func stop_drawing_bridge() -> void:
 	elif (_hovered_entity is Island and _hovered_entity == _drawn_bridge.island_1):
 		print("Can't bridge an island to itself!")
 		_drawn_bridge.queue_free()
-		pass # TODO: show a "same island" popup
+		ui.show_popup("Can't bridge an island to itself!")
+		pass
 	elif (_hovered_entity is Island and _hovered_entity.is_other_island_already_connected(_drawn_bridge.island_1)):
 		print("Island already connected!")
+		ui.show_popup("Island already connected!")
 		_drawn_bridge.queue_free()
-		pass # TODO: show an "island already connected" popup
+		pass
 	else:
 		_drawn_bridge.try_build_bridge(_hovered_entity)
 	

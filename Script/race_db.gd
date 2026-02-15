@@ -43,8 +43,8 @@ enum Races {
 
 enum BridgeResult {
 	OK,
-	HATED,
-	NEEDED,
+	HATED, # Hated special also counts here
+	OK_SPECIAL,
 	HATED_SPECIAL
 }
 
@@ -114,7 +114,25 @@ func validate_tags() -> void:
 		if tag not in _valid_tags:
 			assert(tag == "", "Tag '%s' is not a valid tag" % tag)
 
-func GetBridgeResult(race1 : Races, race2 : Races) -> BridgeResult:
-	
+func GetBridgeResult(race_1 : Races, race_2 : Races) -> BridgeResult:
+	var expressed_tags_1 : Array[String] = get_expressed_tags(race_1)
+	var expressed_tags_2 : Array[String] = get_expressed_tags(race_2)
+	var incompatible_tags_1 : Array[String] = get_incompatible_tags(race_1)
+	var incompatible_tags_2 : Array[String] = get_incompatible_tags(race_2)
+	# TODO: return interaction type through enum
 	return BridgeResult.OK
-	
+
+func ReplaceRaceNames(text : String, offending_race : String, offended_race : String) -> String:
+	# TODO: Replace every occurrence of race_A with offending_race, and every occurrence of race_B with offending_race
+	return text
+
+func TryGetBridgePopupText(race_1 : Races, race_2 : Races):
+	'''
+	TODO:
+		- For every pair of tags in race_1, race_2:
+			- If there exists a needed interaction (positive or negative), return the collision text
+			- If there exists a regular interaction, return the collision text with replaced names
+		- Repeat loop above for every pair of tags in race_2, race_1 (flipped)
+		- If no interactions of
+	'''
+	return null

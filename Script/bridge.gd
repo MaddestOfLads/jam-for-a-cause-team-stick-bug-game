@@ -38,8 +38,8 @@ func start_bridge_preview(start_island : Island) -> void:
 func try_build_bridge(end_island: Island) -> Bridge:
 	if(island_1 == end_island):
 		return null
-
 	island_2 = end_island
+	
 	build_bridge()
 	return self
 
