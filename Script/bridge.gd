@@ -48,7 +48,6 @@ func burn_bridge() -> void:
 		island_1.remove_bridge(self)
 	if (island_2 != null):
 		island_2.remove_bridge(self)
-
 	queue_free()
 
 func set_ends(start : Vector2, end : Vector2):

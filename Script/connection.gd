@@ -1,4 +1,4 @@
-class_name Connection extends Resource
+class_name NeededConnection extends Resource
 
 
 var _island_1_id: int = -1

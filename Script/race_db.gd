@@ -10,6 +10,7 @@ const _RACES = "races"
 const _DESCRIPTION = "Description"
 const _EXPRESSED_TAGS = "Expressed tags"
 const _INCOMPATIBLE_TAGS = "Incompatible tags"
+const _NEEDED_CONNECTIONS = "Needed connections"
 
 enum Races {
 	Obskurs,
@@ -41,13 +42,6 @@ enum Races {
 	Bloobs,
 }
 
-enum BridgeResult {
-	OK,
-	HATED, # Hated special also counts here
-	OK_SPECIAL,
-	HATED_SPECIAL
-}
-
 const RaceNameDict := {
 	Races.Obskurs: "Obskurs",
 	Races.Sparkies: "Sparkies",
@@ -77,6 +71,15 @@ const RaceNameDict := {
 	Races.Splats: "Splats",
 	Races.Bloobs: "Bloobs",
 }
+
+class BridgeResult:
+	var successful : bool
+	var needed : bool
+	var popup_dialogue : String
+	func _init(_successful : bool, _needed : bool, _text : String) -> void:
+		successful = _successful
+		needed = _needed
+		popup_dialogue = _text
 
 var _island_data_variant: Variant = null
 var _valid_tags: Dictionary
@@ -114,25 +117,30 @@ func validate_tags() -> void:
 		if tag not in _valid_tags:
 			assert(tag == "", "Tag '%s' is not a valid tag" % tag)
 
-func GetBridgeResult(race_1 : Races, race_2 : Races) -> BridgeResult:
+func get_bridge_result(race_1 : Races, race_2 : Races) -> BridgeResult:
+
+	# 1. check for needed connections:
+	var needed_connections = _island_data_variant[_NEEDED_CONNECTIONS]
+	for i in range(needed_connections):
+		if (needed_connections[i][0] == RaceNameDict[race_1] and needed_connections[i][1] == RaceNameDict[race_2]) or (needed_connections[i][0] == RaceNameDict[race_2] and needed_connections[i][1] == RaceNameDict[race_1]):
+			return BridgeResult.new(needed_connections[i][2], true, needed_connections[i][3])
+
+	# 2. check for tag incompatibilities:
 	var expressed_tags_1 : Array[String] = get_expressed_tags(race_1)
 	var expressed_tags_2 : Array[String] = get_expressed_tags(race_2)
 	var incompatible_tags_1 : Array[String] = get_incompatible_tags(race_1)
 	var incompatible_tags_2 : Array[String] = get_incompatible_tags(race_2)
-	# TODO: return interaction type through enum
-	return BridgeResult.OK
+	for i in range(expressed_tags_1):
+		for j in range(incompatible_tags_2):
+			if expressed_tags_1[i] == incompatible_tags_2[i]:
+				return BridgeResult.new(false, false, "") # TODO: add interaction text and replace race names
+	for i in range(expressed_tags_2):
+		for j in range(incompatible_tags_1):
+			if expressed_tags_2[i] == incompatible_tags_1[i]:
+				return BridgeResult.new(false, false, "") # TODO: add interaction text and replace race names
 
-func ReplaceRaceNames(text : String, offending_race : String, offended_race : String) -> String:
-	# TODO: Replace every occurrence of race_A with offending_race, and every occurrence of race_B with offending_race
-	return text
+	# 3. fallback to positive connection with no description
+	return BridgeResult.new(true, false, "")
 
-func TryGetBridgePopupText(race_1 : Races, race_2 : Races):
-	'''
-	TODO:
-		- For every pair of tags in race_1, race_2:
-			- If there exists a needed interaction (positive or negative), return the collision text
-			- If there exists a regular interaction, return the collision text with replaced names
-		- Repeat loop above for every pair of tags in race_2, race_1 (flipped)
-		- If no interactions of
-	'''
-	return null
+func replace_race_names(text : String, offending_race : Races, offended_race : Races) -> String:
+	return text.replace("race_A", RaceNameDict[offended_race]).replace("race_B", RaceNameDict[offending_race])

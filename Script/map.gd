@@ -3,7 +3,6 @@ class_name Map extends Node2D
 
 const _BRIDGE = preload("uid://bbfrx0mxarvxs")
 
-@export var connection_array: Array[Connection] = []
 @export var camera : Camera2D = null
 @export var ui: Ui = null
 @export var island_and_bridge_root : Node = null
