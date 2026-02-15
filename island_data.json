@@ -50,7 +50,7 @@
 		"Bookworms" : {
 			"Description" : "They’re literal sentient gigantic worms, slimy and quiet. Their culture is all about keeping knowledge, preserving books and storytelling. They would prefer a good light source around, to enjoy their books at night, and, as you may have already guessed, silence. They would hate it if anything happened to their precious books, so they prefer to keep those clean, well preserved at the correct temperature. They have no noses and smell like books!",
 			"Expressed tags" : ["organized", "quiet"],
-			"Incompatible tags" : ["chaotic", "loud", "staining", "cold", "ot", "hurting skin", "has water"]
+			"Incompatible tags" : ["chaotic", "loud", "staining", "cold", "hot", "hurting skin", "has water"]
 		},
 		"Sniffies" : {
 			"Description" : "They have big noses of unique shapes that they decorate to show hierarchical ranking amongst their tribe. Their weaknesses? They have really sensitive noses, so they don't like cold environments, strong smells of any kind, and they are allergic to furs, pollens and some metal alloys like iron. They hate tickling sensations to their noses.",
@@ -99,7 +99,7 @@
 		},
 		"Magmen" : {
 			"Description" : "Their beautiful shades of vibrant reds, yellows and oranges that glow in the dark reflect their overall cheerful personalities. They're really touchy, they love to give hugs that are way too warm for almost anyone's liking. They bring a characteristic burnt scent that's unique to them.",
-			"Expressed tags" : ["hot", "extroverted", "vividly colored", "hurgin skin", "tough skin", "light emitter"],
+			"Expressed tags" : ["hot", "extroverted", "vividly colored", "hurting skin", "tough skin", "light emitter"],
 			"Incompatible tags" : ["has water"]
 		},
 		"Swoopers" : {
