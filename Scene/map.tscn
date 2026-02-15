@@ -19,6 +19,7 @@ visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615771826]
 texture = ExtResource("3_31wal")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1058211037]
 script = ExtResource("3_54rcs")
@@ -34,101 +35,100 @@ position = Vector2(-1741, 271)
 inhabiting_race = 26
 
 [node name="Island3" parent="IslandAndBridgeRoot" unique_id=1996463198 instance=ExtResource("4_31wal")]
-position = Vector2(-982, 724)
-inhabiting_race = 4
+position = Vector2(-987, 738)
+inhabiting_race = 6
 
 [node name="Island4" parent="IslandAndBridgeRoot" unique_id=2017080390 instance=ExtResource("4_31wal")]
 position = Vector2(-1566, -465)
-inhabiting_race = 26
+inhabiting_race = 12
 
 [node name="Island5" parent="IslandAndBridgeRoot" unique_id=1028045140 instance=ExtResource("4_31wal")]
 position = Vector2(-1954, -1095)
-inhabiting_race = 26
+inhabiting_race = 21
 
 [node name="Island6" parent="IslandAndBridgeRoot" unique_id=910691152 instance=ExtResource("4_31wal")]
 position = Vector2(-993, 204)
-inhabiting_race = 26
+inhabiting_race = 8
 
 [node name="Island7" parent="IslandAndBridgeRoot" unique_id=7579868 instance=ExtResource("4_31wal")]
-position = Vector2(-463, 1060)
-inhabiting_race = 26
+position = Vector2(-461, 1062)
+inhabiting_race = 14
 
 [node name="Island8" parent="IslandAndBridgeRoot" unique_id=1032984426 instance=ExtResource("4_31wal")]
 position = Vector2(749, 1023)
-inhabiting_race = 26
+inhabiting_race = 1
 
 [node name="Island9" parent="IslandAndBridgeRoot" unique_id=232748515 instance=ExtResource("4_31wal")]
-position = Vector2(-371, 601)
-inhabiting_race = 26
+position = Vector2(-359, 606)
 
 [node name="Island10" parent="IslandAndBridgeRoot" unique_id=1717877001 instance=ExtResource("4_31wal")]
 position = Vector2(-583, -280)
-inhabiting_race = 26
+inhabiting_race = 2
 
 [node name="Island11" parent="IslandAndBridgeRoot" unique_id=967029620 instance=ExtResource("4_31wal")]
 position = Vector2(531, 597)
-inhabiting_race = 26
+inhabiting_race = 19
 
 [node name="Island12" parent="IslandAndBridgeRoot" unique_id=1163492631 instance=ExtResource("4_31wal")]
 position = Vector2(1954, 1110)
-inhabiting_race = 26
+inhabiting_race = 4
 
 [node name="Island13" parent="IslandAndBridgeRoot" unique_id=1638542090 instance=ExtResource("4_31wal")]
 position = Vector2(1229, 825)
-inhabiting_race = 26
+inhabiting_race = 23
 
 [node name="Island14" parent="IslandAndBridgeRoot" unique_id=768656300 instance=ExtResource("4_31wal")]
 position = Vector2(-91, -98)
-inhabiting_race = 26
+inhabiting_race = 5
 
 [node name="Island15" parent="IslandAndBridgeRoot" unique_id=1782283731 instance=ExtResource("4_31wal")]
 position = Vector2(561, -135)
-inhabiting_race = 26
+inhabiting_race = 15
 
 [node name="Island16" parent="IslandAndBridgeRoot" unique_id=1146466295 instance=ExtResource("4_31wal")]
 position = Vector2(-1013, -1038)
-inhabiting_race = 26
+inhabiting_race = 9
 
 [node name="Island17" parent="IslandAndBridgeRoot" unique_id=401613557 instance=ExtResource("4_31wal")]
 position = Vector2(-184, -785)
-inhabiting_race = 26
+inhabiting_race = 17
 
 [node name="Island18" parent="IslandAndBridgeRoot" unique_id=2072657963 instance=ExtResource("4_31wal")]
-position = Vector2(-179, 226)
-inhabiting_race = 26
+position = Vector2(-161, 223)
+inhabiting_race = 25
 
 [node name="Island19" parent="IslandAndBridgeRoot" unique_id=609901727 instance=ExtResource("4_31wal")]
 position = Vector2(1025, 234)
-inhabiting_race = 26
+inhabiting_race = 18
 
 [node name="Island20" parent="IslandAndBridgeRoot" unique_id=28071542 instance=ExtResource("4_31wal")]
 position = Vector2(1342, 119)
-inhabiting_race = 26
+inhabiting_race = 7
 
 [node name="Island21" parent="IslandAndBridgeRoot" unique_id=890590131 instance=ExtResource("4_31wal")]
 position = Vector2(1508, 317)
-inhabiting_race = 26
+inhabiting_race = 24
 
 [node name="Island22" parent="IslandAndBridgeRoot" unique_id=78530421 instance=ExtResource("4_31wal")]
 position = Vector2(1282, -166)
-inhabiting_race = 26
+inhabiting_race = 16
 
 [node name="Island23" parent="IslandAndBridgeRoot" unique_id=691411900 instance=ExtResource("4_31wal")]
 position = Vector2(1260, -717)
-inhabiting_race = 26
+inhabiting_race = 20
 
 [node name="Island24" parent="IslandAndBridgeRoot" unique_id=621575409 instance=ExtResource("4_31wal")]
 position = Vector2(134, -579)
-inhabiting_race = 26
+inhabiting_race = 11
 
 [node name="Island25" parent="IslandAndBridgeRoot" unique_id=1217184711 instance=ExtResource("4_31wal")]
 position = Vector2(648, -625)
-inhabiting_race = 26
+inhabiting_race = 3
 
 [node name="Island26" parent="IslandAndBridgeRoot" unique_id=1845251577 instance=ExtResource("4_31wal")]
 position = Vector2(580, -901)
-inhabiting_race = 26
+inhabiting_race = 22
 
 [node name="Island27" parent="IslandAndBridgeRoot" unique_id=1149855531 instance=ExtResource("4_31wal")]
 position = Vector2(1866, -1043)
-inhabiting_race = 26
+inhabiting_race = 13
