@@ -41,6 +41,13 @@ enum Races {
 	Bloobs,
 }
 
+enum BridgeResult {
+	OK,
+	HATED,
+	NEEDED,
+	HATED_SPECIAL
+}
+
 const RaceNameDict := {
 	Races.Obskurs: "Obskurs",
 	Races.Sparkies: "Sparkies",
@@ -106,3 +113,8 @@ func validate_tags() -> void:
 	for tag in _valid_tags:
 		if tag not in _valid_tags:
 			assert(tag == "", "Tag '%s' is not a valid tag" % tag)
+
+func GetBridgeResult(race1 : Races, race2 : Races) -> BridgeResult:
+	
+	return BridgeResult.OK
+	

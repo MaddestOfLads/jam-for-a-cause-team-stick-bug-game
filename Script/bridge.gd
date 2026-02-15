@@ -35,21 +35,12 @@ func start_bridge_preview(start_island : Island) -> void:
 	island_1 = start_island
 	set_ends(start_island.position, start_island.position)
 
-func build_bridge(end_island: Island) -> Bridge:
+func try_build_bridge(end_island: Island) -> Bridge:
 	if(island_1 == end_island):
 		return null
 
 	island_2 = end_island
-
-	set_ends_to_islands()
-	island_1.add_bridge(self)
-	island_2.add_bridge(self)
-	resize_collider()
-
-	mouse_entered.connect(on_mouse_entered)
-	mouse_exited.connect(on_mouse_exited)
-
-	modulate = _default_modulate
+	build_bridge()
 	return self
 
 func burn_bridge() -> void:
@@ -80,3 +71,14 @@ func resize_collider() -> void:
 	var rect = RectangleShape2D.new()
 	rect.size = Vector2(length, line.width + COLLIDER_PADDING)
 	line_collider.shape = rect
+
+func build_bridge() -> void:
+	set_ends_to_islands()
+	island_1.add_bridge(self)
+	island_2.add_bridge(self)
+	resize_collider()
+
+	mouse_entered.connect(on_mouse_entered)
+	mouse_exited.connect(on_mouse_exited)
+
+	modulate = _default_modulate

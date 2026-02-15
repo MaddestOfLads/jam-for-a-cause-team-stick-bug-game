@@ -106,7 +106,7 @@ func stop_drawing_bridge() -> void:
 		_drawn_bridge.queue_free()
 		pass # TODO: show an "island already connected" popup
 	else:
-		_drawn_bridge.build_bridge(_hovered_entity)
+		_drawn_bridge.try_build_bridge(_hovered_entity)
 	
 	_drawn_bridge = null
 	_drag_start_entity = null

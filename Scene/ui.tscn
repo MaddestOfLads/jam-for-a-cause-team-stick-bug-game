@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4tosyx6ou84r" path="res://Script/ui.gd" id="1_3i1b0"]
 
-[node name="Ui" type="Control" unique_id=1818385894 node_paths=PackedStringArray("race_name_label", "race_description_label", "race_image_texture_rect")]
+[node name="Ui" type="Control" unique_id=1818385894 node_paths=PackedStringArray("race_name_label", "race_description_label", "race_image_texture_rect", "race_description_ui", "popup_ui", "popup_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,57 +11,73 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_3i1b0")
-race_name_label = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer/NameLabel")
-race_description_label = NodePath("VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2/DescriptionLabel")
-race_image_texture_rect = NodePath("VBoxContainer/PanelContainer2/TextureRect")
+race_name_label = NodePath("HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/NameLabel")
+race_description_label = NodePath("HBoxContainer/PanelContainer/VBoxContainer/MarginContainer2/DescriptionLabel")
+race_image_texture_rect = NodePath("HBoxContainer/PanelContainer2/TextureRect")
+race_description_ui = NodePath("HBoxContainer")
+popup_ui = NodePath("PopupContainer")
+popup_label = NodePath("PopupContainer/MarginContainer/RichTextLabel")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=2089871631]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2089871631]
 layout_mode = 0
 offset_right = 1148.0
 offset_bottom = 648.0
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer" unique_id=366050909]
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=366050909]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer" unique_id=1863533658]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer" unique_id=1863533658]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=503393991]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=503393991]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="NameLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=2022518571]
+[node name="NameLabel" type="RichTextLabel" parent="HBoxContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=2022518571]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 mouse_filter = 2
 text = "Race name goes here."
 fit_content = true
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/PanelContainer/VBoxContainer" unique_id=367284565]
+[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=367284565]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="DescriptionLabel" type="RichTextLabel" parent="VBoxContainer/PanelContainer/VBoxContainer/MarginContainer2" unique_id=245451297]
+[node name="DescriptionLabel" type="RichTextLabel" parent="HBoxContainer/PanelContainer/VBoxContainer/MarginContainer2" unique_id=245451297]
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 2
 text = "Race description goes here. Make it very long. oiaoi aoia aoia oaioai aoi aoai oai oaiao aoiaoiaoai aiaoa aiaoaiaoaioaiaoai aoia oai oaiaoaiao 10984as oagsi goais oais ogas hogash oaih gaohaisgoo ghioiasg hogaish gaoiahs oisgh ogaish gasohigasoihas goigas ogh oaisghoaishgs oaojsh oasgih oai "
 fit_content = true
 
-[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer" unique_id=2117891540]
+[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer" unique_id=2117891540]
 layout_mode = 2
 size_flags_vertical = 8
 mouse_filter = 2
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/PanelContainer2" unique_id=654016041]
-custom_minimum_size = Vector2(256, 384)
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer2" unique_id=654016041]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 mouse_filter = 2
+
+[node name="PopupContainer" type="PanelContainer" parent="." unique_id=1437084460]
+layout_mode = 1
+offset_right = 10.0
+offset_bottom = 10.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupContainer" unique_id=555889398]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PopupContainer/MarginContainer" unique_id=72813241]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "Popup text will go here."
+fit_content = true

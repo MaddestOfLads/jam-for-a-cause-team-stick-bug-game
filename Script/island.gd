@@ -3,7 +3,7 @@ class_name Island extends Area2D
 
 @export var inhabiting_race: RaceDB.Races
 @export var radius_circle : RadiusCircle = null
-@export var base_radius : int = 5
+@export var base_radius : int = 3
 
 const RADIUS_MULTIPLIER : int = 200
 
@@ -16,9 +16,11 @@ signal island_no_longer_hovered(island)
 
 var connected_bridges : Array[Bridge] = []
 
+func update_radius_circle():
+	radius_circle.radius = get_effective_radius()
 
 func _ready() -> void:
-	radius_circle.radius = effective_radius()
+	radius_circle.radius = get_effective_radius()
 	mouse_entered.connect(on_mouse_entered)
 	mouse_exited.connect(on_mouse_exited)
 	modulate = _default_modulate
@@ -35,12 +37,14 @@ func on_mouse_exited():
 
 func add_bridge(bridge : Bridge):
 	connected_bridges.append(bridge)
+	update_radius_circle()
 
 func remove_bridge(bridge : Bridge):
 	for i in range(connected_bridges.size()):
 		if (connected_bridges[i] == bridge):
 			connected_bridges.remove_at(i)
 			break
+	update_radius_circle()
 
 func is_other_island_already_connected(other : Island) -> bool:
 	for i in range(connected_bridges.size()):
@@ -48,9 +52,9 @@ func is_other_island_already_connected(other : Island) -> bool:
 			return true
 	return false
 
-func effective_radius() -> int:
+func get_effective_radius() -> int:
 	return (base_radius + connected_bridges.size()) * RADIUS_MULTIPLIER
 
 func is_other_island_within_range(other : Island) -> bool:
 	var dist = position.distance_to(other.position)
-	return (dist <= effective_radius() and dist <= other.effective_radius())
+	return (dist <= get_effective_radius() and dist <= other.get_effective_radius())
