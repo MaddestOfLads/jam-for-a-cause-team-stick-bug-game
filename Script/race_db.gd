@@ -76,10 +76,11 @@ var _island_data_variant: Variant = null
 func _ready() -> void:
 	_island_data_variant = _island_data.data
 
-func get_race_description(race: Races) -> String:
-	if _island_data_variant:
-		return _island_data_variant[_RACES][RaceNameDict[race]][_DESCRIPTION]
-		
-	else:
-		print("ISLAND DATA NOT INITIALIZED")
-		return ""
+func get_description(race: Races) -> String:
+	return _island_data_variant[_RACES][RaceNameDict[race]][_DESCRIPTION]
+
+func get_expressed_tags(race: Races) -> Array:
+	return _island_data_variant[_RACES][RaceNameDict[race]][_EXPRESSED_TAGS]
+
+func get_incompatible_tags(race: Races) -> Array:
+	return _island_data_variant[_RACES][RaceNameDict[race]][_INCOMPATIBLE_TAGS]
