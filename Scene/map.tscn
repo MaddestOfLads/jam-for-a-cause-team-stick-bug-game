@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cujvsfwpdtan4" path="res://icon.svg" id="2_s12we"]
 [ext_resource type="Script" uid="uid://wiwu6muy3k5y" path="res://Script/camera.gd" id="3_54rcs"]
 [ext_resource type="PackedScene" uid="uid://on1ho4ye3jqs" path="res://Scene/island.tscn" id="4_31wal"]
+[ext_resource type="Script" uid="uid://cp6cpsfbfxh5i" path="res://Script/island_and_bridge_root.gd" id="5_54rcs"]
 [ext_resource type="PackedScene" uid="uid://cjqkjnfe00wvd" path="res://Scene/ui.tscn" id="5_s12we"]
 
 [node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("camera", "island_and_bridge_root")]
@@ -25,6 +26,7 @@ offset = Vector2(1920, 1920)
 script = ExtResource("3_54rcs")
 
 [node name="IslandAndBridgeRoot" type="Node" parent="." unique_id=22276009]
+script = ExtResource("5_54rcs")
 
 [node name="Island1" parent="IslandAndBridgeRoot" unique_id=1290088679 instance=ExtResource("4_31wal")]
 position = Vector2(1400, 2556)

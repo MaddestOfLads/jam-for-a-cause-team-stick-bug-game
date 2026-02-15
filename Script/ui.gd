@@ -1,11 +1,29 @@
 class_name Ui extends Control
 
+
 @export var race_name_label : RichTextLabel = null
 @export var race_description_label : RichTextLabel = null
 @export var race_image_texture_rect : TextureRect = null
 
-# TODO: add method for setting race name, description, and portrait at once, which will also show this UI if it is hidden
-# TODO: add method for clearing race name, description, and portrait, which will also hide this UI
 
 func _ready() -> void:
-	pass
+	hide()
+
+func set_details(race_name: String, race_description: String, race_portrait: Texture2D) -> void:
+	if race_name_label and race_description_label and race_image_texture_rect:
+		race_name_label.text = race_name
+		race_description_label.text = race_description
+		race_image_texture_rect.texture = race_portrait
+		show()
+
+	else:
+		print("UI ERROR: NULL REFERENCE IN UI PROPERTIES")
+		
+func clear_details() -> void:
+	if race_name_label and race_description_label and race_image_texture_rect:
+		race_name_label.text = ""
+		race_description_label.text = ""
+		race_image_texture_rect.texture = null
+		hide()
+	else:
+		print("UI ERROR: NULL REFERENCE IN UI PROPERTIES")
