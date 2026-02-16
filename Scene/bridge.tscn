@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dtrr5w11ck8r5" path="res://Script/bridge.gd" id="2_1kwlc"]
 
 [node name="Bridge" type="Area2D" unique_id=1004947237 node_paths=PackedStringArray("line_collider")]
-z_index = 2
 script = ExtResource("2_1kwlc")
 line_collider = NodePath("CollisionShape2D")
 

@@ -63,7 +63,7 @@ const RaceNameDict := {
 	Races.Gloops: "Gloops",
 	Races.Lazies: "Lazies",
 	Races.Joggernauts: "Joggernauts",
-	Races.Masozhops: "Masozhops",
+	Races.Masozhops: "Masozchops",
 	Races.Frewfrews: "Frewfrews",
 	Races.Paperies: "Paperies",
 	Races.Lovidovis: "Lovidovis",

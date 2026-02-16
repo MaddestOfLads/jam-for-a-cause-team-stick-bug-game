@@ -8,14 +8,26 @@ font_size = 24
 font_color = Color(0.5137255, 0.39215687, 0.2784314, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lfpiq"]
-font_size = 24
+font_size = 20
 font_color = Color(0.9137255, 0.8627451, 0.5686275, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_urowa"]
-font_size = 18
+font_size = 24
+font_color = Color(0.47058824, 0.2784314, 0.14901961, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ls17r"]
+font_size = 48
 font_color = Color(0.9137255, 0.8627451, 0.5686275, 1)
 
-[node name="Ui" type="Control" unique_id=1818385894 node_paths=PackedStringArray("race_name_label", "race_description_label", "race_image_texture_rect", "race_description_ui", "popup_ui", "popup_label")]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_bpjw8"]
+content_margin_left = 5.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+color = Color(0.9137255, 0.8627451, 0.5686275, 1)
+thickness = 5
+vertical = true
+
+[node name="Ui" type="Control" unique_id=1818385894 node_paths=PackedStringArray("race_name_label", "race_description_label", "race_image_texture_rect", "race_description_ui", "popup_ui", "popup_label", "trait_label", "hated_trait_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,15 +38,17 @@ mouse_filter = 2
 script = ExtResource("1_3i1b0")
 race_name_label = NodePath("RaceDescContainer/RaceNameLabel")
 race_description_label = NodePath("RaceDescContainer/RaceDescLabel")
-race_image_texture_rect = NodePath("RaceDescContainer/RaceImageTextureRect")
+race_image_texture_rect = NodePath("RaceDescContainer/TextureRectContainer/RaceImageTextureRect")
 race_description_ui = NodePath("RaceDescContainer")
 popup_ui = NodePath("PopupContainer")
 popup_label = NodePath("PopupContainer/MarginContainer/PopupLabel")
 race_description_ui_scale_multiplier = 0.35
-race_description_ui_position_offset_down = Vector2(-1200, 200)
+race_description_ui_position_offset_down = Vector2(-900, 200)
 race_description_ui_position_offset_up = Vector2(-900, -1100)
 race_description_ui_position_offset_right = Vector2(200, -400)
 race_description_ui_position_offset_left = Vector2(-2500, -400)
+trait_label = NodePath("RaceDescContainer/VBoxContainer/VBoxContainer/Traits")
+hated_trait_label = NodePath("RaceDescContainer/VBoxContainer/VBoxContainer2/HatedTraits")
 
 [node name="PopupContainer" type="PanelContainer" parent="." unique_id=1437084460]
 layout_mode = 1
@@ -73,29 +87,81 @@ texture = ExtResource("2_bpjw8")
 
 [node name="RaceNameLabel" type="Label" parent="RaceDescContainer" unique_id=1042613564]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 102.0
-offset_right = 192.0
-offset_bottom = 126.0
+offset_left = 37.14286
+offset_top = 91.42857
+offset_right = 192.85715
+offset_bottom = 144.28572
 scale = Vector2(2, 2)
-text = "asggsagas"
+text = "(race name)"
 label_settings = SubResource("LabelSettings_lfpiq")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="RaceDescLabel" type="Label" parent="RaceDescContainer" unique_id=1439052386]
 layout_mode = 0
-offset_left = 220.0
-offset_top = 288.0
-offset_right = 600.0
-offset_bottom = 634.0
+offset_left = 1151.4285
+offset_top = 171.42857
+offset_right = 1662.857
+offset_bottom = 789.99994
 scale = Vector2(2, 2)
 text = "basdasdasd"
 label_settings = SubResource("LabelSettings_urowa")
 autowrap_mode = 3
 
-[node name="RaceImageTextureRect" type="TextureRect" parent="RaceDescContainer" unique_id=1546514902]
+[node name="VBoxContainer" type="HBoxContainer" parent="RaceDescContainer" unique_id=529076931]
 layout_mode = 0
-offset_left = 1120.0
-offset_top = 148.0
-offset_right = 2206.0
-offset_bottom = 1442.0
-expand_mode = 3
+offset_left = 211.42857
+offset_top = 299.99997
+offset_right = 982.85706
+offset_bottom = 991.4286
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RaceDescContainer/VBoxContainer" unique_id=195171550]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TraitsHeader" type="Label" parent="RaceDescContainer/VBoxContainer/VBoxContainer" unique_id=370742025]
+layout_mode = 2
+text = "Traits:"
+label_settings = SubResource("LabelSettings_ls17r")
+horizontal_alignment = 1
+
+[node name="Traits" type="Label" parent="RaceDescContainer/VBoxContainer/VBoxContainer" unique_id=724310555]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ls17r")
+
+[node name="VSeparator" type="VSeparator" parent="RaceDescContainer/VBoxContainer" unique_id=514434668]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_bpjw8")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="RaceDescContainer/VBoxContainer" unique_id=1902246557]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HatedTraitsHeader" type="Label" parent="RaceDescContainer/VBoxContainer/VBoxContainer2" unique_id=1064715613]
+layout_mode = 2
+text = "Hated traits:"
+label_settings = SubResource("LabelSettings_ls17r")
+horizontal_alignment = 1
+
+[node name="HatedTraits" type="Label" parent="RaceDescContainer/VBoxContainer/VBoxContainer2" unique_id=634910431]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ls17r")
+
+[node name="TextureRectContainer" type="PanelContainer" parent="RaceDescContainer" unique_id=689855983]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 209.14294
+offset_top = -2463.7144
+offset_right = 901.14294
+offset_bottom = -1429.7144
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RaceImageTextureRect" type="TextureRect" parent="RaceDescContainer/TextureRectContainer" unique_id=1546514902]
+custom_minimum_size = Vector2(768, 1152)
+layout_mode = 2

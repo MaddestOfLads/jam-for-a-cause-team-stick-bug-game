@@ -12,6 +12,8 @@ class_name Ui extends Control
 @export var race_description_ui_position_offset_up : Vector2 = Vector2.ZERO
 @export var race_description_ui_position_offset_right : Vector2 = Vector2.ZERO
 @export var race_description_ui_position_offset_left : Vector2 = Vector2.ZERO
+@export var trait_label : Label = null
+@export var hated_trait_label : Label = null
 
 var _prev_island: Island = null
 var _curr_island : Island = null
@@ -28,6 +30,19 @@ func set_details(island: Island) -> void:
 		race_name_label.text = RaceDb.get_race_name_as_text(island.inhabiting_race)
 		race_description_label.text = RaceDb.get_description(island.inhabiting_race)
 		race_image_texture_rect.texture = RaceDb.RacePortraitDict[island.inhabiting_race]
+		
+		var traits : String = ""
+		var hated_traits : String = ""
+		for tag in RaceDb.get_expressed_tags(island.inhabiting_race):
+			traits += "- " + tag + "\n"
+		traits.erase(traits.length() - 2, 2)
+		for tag in RaceDb.get_incompatible_tags(island.inhabiting_race):
+			hated_traits += "- " + tag + "\n"
+		traits.erase(traits.length() - 2, 2)
+
+		trait_label.text = traits
+		hated_trait_label.text = hated_traits
+
 		update_desc_ui_transforms()
 		race_description_ui.show()
 	else:

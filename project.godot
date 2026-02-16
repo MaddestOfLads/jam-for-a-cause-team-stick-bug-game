@@ -50,3 +50,4 @@ left_click={
 
 textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
+textures/default_filters/use_nearest_mipmap_filter=true

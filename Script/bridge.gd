@@ -4,7 +4,7 @@ class_name Bridge extends Area2D
 var island_1: Island = null
 var island_2: Island = null
 
-var _default_modulate : Color = Color(0.0, 1.0, 0.0, 1.0)
+var _default_modulate : Color = Color(1.0, 1.0, 1.0, 1.0)
 var _preview_modulate : Color = Color(1.0, 1.0, 0.0, 1.0)
 var _hovered_modulate : Color = Color(1.0, 0.0, 0.0, 1.0)
 
@@ -21,6 +21,8 @@ signal bridge_unhovered(bridge)
 
 func _init() -> void:
 	line = Line2D.new()
+	line.texture_mode = Line2D.LineTextureMode.LINE_TEXTURE_TILE
+	line.width = 32
 	line.add_point(Vector2.ZERO)
 	line.add_point(Vector2.ZERO)
 	add_child(line)
@@ -47,7 +49,7 @@ func try_build_bridge(end_island: Island) -> RaceDb.BridgeResult:
 	var attempt_result = RaceDb.get_bridge_result(island_1.inhabiting_race, island_2.inhabiting_race)
 	if attempt_result.successful:
 		build_bridge()
-		set_bridge_texture(false)
+		set_bridge_texture(attempt_result.needed)
 	else:
 		burn_bridge()
 
@@ -67,9 +69,9 @@ func build_bridge() -> void:
 func set_bridge_texture(golden : bool = false):
 	if line:
 		if golden:
-			line.texture = BRIDGE_TEXTURE
-		else:
 			line.texture = GOLD_BRIDGE_TEXTURE
+		else:
+			line.texture = BRIDGE_TEXTURE
 
 func burn_bridge() -> void:
 	if (island_1 != null):
