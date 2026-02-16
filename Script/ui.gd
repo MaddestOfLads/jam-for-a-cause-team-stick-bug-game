@@ -20,9 +20,7 @@ func set_details(island: Island) -> void:
 	if race_name_label and race_description_label and race_image_texture_rect:
 		race_name_label.text = RaceDb.get_race_name_as_text(island.inhabiting_race)
 		race_description_label.text = RaceDb.get_description(island.inhabiting_race)
-		
-		# TODO: FINALIZE WHEN TEXTURES AVAILABLE
-		race_image_texture_rect.texture = null
+		race_image_texture_rect.texture = RaceDb.RacePortraitDict[island.inhabiting_race]
 		race_description_ui.show()
 
 	else:
@@ -33,9 +31,7 @@ func prev_details() -> void:
 	if race_name_label and race_description_label and race_image_texture_rect:
 		race_name_label.text = RaceDb.get_race_name_as_text(_prev_island.inhabiting_race)
 		race_description_label.text = RaceDb.get_description(_prev_island.inhabiting_race)
-		
-		# TODO: FINALIZE WHEN TEXTURES AVAILABLE
-		race_image_texture_rect.texture = null
+		race_image_texture_rect.texture = RaceDb.RacePortraitDict[_prev_island.inhabiting_race]
 		race_description_ui.show()
 
 func clear_details() -> void:

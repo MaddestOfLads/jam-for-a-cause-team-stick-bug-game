@@ -72,6 +72,36 @@ const RaceNameDict := {
 	Races.Bloobs: "Bloobs",
 }
 
+const RacePortraitDict := {
+	Races.Obskurs: preload("uid://doneengny72nr"),
+	Races.Sparkies: preload("uid://bvux8o1f82syn"),
+	Races.Grumples: null,
+	Races.Tympanies: preload("uid://bh20m83qu65y2"),
+	Races.Bookworms: preload("uid://co7cwxmhp32et"),
+	Races.Sniffies: null,
+	Races.Partylooms: null,
+	Races.Zappyfunkies: null,
+	Races.Ews: null,
+	Races.Wooshywoosh: null,
+	Races.Perfeaus: null,
+	Races.Rigorins: preload("uid://dgvvdmgj470ej"),
+	Races.Icyglops: null,
+	Races.Ferragons: null,
+	Races.Magmen: null,
+	Races.Swoopers: null,
+	Races.Goops: preload("uid://c4w0fh58boqce"),
+	Races.Gloops: null,
+	Races.Lazies: null,
+	Races.Joggernauts: null,
+	Races.Masozhops: preload("uid://ch1iou6tqhfaf"),
+	Races.Frewfrews: null,
+	Races.Paperies: preload("uid://bnl7jlfqcpr0s"),
+	Races.Lovidovis: null,
+	Races.Pollies: preload("uid://cmun5sjj0trgj"),
+	Races.Splats: null,
+	Races.Bloobs: preload("uid://lhc3h8o7afbl"),
+}
+
 
 class BridgeResult:
 	var successful : bool
