@@ -35,10 +35,8 @@ func set_details(island: Island) -> void:
 		var hated_traits : String = ""
 		for tag in RaceDb.get_expressed_tags(island.inhabiting_race):
 			traits += "- " + tag + "\n"
-		traits.erase(traits.length() - 2, 2)
 		for tag in RaceDb.get_incompatible_tags(island.inhabiting_race):
 			hated_traits += "- " + tag + "\n"
-		traits.erase(traits.length() - 2, 2)
 
 		trait_label.text = traits
 		hated_trait_label.text = hated_traits

@@ -54,6 +54,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif Input.is_action_pressed("left_click"):
 			if (_drawn_bridge != null):
 				_drawn_bridge.line.points[1] += (event.relative / camera.zoom)
+				
+				if(does_bridge_cross_rocks(_drawn_bridge)):
+					_drawn_bridge.modulate = _drawn_bridge._hovered_modulate
+				else:
+					_drawn_bridge.modulate = _drawn_bridge._preview_modulate
 
 				if _hovered_entity == null:
 					ui.prev_details()
@@ -108,12 +113,10 @@ func stop_drawing_bridge() -> void:
 		ui.show_popup("Island already connected!")
 		_drawn_bridge.queue_free()
 	else:
-		var children = island_and_bridge_root.get_children()
-		for i in (children.size()):
-			if children[i] is Rocks:
-				if (children[i].does_line_cross_rocks(_drawn_bridge.island_1.position, _hovered_entity.position)):
-					ui.show_popup("Can't bridge through rocks!")
-					return
+
+		if(does_bridge_cross_rocks(_drawn_bridge)):
+			ui.show_popup("Can't bridge through rocks!")
+			return
 
 		var attempt_result = _drawn_bridge.try_build_bridge(_hovered_entity)
 		if(attempt_result.popup_dialogue != ""):
@@ -137,3 +140,11 @@ func get_hovered_entity() -> Node:
 		return _mouse_intersections[0]["collider"]
 
 	return null
+
+func does_bridge_cross_rocks(bridge : Bridge) -> bool:
+	var children = island_and_bridge_root.get_children()
+	for i in (children.size()):
+		if children[i] is Rocks:
+			if (children[i].does_line_cross_rocks(bridge.line.points[0], bridge.line.points[1])):
+				return true
+	return false
