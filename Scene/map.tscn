@@ -23,6 +23,12 @@ texture = ExtResource("3_31wal")
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1058211037]
+limit_left = -2400
+limit_top = -1400
+limit_right = 2400
+limit_bottom = 1400
+position_smoothing_enabled = true
+position_smoothing_speed = 100.0
 script = ExtResource("3_54rcs")
 
 [node name="IslandAndBridgeRoot" type="Node" parent="." unique_id=22276009]
@@ -32,11 +38,11 @@ position = Vector2(-1841, 1032)
 inhabiting_race = 10
 
 [node name="Island2" parent="IslandAndBridgeRoot" unique_id=145559495 instance=ExtResource("4_31wal")]
-position = Vector2(-1750, 260)
+position = Vector2(-1666, 252)
 inhabiting_race = 26
 
 [node name="Island3" parent="IslandAndBridgeRoot" unique_id=1996463198 instance=ExtResource("4_31wal")]
-position = Vector2(-987, 738)
+position = Vector2(-951, 685)
 inhabiting_race = 6
 
 [node name="Island4" parent="IslandAndBridgeRoot" unique_id=2017080390 instance=ExtResource("4_31wal")]
@@ -52,7 +58,7 @@ position = Vector2(-993, 204)
 inhabiting_race = 8
 
 [node name="Island7" parent="IslandAndBridgeRoot" unique_id=7579868 instance=ExtResource("4_31wal")]
-position = Vector2(-434, 1050)
+position = Vector2(-426, 1042)
 inhabiting_race = 14
 
 [node name="Island8" parent="IslandAndBridgeRoot" unique_id=1032984426 instance=ExtResource("4_31wal")]
@@ -60,7 +66,7 @@ position = Vector2(718, 982)
 inhabiting_race = 1
 
 [node name="Island9" parent="IslandAndBridgeRoot" unique_id=232748515 instance=ExtResource("4_31wal")]
-position = Vector2(-359, 606)
+position = Vector2(-354, 571)
 
 [node name="Island10" parent="IslandAndBridgeRoot" unique_id=1717877001 instance=ExtResource("4_31wal")]
 position = Vector2(-583, -280)
@@ -149,7 +155,7 @@ script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
 [node name="Rocks4" type="Line2D" parent="IslandAndBridgeRoot" unique_id=137491895]
-points = PackedVector2Array(-527, 637, -437, 715, -177, 648)
+points = PackedVector2Array(-468, 646, -384, 711, -177, 648)
 script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
@@ -221,7 +227,9 @@ script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
 [node name="Rocks18" type="Line2D" parent="IslandAndBridgeRoot" unique_id=143667773]
-points = PackedVector2Array(-318, 1103, -471, 1146, -603, 1130)
+position = Vector2(-31.304932, 0)
+scale = Vector2(0.89836067, 1)
+points = PackedVector2Array(-292.41602, 1082, -445, 1129, -591.85034, 1082)
 script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
@@ -238,7 +246,7 @@ script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
 [node name="Rocks21" type="Line2D" parent="IslandAndBridgeRoot" unique_id=628840770]
-points = PackedVector2Array(-1635, -987, -1792, -920)
+points = PackedVector2Array(-1635, -987, -1850, -941)
 script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 

@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 RaceDb="*uid://csmho6khpwhrj"
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="STICKBUG"
