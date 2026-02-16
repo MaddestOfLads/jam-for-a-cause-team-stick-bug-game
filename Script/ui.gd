@@ -7,8 +7,11 @@ class_name Ui extends Control
 @export var race_description_ui : Control = null
 @export var popup_ui : Control = null
 @export var popup_label : Label = null
-@export var race_description_ui_position_offset : Vector2 = Vector2.ZERO
 @export var race_description_ui_scale_multiplier : float = 1
+@export var race_description_ui_position_offset_down : Vector2 = Vector2.ZERO
+@export var race_description_ui_position_offset_up : Vector2 = Vector2.ZERO
+@export var race_description_ui_position_offset_right : Vector2 = Vector2.ZERO
+@export var race_description_ui_position_offset_left : Vector2 = Vector2.ZERO
 
 var _prev_island: Island = null
 var _curr_island : Island = null
@@ -33,7 +36,18 @@ func set_details(island: Island) -> void:
 func update_desc_ui_transforms():
 	if _curr_island:
 		race_description_ui.scale = _curr_island.get_global_transform_with_canvas().get_scale() * race_description_ui_scale_multiplier
-		race_description_ui.position = _curr_island.get_global_transform_with_canvas().get_origin() + (race_description_ui_position_offset) * race_description_ui.scale
+		var pos_offset = race_description_ui_position_offset_down
+		if(_curr_island.position.y > _curr_island.position.x):
+			if(_curr_island.position.y > -_curr_island.position.x):
+				pos_offset = race_description_ui_position_offset_up
+			else:
+				pos_offset = race_description_ui_position_offset_right
+		else:
+			if(_curr_island.position.y > -_curr_island.position.x):
+				pos_offset = race_description_ui_position_offset_left
+			else:
+				pos_offset = race_description_ui_position_offset_down
+		race_description_ui.position = _curr_island.get_global_transform_with_canvas().get_origin() + (pos_offset) * race_description_ui.scale
 
 func _physics_process(delta: float) -> void:
 	update_desc_ui_transforms()

@@ -8,6 +8,9 @@ var _default_modulate : Color = Color(0.0, 1.0, 0.0, 1.0)
 var _preview_modulate : Color = Color(1.0, 1.0, 0.0, 1.0)
 var _hovered_modulate : Color = Color(1.0, 0.0, 0.0, 1.0)
 
+const BRIDGE_TEXTURE = preload("uid://c4a1sy40b1bl3")
+const GOLD_BRIDGE_TEXTURE = preload("uid://bnprr2gi6rkrn")
+
 @export var line_collider: CollisionShape2D = null
 var line: Line2D = null
 const COLLIDER_PADDING: int = 6
@@ -44,6 +47,7 @@ func try_build_bridge(end_island: Island) -> RaceDb.BridgeResult:
 	var attempt_result = RaceDb.get_bridge_result(island_1.inhabiting_race, island_2.inhabiting_race)
 	if attempt_result.successful:
 		build_bridge()
+		set_bridge_texture(false)
 	else:
 		burn_bridge()
 
@@ -59,6 +63,13 @@ func build_bridge() -> void:
 	mouse_exited.connect(on_mouse_exited)
 
 	modulate = _default_modulate
+
+func set_bridge_texture(golden : bool = false):
+	if line:
+		if golden:
+			line.texture = BRIDGE_TEXTURE
+		else:
+			line.texture = GOLD_BRIDGE_TEXTURE
 
 func burn_bridge() -> void:
 	if (island_1 != null):
