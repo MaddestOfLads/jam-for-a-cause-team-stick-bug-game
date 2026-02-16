@@ -27,10 +27,10 @@ func set_details(island: Island) -> void:
 	popup_ui.hide()
 	if race_name_label and race_description_label and race_image_texture_rect:
 		_curr_island = island
+		
 		race_name_label.text = RaceDb.get_race_name_as_text(island.inhabiting_race)
 		race_description_label.text = RaceDb.get_description(island.inhabiting_race)
 		race_image_texture_rect.texture = RaceDb.RacePortraitDict[island.inhabiting_race]
-		
 		var traits : String = ""
 		var hated_traits : String = ""
 		for tag in RaceDb.get_expressed_tags(island.inhabiting_race):
@@ -67,13 +67,12 @@ func update_desc_ui_transforms():
 func _physics_process(delta: float) -> void:
 	update_desc_ui_transforms()
 
+
 # Displays details of starting drag island in UI
 func prev_details() -> void:
 	if race_name_label and race_description_label and race_image_texture_rect:
-		race_name_label.text = RaceDb.get_race_name_as_text(_prev_island.inhabiting_race)
-		race_description_label.text = RaceDb.get_description(_prev_island.inhabiting_race)
-		race_image_texture_rect.texture = RaceDb.RacePortraitDict[_prev_island.inhabiting_race]
-		race_description_ui.show()
+		
+		set_details(_prev_island)
 
 func clear_details() -> void:
 	if race_name_label and race_description_label and race_image_texture_rect:
