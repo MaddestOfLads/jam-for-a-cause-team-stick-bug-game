@@ -133,7 +133,7 @@ position = Vector2(639, -591)
 inhabiting_race = 3
 
 [node name="Island26" parent="IslandAndBridgeRoot" unique_id=1845251577 instance=ExtResource("4_31wal")]
-position = Vector2(580, -873)
+position = Vector2(564, -862)
 inhabiting_race = 22
 
 [node name="Island27" parent="IslandAndBridgeRoot" unique_id=1149855531 instance=ExtResource("4_31wal")]
@@ -166,11 +166,6 @@ metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
 [node name="Rocks6" type="Line2D" parent="IslandAndBridgeRoot" unique_id=1973938142]
 points = PackedVector2Array(-1501, -598, -1660, -566, -1632, -418)
-script = ExtResource("6_54rcs")
-metadata/_custom_type_script = "uid://dxjfj7dev7coy"
-
-[node name="Rocks7" type="Line2D" parent="IslandAndBridgeRoot" unique_id=1999933313]
-points = PackedVector2Array(382, -973, 734, -971)
 script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
