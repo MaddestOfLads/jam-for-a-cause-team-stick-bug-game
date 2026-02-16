@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://cjqkjnfe00wvd"]
 
 [ext_resource type="Script" uid="uid://b4tosyx6ou84r" path="res://Script/ui.gd" id="1_3i1b0"]
+[ext_resource type="Texture2D" uid="uid://peqfn6kra6im" path="res://Resource/Sprite/description_bubbles_trimmed.png" id="2_bpjw8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bpjw8"]
+font_size = 24
+font_color = Color(0.5137255, 0.39215687, 0.2784314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lfpiq"]
+font_size = 24
+font_color = Color(0.9137255, 0.8627451, 0.5686275, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_urowa"]
+font_size = 18
+font_color = Color(0.9137255, 0.8627451, 0.5686275, 1)
 
 [node name="Ui" type="Control" unique_id=1818385894 node_paths=PackedStringArray("race_name_label", "race_description_label", "race_image_texture_rect", "race_description_ui", "popup_ui", "popup_label")]
 layout_mode = 3
@@ -11,62 +24,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_3i1b0")
-race_name_label = NodePath("HBoxContainer/PanelContainer/VBoxContainer/MarginContainer/NameLabel")
-race_description_label = NodePath("HBoxContainer/PanelContainer/VBoxContainer/MarginContainer2/DescriptionLabel")
-race_image_texture_rect = NodePath("HBoxContainer/PanelContainer2/TextureRect")
-race_description_ui = NodePath("HBoxContainer")
+race_name_label = NodePath("RaceDescContainer/RaceNameLabel")
+race_description_label = NodePath("RaceDescContainer/RaceDescLabel")
+race_image_texture_rect = NodePath("RaceDescContainer/RaceImageTextureRect")
+race_description_ui = NodePath("RaceDescContainer")
 popup_ui = NodePath("PopupContainer")
-popup_label = NodePath("PopupContainer/MarginContainer/RichTextLabel")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2089871631]
-layout_mode = 0
-offset_right = 1148.0
-offset_bottom = 648.0
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer" unique_id=366050909]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 8
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer" unique_id=1863533658]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=503393991]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="NameLabel" type="RichTextLabel" parent="HBoxContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=2022518571]
-custom_minimum_size = Vector2(256, 0)
-layout_mode = 2
-mouse_filter = 2
-text = "Race name goes here."
-fit_content = true
-
-[node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer/PanelContainer/VBoxContainer" unique_id=367284565]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="DescriptionLabel" type="RichTextLabel" parent="HBoxContainer/PanelContainer/VBoxContainer/MarginContainer2" unique_id=245451297]
-layout_mode = 2
-size_flags_vertical = 3
-mouse_filter = 2
-text = "Race description goes here. Make it very long. oiaoi aoia aoia oaioai aoi aoai oai oaiao aoiaoiaoai aiaoa aiaoaiaoaioaiaoai aoia oai oaiaoaiao 10984as oagsi goais oais ogas hogash oaih gaohaisgoo ghioiasg hogaish gaoiahs oisgh ogaish gasohigasoihas goigas ogh oaisghoaishgs oaojsh oasgih oai "
-fit_content = true
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer" unique_id=2117891540]
-layout_mode = 2
-size_flags_vertical = 8
-mouse_filter = 2
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/PanelContainer2" unique_id=654016041]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-mouse_filter = 2
+popup_label = NodePath("PopupContainer/MarginContainer/PopupLabel")
+race_description_ui_position_offset = Vector2(-1600, 200)
+race_description_ui_scale_multiplier = 0.35
 
 [node name="PopupContainer" type="PanelContainer" parent="." unique_id=1437084460]
 layout_mode = 1
@@ -84,8 +49,50 @@ grow_vertical = 0
 [node name="MarginContainer" type="MarginContainer" parent="PopupContainer" unique_id=555889398]
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PopupContainer/MarginContainer" unique_id=72813241]
-custom_minimum_size = Vector2(512, 0)
+[node name="PopupLabel" type="Label" parent="PopupContainer/MarginContainer" unique_id=924038895]
+custom_minimum_size = Vector2(1024, 0)
 layout_mode = 2
-text = "Popup text will go here."
-fit_content = true
+text = "Popup text will go here.as fgfas fas fasfas  fasasasfa as das as ffas "
+label_settings = SubResource("LabelSettings_bpjw8")
+autowrap_mode = 3
+
+[node name="RaceDescContainer" type="TextureRect" parent="." unique_id=1436054426]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = 1256.0
+offset_bottom = 1458.0
+grow_horizontal = 2
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_bpjw8")
+
+[node name="RaceNameLabel" type="Label" parent="RaceDescContainer" unique_id=1042613564]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 102.0
+offset_right = 192.0
+offset_bottom = 126.0
+scale = Vector2(2, 2)
+text = "asggsagas"
+label_settings = SubResource("LabelSettings_lfpiq")
+
+[node name="RaceDescLabel" type="Label" parent="RaceDescContainer" unique_id=1439052386]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 288.0
+offset_right = 600.0
+offset_bottom = 634.0
+scale = Vector2(2, 2)
+text = "basdasdasd"
+label_settings = SubResource("LabelSettings_urowa")
+autowrap_mode = 3
+
+[node name="RaceImageTextureRect" type="TextureRect" parent="RaceDescContainer" unique_id=1546514902]
+layout_mode = 0
+offset_left = 1120.0
+offset_top = 148.0
+offset_right = 2206.0
+offset_bottom = 1442.0
+expand_mode = 3
