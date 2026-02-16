@@ -40,7 +40,7 @@ func try_build_bridge(end_island: Island) -> RaceDb.BridgeResult:
 	if(island_1 == end_island):
 		return null
 	island_2 = end_island
-	
+
 	var attempt_result = RaceDb.get_bridge_result(island_1.inhabiting_race, island_2.inhabiting_race)
 	if attempt_result.successful:
 		build_bridge()

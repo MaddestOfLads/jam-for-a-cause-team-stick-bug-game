@@ -110,8 +110,9 @@ func stop_drawing_bridge() -> void:
 		pass
 	else:
 		var attempt_result = _drawn_bridge.try_build_bridge(_hovered_entity)
-		# TODO: Display UI popup for result
-	
+		ui.show_popup(attempt_result.popup_dialogue)
+		print("%s: %s" % [attempt_result.successful, attempt_result.popup_dialogue])
+
 	_drawn_bridge = null
 	_drag_start_entity = null
 	_drag_end_entity = null

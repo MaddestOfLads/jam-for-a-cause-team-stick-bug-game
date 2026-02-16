@@ -85,13 +85,15 @@ class BridgeResult:
 
 
 var _island_data_variant: Variant = null
-var _valid_tags: Dictionary
+var _tags_and_popups: Dictionary
+var _failure_messages: Dictionary
 
 
 func _ready() -> void:
 	_island_data_variant = _ISLAND_DATA_JSON.data
-	_valid_tags = _island_data_variant[_TAGS_AND_POPUPS] as Dictionary
-	_valid_tags.merge(_island_data_variant[_SPECIAL_TAGS] as Dictionary, true)
+	
+	_tags_and_popups = _island_data_variant[_TAGS_AND_POPUPS] as Dictionary
+	_tags_and_popups.merge(_island_data_variant[_SPECIAL_TAGS] as Dictionary, true)
 	validate_tags()
 
 func get_race_name_as_text(race: Races) -> String:
@@ -113,12 +115,8 @@ func validate_tags() -> void:
 
 		# Validate tags
 		for tag in tags:
-			if tag not in _valid_tags:
+			if tag not in _tags_and_popups:
 				assert(tag == "", "Tag '%s' is not a valid tag" % tag)
-
-	for tag in _valid_tags:
-		if tag not in _valid_tags:
-			assert(tag == "", "Tag '%s' is not a valid tag" % tag)
 
 func get_bridge_result(race_1 : Races, race_2 : Races) -> BridgeResult:
 	# 1. check for needed connections:
@@ -135,11 +133,13 @@ func get_bridge_result(race_1 : Races, race_2 : Races) -> BridgeResult:
 	
 	for tag in expressed_tags_1:
 		if tag in incompatible_tags_2:
-			return BridgeResult.new(false, false, "") # TODO: add interaction text and replace race names
+			var popup = _tags_and_popups[tag]
+			return BridgeResult.new(false, false, replace_race_names(popup, race_1, race_2))
 
 	for tag in expressed_tags_2:
 		if tag in incompatible_tags_1:
-			return BridgeResult.new(false, false, "") # TODO: add interaction text and replace race names
+			var popup = _tags_and_popups[tag]
+			return BridgeResult.new(false, false, replace_race_names(popup, race_2, race_1))
 
 	# 3. fallback to positive connection with no description
 	return BridgeResult.new(true, false, "")
