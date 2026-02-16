@@ -1,5 +1,6 @@
 class_name Bridge extends Area2D
 
+
 var island_1: Island = null
 var island_2: Island = null
 
@@ -35,13 +36,29 @@ func start_bridge_preview(start_island : Island) -> void:
 	island_1 = start_island
 	set_ends(start_island.position, start_island.position)
 
-func try_build_bridge(end_island: Island) -> Bridge:
+func try_build_bridge(end_island: Island) -> RaceDb.BridgeResult:
 	if(island_1 == end_island):
 		return null
 	island_2 = end_island
 	
-	build_bridge()
-	return self
+	var attempt_result = RaceDb.get_bridge_result(island_1.inhabiting_race, island_2.inhabiting_race)
+	if attempt_result.successful:
+		build_bridge()
+	else:
+		burn_bridge()
+
+	return attempt_result
+
+func build_bridge() -> void:
+	set_ends_to_islands()
+	island_1.add_bridge(self)
+	island_2.add_bridge(self)
+	resize_collider()
+
+	mouse_entered.connect(on_mouse_entered)
+	mouse_exited.connect(on_mouse_exited)
+
+	modulate = _default_modulate
 
 func burn_bridge() -> void:
 	if (island_1 != null):
@@ -70,14 +87,3 @@ func resize_collider() -> void:
 	var rect = RectangleShape2D.new()
 	rect.size = Vector2(length, line.width + COLLIDER_PADDING)
 	line_collider.shape = rect
-
-func build_bridge() -> void:
-	set_ends_to_islands()
-	island_1.add_bridge(self)
-	island_2.add_bridge(self)
-	resize_collider()
-
-	mouse_entered.connect(on_mouse_entered)
-	mouse_exited.connect(on_mouse_exited)
-
-	modulate = _default_modulate

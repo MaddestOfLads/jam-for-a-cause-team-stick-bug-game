@@ -72,14 +72,17 @@ const RaceNameDict := {
 	Races.Bloobs: "Bloobs",
 }
 
+
 class BridgeResult:
 	var successful : bool
 	var needed : bool
 	var popup_dialogue : String
+
 	func _init(_successful : bool, _needed : bool, _text : String) -> void:
 		successful = _successful
 		needed = _needed
 		popup_dialogue = _text
+
 
 var _island_data_variant: Variant = null
 var _valid_tags: Dictionary
@@ -118,26 +121,25 @@ func validate_tags() -> void:
 			assert(tag == "", "Tag '%s' is not a valid tag" % tag)
 
 func get_bridge_result(race_1 : Races, race_2 : Races) -> BridgeResult:
-
 	# 1. check for needed connections:
 	var needed_connections = _island_data_variant[_NEEDED_CONNECTIONS]
-	for i in range(needed_connections):
-		if (needed_connections[i][0] == RaceNameDict[race_1] and needed_connections[i][1] == RaceNameDict[race_2]) or (needed_connections[i][0] == RaceNameDict[race_2] and needed_connections[i][1] == RaceNameDict[race_1]):
-			return BridgeResult.new(needed_connections[i][2], true, needed_connections[i][3])
+	for connection in needed_connections:
+		if (connection[0] == RaceNameDict[race_1] and connection[1] == RaceNameDict[race_2]) or (connection[0] == RaceNameDict[race_2] and connection[1] == RaceNameDict[race_1]):
+			return BridgeResult.new(connection[2], true, connection[3])
 
 	# 2. check for tag incompatibilities:
-	var expressed_tags_1 : Array[String] = get_expressed_tags(race_1)
-	var expressed_tags_2 : Array[String] = get_expressed_tags(race_2)
-	var incompatible_tags_1 : Array[String] = get_incompatible_tags(race_1)
-	var incompatible_tags_2 : Array[String] = get_incompatible_tags(race_2)
-	for i in range(expressed_tags_1):
-		for j in range(incompatible_tags_2):
-			if expressed_tags_1[i] == incompatible_tags_2[i]:
-				return BridgeResult.new(false, false, "") # TODO: add interaction text and replace race names
-	for i in range(expressed_tags_2):
-		for j in range(incompatible_tags_1):
-			if expressed_tags_2[i] == incompatible_tags_1[i]:
-				return BridgeResult.new(false, false, "") # TODO: add interaction text and replace race names
+	var expressed_tags_1 : Array = get_expressed_tags(race_1)
+	var expressed_tags_2 : Array = get_expressed_tags(race_2)
+	var incompatible_tags_1 : Array = get_incompatible_tags(race_1)
+	var incompatible_tags_2 : Array = get_incompatible_tags(race_2)
+	
+	for tag in expressed_tags_1:
+		if tag in incompatible_tags_2:
+			return BridgeResult.new(false, false, "") # TODO: add interaction text and replace race names
+
+	for tag in expressed_tags_2:
+		if tag in incompatible_tags_1:
+			return BridgeResult.new(false, false, "") # TODO: add interaction text and replace race names
 
 	# 3. fallback to positive connection with no description
 	return BridgeResult.new(true, false, "")

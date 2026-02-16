@@ -109,7 +109,8 @@ func stop_drawing_bridge() -> void:
 		_drawn_bridge.queue_free()
 		pass
 	else:
-		_drawn_bridge.try_build_bridge(_hovered_entity)
+		var attempt_result = _drawn_bridge.try_build_bridge(_hovered_entity)
+		# TODO: Display UI popup for result
 	
 	_drawn_bridge = null
 	_drag_start_entity = null
