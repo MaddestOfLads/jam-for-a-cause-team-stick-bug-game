@@ -107,17 +107,23 @@ func stop_drawing_bridge() -> void:
 		print("Island already connected!")
 		ui.show_popup("Island already connected!")
 		_drawn_bridge.queue_free()
-		pass
 	else:
+		var children = island_and_bridge_root.get_children()
+		for i in (children.size()):
+			if children[i] is Rocks:
+				if (children[i].does_line_cross_rocks(_drawn_bridge.island_1.position, _hovered_entity.position)):
+					ui.show_popup("Can't bridge through rocks!")
+					return
+
 		var attempt_result = _drawn_bridge.try_build_bridge(_hovered_entity)
 		ui.show_popup(attempt_result.popup_dialogue)
 		print("%s: %s" % [attempt_result.successful, attempt_result.popup_dialogue])
 
-	_drawn_bridge = null
-	_drag_start_entity = null
-	_drag_end_entity = null
+		_drawn_bridge = null
+		_drag_start_entity = null
+		_drag_end_entity = null
 
-	ui.clear_details()
+		ui.clear_details()
 
 # Returns top-most hovered collider by Z Index
 func get_hovered_entity() -> Node:
