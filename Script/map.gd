@@ -9,11 +9,15 @@ const _TUTORIAL_BUTTON_TEXT : String = "Let's go!"
 const _VICTORY_CONTENTS : PackedScene = preload("uid://6hoftk26cgvr")
 const _VICTORY_BUTTON_TEXT : String = "Cool!"
 
-
+const _CLICK_SFX : AudioStream = null
+const _BRIDGE_BUILT_SFX : AudioStream = null
+const _GOLD_BRIDGE_BUILT_SFX : AudioStream = null
 
 @export var camera : Camera2D = null
 @export var ui: Ui = null
 @export var island_and_bridge_root : Node = null
+
+@export var sfx_player : AudioStreamPlayer = null
 
 var connected_bridges: int = 0
 var golden_bridges: int = 0

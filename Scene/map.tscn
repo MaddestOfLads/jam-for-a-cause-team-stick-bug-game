@@ -7,11 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://cjqkjnfe00wvd" path="res://Scene/ui.tscn" id="5_s12we"]
 [ext_resource type="Script" uid="uid://dxjfj7dev7coy" path="res://Script/rocks.gd" id="6_54rcs"]
 
-[node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("camera", "ui", "island_and_bridge_root")]
+[node name="Map" type="Node2D" unique_id=961070656 node_paths=PackedStringArray("camera", "ui", "island_and_bridge_root", "sfx_player")]
 script = ExtResource("1_5mejs")
 camera = NodePath("Camera2D")
 ui = NodePath("CanvasLayer/Ui")
 island_and_bridge_root = NodePath("IslandAndBridgeRoot")
+sfx_player = NodePath("SFXPlayer")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=974247841]
+volume_db = -10.0
+autoplay = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=47155398]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=383927901]
 
