@@ -73,13 +73,17 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="PopupLabel" type="Label" parent="PopupContainer/MarginContainer" unique_id=924038895]
-custom_minimum_size = Vector2(1024, 0)
+custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Popup text will go here.as fgfas fas fasfas  fasasasfa as das as ffas "
 label_settings = SubResource("LabelSettings_bpjw8")
+horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="RaceDescContainer" type="TextureRect" parent="." unique_id=1436054426]
+z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

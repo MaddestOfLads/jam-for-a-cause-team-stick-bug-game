@@ -40,7 +40,6 @@ func _ready() -> void:
 	update_golden_bridges(0)
 
 func set_details(island: Island) -> void:
-	popup_ui.hide()
 	if race_name_label and race_description_label and race_image_texture_rect:
 		_curr_island = island
 		

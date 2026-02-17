@@ -4,23 +4,23 @@
 		"perfumed": "race_A couldn't stand race_B' strong perfume.",
 		"chaotic": "race_A can't stand race_B' chaos around them.",
 		"organized": "race_A can't stand race_B' settling... It's too tidied up!",
-		"light emitter": "race_A' eyes hurt because of the heavy light emitted by race_B",
+		"light emitter": "race_A' eyes hurt because of the heavy light emitted by race_B!",
 		"loud": "race_A' ears hurt because of the volume of race_B' noise!",
 		"quiet": "race_B is way too quiet for race_A' liking!",
 		"hurting skin": "OUCH! race_B hurt to touch!",
-		"windy": "With race_B' wind, race_A knows for sure there can't be peace",
+		"windy": "With race_B' wind, race_A knows for sure there can't be peace!",
 		"furry": "ACHOOO! It's a highly improbable challenge to survive this allergy for the sake of communal living...",
 		"has pollen": "ACHOOO! these people are a health hazard for race_A!",
-		"has metal": "race_B' metal is surely gonna keep race_A really far away",
+		"has metal": "race_B' metal is sure to keep race_A really far away.",
 		"extroverted": "Extroverted races? In race_A' surroundings? Not on their watch! race_B' openess makes everyone sick...",
-		"cold": "race_B is bringing a new freezing environment to race_A' doors, and I'm not sure their coats are ready",
+		"cold": "race_B are bringing a new freezing environment to race_A' doors, and I'm not sure their coats are ready.",
 		"hot": "Wait... is it hot in here or is it just... race_B...? Wait... maybe it's actually both, and race_A doesn't seem really fond of it",
-		"vividly colored": "race_A really can't stand for this outrageous display of colorful palettes and general joyfulness to the gaze",
-		"staining": "race_A finds race_B' ability to constantly stain everything in their surroundings astonishing and unmanageable... This bridge mustn't be done",
+		"vividly colored": "race_A really can't stand for this outrageous display of colorful palettes and general joyfulness to the gaze.",
+		"staining": "race_A find race_B' ability to constantly stain everything in their surroundings astonishing and unmanageable... This bridge mustn't be done",
 		"has water": "Water? race_A can't really be around water for... obvious reasons. Don't you think it's a bit cruel to create certain connections?"
 	},
 	"special_tags": {
-		"only long bridges": "Oh this bridge is way too short for their liking... race_A would love to enjoy the journey before arriving to their destination",
+		"only long bridges": "Oh, this bridge is way too short for their liking... race_A would love to enjoy the journey before arriving to their destination",
 		"only short bridges": "This bridge is way too long for race_A's liking... Have you considered the wind? the hours? The sheer tedium of it all?",
 		"no nose": "*Does nothing*",
 		"no eyes": "*Does nothing*",
@@ -37,7 +37,7 @@
 			]
 		},
 		"Sparkies": {
-			"Description": "Unlike obskurs, these small drops of light on legs love to shine through! They greet people by emitting pulsating light with their own bodies, and they tend to be really expansive and extroverted.",
+			"Description": "Unlike Obskurs, these small drops of light on legs love to shine through! They greet people by emitting pulsating light with their own bodies, and they tend to be really expansive and extroverted.",
 			"Expressed tags": [
 				"light emitter",
 				"extroverted"
@@ -59,7 +59,7 @@
 			]
 		},
 		"Tympanies": {
-			"Description": "Tympanies have typically really big ears, much more prone to pick up extremely loud sounds. These furry fellows enjoy quietness and stillness, but are still extroverted, they'll flap their ears to say hi with a breeze.",
+			"Description": "Tympanies typically have really big ears, much more prone to pick up extremely loud sounds. These furry fellows enjoy quietness and stillness, but are still extroverted - they'll flap their ears to say hi with a breeze.",
 			"Expressed tags": [
 				"quiet",
 				"extroverted",
@@ -72,7 +72,7 @@
 			]
 		},
 		"Bookworms": {
-			"Description": "They’re literal sentient gigantic worms, slimy and quiet. Their culture is all about keeping knowledge, preserving books and storytelling. They would prefer a good light source around, to enjoy their books at night, and, as you may have already guessed, silence. They would hate it if anything happened to their precious books, so they prefer to keep those clean, well preserved at the correct temperature. They have no noses and smell like books!",
+			"Description": "They’re literal sentient gigantic worms, slimy and quiet. Their culture is all about keeping knowledge, preserving books and storytelling. They would prefer a good light source around to enjoy their books at night, and, as you may have already guessed, silence. They would hate it if anything happened to their precious books, so they prefer to keep those clean, well preserved at the correct temperature. They have no noses and smell like books!",
 			"Expressed tags": [
 				"organized",
 				"quiet"
@@ -101,7 +101,7 @@
 			]
 		},
 		"Partylooms": {
-			"Description": "Aggressive mohawks, studded clothes, constant punk music and screaming about life on the island, that's what partylooms are about. They were a boring bunch, but on earth they saw these “punk people”, and they were so ecstatic that they just decided to embody that culture and share it with everyone they meet. These thick skinned fellows would love to meet someone with a passion as fiery as theirs.",
+			"Description": "Aggressive mohawks, studded clothes, constant punk music and screams about life on the island, that's what Partylooms are about. They were a boring bunch, but on Earth they saw these “punk people”, and they were so ecstatic that they just decided to embody that culture and share it with everyone they meet. These thick skinned fellows would love to meet someone with a passion as fiery as theirs.",
 			"Expressed tags": [
 				"chaotic",
 				"has metal",
