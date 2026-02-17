@@ -2,7 +2,7 @@ extends Camera2D
 
 
 # Camera zoom
-var _target_zoom: float = 1.0
+var _target_zoom: float = 0.8
 @export var _zoom_speed: float = 8.0
 @export var _zoom_increment: float = 0.1
 @export var _max_zoom: float = 1

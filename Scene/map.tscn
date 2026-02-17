@@ -30,6 +30,7 @@ texture = ExtResource("3_31wal")
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1058211037]
+zoom = Vector2(0.5, 0.5)
 limit_left = -2400
 limit_top = -1400
 limit_right = 2400

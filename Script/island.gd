@@ -30,7 +30,7 @@ func _ready() -> void:
 
 func on_mouse_entered():
 	modulate = _hovered_modulate
-	radius_circle.show()
+	# radius_circle.show()
 	island_hovered.emit(self)
 
 func on_mouse_exited():
