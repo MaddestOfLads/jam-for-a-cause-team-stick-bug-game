@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b4tosyx6ou84r" path="res://Script/ui.gd" id="1_3i1b0"]
 [ext_resource type="Texture2D" uid="uid://peqfn6kra6im" path="res://Resource/UI/description_bubbles_trimmed.png" id="2_bpjw8"]
+[ext_resource type="Texture2D" uid="uid://cbvuhwtvp8d30" path="res://Resource/UI/Bridges icon.png" id="3_urowa"]
+[ext_resource type="Texture2D" uid="uid://bw4owecxa3s61" path="res://Resource/UI/Gold bridge icon.png" id="4_ls17r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bpjw8"]
 font_size = 24
@@ -27,7 +29,7 @@ color = Color(0.9137255, 0.8627451, 0.5686275, 1)
 thickness = 5
 vertical = true
 
-[node name="Ui" type="Control" unique_id=1818385894 node_paths=PackedStringArray("race_name_label", "race_description_label", "race_image_texture_rect", "race_description_ui", "popup_ui", "popup_label", "trait_label", "hated_trait_label")]
+[node name="Ui" type="Control" unique_id=1818385894 node_paths=PackedStringArray("race_name_label", "race_description_label", "race_image_texture_rect", "race_description_ui", "popup_ui", "popup_label", "trait_label", "hated_trait_label", "connected_islands_score", "golden_bridges_score")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,15 +42,17 @@ race_name_label = NodePath("RaceDescContainer/RaceNameLabel")
 race_description_label = NodePath("RaceDescContainer/RaceDescLabel")
 race_image_texture_rect = NodePath("RaceDescContainer/TextureRectContainer/RaceImageTextureRect")
 race_description_ui = NodePath("RaceDescContainer")
-popup_ui = NodePath("PopupContainer")
-popup_label = NodePath("PopupContainer/MarginContainer/PopupLabel")
 race_description_ui_scale_multiplier = 0.35
 race_description_ui_position_offset_down = Vector2(-900, 200)
 race_description_ui_position_offset_up = Vector2(-900, -1100)
 race_description_ui_position_offset_right = Vector2(200, -400)
 race_description_ui_position_offset_left = Vector2(-2500, -400)
+popup_ui = NodePath("PopupContainer")
+popup_label = NodePath("PopupContainer/MarginContainer/PopupLabel")
 trait_label = NodePath("RaceDescContainer/VBoxContainer/VBoxContainer/Traits")
 hated_trait_label = NodePath("RaceDescContainer/VBoxContainer/VBoxContainer2/HatedTraits")
+connected_islands_score = NodePath("ScoreContainer/ConnectedIslandsContainer/RichTextLabel")
+golden_bridges_score = NodePath("ScoreContainer/GoldenBridgesContainer/RichTextLabel")
 
 [node name="PopupContainer" type="PanelContainer" parent="." unique_id=1437084460]
 layout_mode = 1
@@ -174,3 +178,44 @@ mouse_filter = 2
 custom_minimum_size = Vector2(768, 1152)
 layout_mode = 2
 mouse_filter = 2
+
+[node name="ScoreContainer" type="HBoxContainer" parent="." unique_id=270732576]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -700.0
+offset_bottom = 135.0
+grow_horizontal = 0
+
+[node name="ConnectedIslandsContainer" type="HBoxContainer" parent="ScoreContainer" unique_id=1627350609]
+custom_minimum_size = Vector2(350, 135)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="ScoreContainer/ConnectedIslandsContainer" unique_id=1788033824]
+layout_mode = 2
+texture = ExtResource("3_urowa")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScoreContainer/ConnectedIslandsContainer" unique_id=386213466]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 64
+text = ": x/27"
+vertical_alignment = 1
+
+[node name="GoldenBridgesContainer" type="HBoxContainer" parent="ScoreContainer" unique_id=1898395856]
+custom_minimum_size = Vector2(350, 135)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="ScoreContainer/GoldenBridgesContainer" unique_id=1447665088]
+layout_mode = 2
+texture = ExtResource("4_ls17r")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScoreContainer/GoldenBridgesContainer" unique_id=1716446448]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 64
+text = ": y/14"
+vertical_alignment = 1

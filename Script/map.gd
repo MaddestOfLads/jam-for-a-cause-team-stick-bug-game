@@ -12,6 +12,9 @@ const _VICTORY_BUTTON_TEXT : String = "Cool!"
 @export var ui: Ui = null
 @export var island_and_bridge_root : Node = null
 
+var connected_bridges: int = 0
+var golden_bridges: int = 0
+
 var _drawn_bridge : Bridge = null # Bridge that is currently being drawn; null if no bridge is being drawn.
 
 var _mouse_query: PhysicsPointQueryParameters2D = PhysicsPointQueryParameters2D.new()
@@ -20,7 +23,6 @@ var _hovered_entity: Node = null
 var _prev_hovered_entity : Node = null
 var _drag_start_entity: Node = null
 var _drag_end_entity: Node = null
-var _is_dragging: bool = false
 
 var _is_popup_present : bool = false
 
@@ -109,6 +111,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func start_drawing_bridge(start_island : Island) -> void:
 	_drawn_bridge = _BRIDGE.instantiate()
 	_drawn_bridge.start_bridge_preview(start_island)
+	_drawn_bridge.bridge_built.connect(_on_bridge_built)
+	_drawn_bridge.bridge_burnt.connect(_on_bridge_burnt)
 	island_and_bridge_root.add_child(_drawn_bridge)
 	ui.set_prev(start_island)
 
@@ -116,24 +120,27 @@ func stop_drawing_bridge() -> void:
 	if (_hovered_entity == null or not _hovered_entity is Island) and _drawn_bridge != null:
 		print("Bridge failed!")
 		_drawn_bridge.queue_free()
+		
 	elif (_hovered_entity is Island and _hovered_entity == _drawn_bridge.island_1):
 		print("Can't bridge an island to itself!")
 		_drawn_bridge.queue_free()
 		ui.show_popup("Can't bridge an island to itself!")
 		pass
+		
 	elif (_hovered_entity is Island and _hovered_entity.is_other_island_already_connected(_drawn_bridge.island_1)):
 		print("Island already connected!")
 		ui.show_popup("Island already connected!")
 		_drawn_bridge.queue_free()
+		
 	else:
-
 		if(does_bridge_cross_rocks(_drawn_bridge)):
 			ui.show_popup("Can't bridge through rocks!")
 			return
 
 		var attempt_result = _drawn_bridge.try_build_bridge(_hovered_entity)
-		if(attempt_result.popup_dialogue != ""):
+		if (attempt_result.popup_dialogue != ""):
 			ui.show_popup(attempt_result.popup_dialogue)
+
 		print("%s: %s" % [attempt_result.successful, attempt_result.popup_dialogue])
 
 		_drawn_bridge = null
@@ -161,3 +168,19 @@ func does_bridge_cross_rocks(bridge : Bridge) -> bool:
 			if (children[i].does_line_cross_rocks(bridge.line.points[0], bridge.line.points[1])):
 				return true
 	return false
+
+func _on_bridge_built(is_golden: bool) -> void:
+	if is_golden:
+		golden_bridges += 1
+		ui.update_golden_bridges(golden_bridges)
+	else:
+		connected_bridges += 1
+		ui.update_connected_bridges(connected_bridges)
+
+func _on_bridge_burnt(is_golden: bool) -> void:
+	if is_golden:
+		golden_bridges -= 1
+		ui.update_golden_bridges(golden_bridges)
+	else:
+		connected_bridges -= 1
+		ui.update_connected_bridges(connected_bridges)

@@ -3,6 +3,7 @@ class_name Bridge extends Area2D
 
 var island_1: Island = null
 var island_2: Island = null
+var is_golden: bool = false
 
 var _default_modulate : Color = Color(1.0, 1.0, 1.0, 1.0)
 var _preview_modulate : Color = Color(1.0, 1.0, 0.0, 1.0)
@@ -17,6 +18,9 @@ const COLLIDER_PADDING: int = 6
 
 signal bridge_hovered(bridge)
 signal bridge_unhovered(bridge)
+
+signal bridge_built(golden)
+signal bridge_burnt(golden)
 
 
 func _init() -> void:
@@ -49,9 +53,13 @@ func try_build_bridge(end_island: Island) -> RaceDb.BridgeResult:
 	var attempt_result = RaceDb.get_bridge_result(island_1.inhabiting_race, island_2.inhabiting_race)
 	if attempt_result.successful:
 		build_bridge()
-		set_bridge_texture(attempt_result.needed)
+		is_golden = attempt_result.needed
+		
+		set_bridge_texture(is_golden)
+		bridge_built.emit(is_golden)
+
 	else:
-		burn_bridge()
+		queue_free()
 
 	return attempt_result
 
@@ -78,6 +86,8 @@ func burn_bridge() -> void:
 		island_1.remove_bridge(self)
 	if (island_2 != null):
 		island_2.remove_bridge(self)
+
+	bridge_burnt.emit(is_golden)
 	queue_free()
 
 func set_ends(start : Vector2, end : Vector2):
@@ -95,7 +105,7 @@ func set_ends_to_islands():
 func resize_collider() -> void:
 	line_collider.position = (line.points[0] + line.points[1]) / 2
 	line_collider.rotation = line.points[0].direction_to(line.points[1]).angle()
-	
+
 	var length = line.points[0].distance_to(line.points[1])
 	var rect = RectangleShape2D.new()
 	rect.size = Vector2(length, line.width + COLLIDER_PADDING)

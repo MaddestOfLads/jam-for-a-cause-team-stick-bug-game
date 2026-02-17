@@ -30,6 +30,7 @@ limit_bottom = 1400
 position_smoothing_enabled = true
 position_smoothing_speed = 100.0
 script = ExtResource("3_54rcs")
+_min_zoom = 0.4
 
 [node name="IslandAndBridgeRoot" type="Node" parent="." unique_id=22276009]
 
