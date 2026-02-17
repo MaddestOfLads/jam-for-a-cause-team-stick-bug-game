@@ -65,7 +65,7 @@ func update_desc_ui_transforms():
 	if _curr_island:
 		race_description_ui.scale = _curr_island.get_global_transform_with_canvas().get_scale() * race_description_ui_scale_multiplier
 		var pos_offset = race_description_ui_position_offset_down
-		var screen_island_pos = (_curr_island.get_global_transform_with_canvas().get_origin() - get_viewport_rect().size/2)/ get_viewport_rect().size
+		var screen_island_pos = (_curr_island.get_global_transform_with_canvas().get_origin() - get_viewport_rect().size/2) * Vector2(1, 3)
 		print(screen_island_pos)
 		if(screen_island_pos.y > screen_island_pos.x):
 			if(screen_island_pos.y > -screen_island_pos.x):
@@ -109,4 +109,4 @@ func update_connected_bridges(new_score: int) -> void:
 	connected_islands_score.text = ": %s/%s" % [new_score, MAX_CONNECTED_ISLANDS]
 	
 func update_golden_bridges(new_score: int) -> void:
-	golden_bridges_score.text = ": %s/%s" % [new_score, MAX_GOLDEN_BRIDGES]
+	golden_bridges_score.text = ": %s" % [new_score]

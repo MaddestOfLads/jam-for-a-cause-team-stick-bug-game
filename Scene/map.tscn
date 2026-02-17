@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxeoc8yaurxe4"]
 
 [ext_resource type="Script" uid="uid://en4jx6lwjent" path="res://Script/map.gd" id="1_5mejs"]
-[ext_resource type="AudioStream" uid="uid://f44nd1r7dlpl" path="res://Resource/Audio/Gameplay final.mp3" id="2_31wal"]
+[ext_resource type="AudioStream" uid="uid://btn0t5lnktdml" path="res://Resource/Audio/Main menu music final.mp3" id="2_31wal"]
 [ext_resource type="Texture2D" uid="uid://b2y5rubiw05rv" path="res://Resource/Sprite/searocks.png" id="3_31wal"]
 [ext_resource type="Script" uid="uid://wiwu6muy3k5y" path="res://Script/camera.gd" id="3_54rcs"]
 [ext_resource type="PackedScene" uid="uid://on1ho4ye3jqs" path="res://Scene/island.tscn" id="4_31wal"]

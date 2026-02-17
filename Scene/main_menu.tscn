@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://sjs4y74cy23m" path="res://Resource/UI/button on.png" id="6_oqads"]
 [ext_resource type="FontFile" uid="uid://d12i3uiuy3xio" path="res://Resource/Fonts/Chonky Cat.ttf" id="7_oqads"]
 [ext_resource type="BitMap" uid="uid://cx85iy4vjjovw" path="res://Resource/UI/button bitmask.png" id="7_s2f1d"]
+[ext_resource type="AudioStream" uid="uid://dw21r71bp1g7v" path="res://Resource/Audio/Gameplay final fr fr.mp3" id="10_yok32"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kqsxi"]
 shader = ExtResource("2_hii65")
@@ -118,6 +119,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=936813613]
+stream = ExtResource("10_yok32")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
