@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f3qbdr8hk2kg"
-path="res://.godot/imported/dialogue_trimmed_scaled.png-abf9a554c4848e6b9063990017f97bd4.ctex"
+uid="uid://bqydl1cxl75ju"
+path="res://.godot/imported/dialogue_left_palm.png-1496160de15bcc84694f0252e1f0011c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resource/Sprite/dialogue_trimmed_scaled.png"
-dest_files=["res://.godot/imported/dialogue_trimmed_scaled.png-abf9a554c4848e6b9063990017f97bd4.ctex"]
+source_file="res://Resource/UI/dialogue_left_palm.png"
+dest_files=["res://.godot/imported/dialogue_left_palm.png-1496160de15bcc84694f0252e1f0011c.ctex"]
 
 [params]
 

@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://c3o421dqbs0x6"]
 
 [ext_resource type="Script" uid="uid://udpudv48hnvl" path="res://Script/main_menu.gd" id="1_ftydy"]
+[ext_resource type="Shader" uid="uid://du3h7h21qly80" path="res://Resource/Theme/scroll.gdshader" id="2_hii65"]
+[ext_resource type="Texture2D" uid="uid://6it2iqimes8c" path="res://Resource/UI/main_menu_palm_tile.png" id="3_hii65"]
+[ext_resource type="Texture2D" uid="uid://bpxmearcep6jf" path="res://Resource/UI/Greetings Stranger!.png" id="4_kqsxi"]
+[ext_resource type="Texture2D" uid="uid://cei2xhr020wwt" path="res://Resource/UI/button off.png" id="5_hptlk"]
+[ext_resource type="Texture2D" uid="uid://sjs4y74cy23m" path="res://Resource/UI/button on.png" id="6_oqads"]
+[ext_resource type="FontFile" uid="uid://d12i3uiuy3xio" path="res://Resource/Fonts/Chonky Cat.ttf" id="7_oqads"]
+[ext_resource type="BitMap" uid="uid://cx85iy4vjjovw" path="res://Resource/UI/button bitmask.png" id="7_s2f1d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kqsxi"]
+shader = ExtResource("2_hii65")
+shader_parameter/speed = 0.1
+shader_parameter/alpha = 0.4
+shader_parameter/shrink_factor = 0.8
 
 [node name="MainMenu" type="Control" unique_id=900499512]
 layout_mode = 3
@@ -11,47 +24,95 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ftydy")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=664904003]
+[node name="Background" type="ColorRect" parent="." unique_id=766569765]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -28.0
-offset_top = -41.0
-offset_right = 28.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
+color = Color(0.9764706, 0.9137255, 0.6313726, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1990522375]
+[node name="ScrollingTiles" type="TextureRect" parent="." unique_id=1580993836]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_kqsxi")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_hii65")
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2069263169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1266274339]
 layout_mode = 2
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_top = 125
 
-[node name="StartButton" type="Button" parent="VBoxContainer/MarginContainer" unique_id=1862113619]
+[node name="Logo" type="TextureRect" parent="VBoxContainer/MarginContainer" unique_id=2123289282]
 layout_mode = 2
-text = "Start"
+texture = ExtResource("4_kqsxi")
+stretch_mode = 3
 
-[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer" unique_id=608475808]
-visible = false
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1747768467]
 layout_mode = 2
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 20
+theme_override_constants/separation = 40
+alignment = 1
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer/MarginContainer2" unique_id=1029011938]
+[node name="StartButton" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=2121203291]
 layout_mode = 2
-text = "Options"
+texture_normal = ExtResource("5_hptlk")
+texture_hover = ExtResource("6_oqads")
+texture_click_mask = ExtResource("7_s2f1d")
+stretch_mode = 0
 
-[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer" unique_id=2004138625]
-visible = false
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/StartButton" unique_id=388039622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 0.9882353, 0.80784315, 1)
+theme_override_fonts/normal_font = ExtResource("7_oqads")
+theme_override_font_sizes/normal_font_size = 28
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer/HBoxContainer" unique_id=976279384]
 layout_mode = 2
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_bottom = 20
+texture_normal = ExtResource("5_hptlk")
+texture_hover = ExtResource("6_oqads")
+texture_click_mask = ExtResource("7_s2f1d")
+stretch_mode = 0
 
-[node name="QuitButton" type="Button" parent="VBoxContainer/MarginContainer3" unique_id=792815256]
-layout_mode = 2
-text = "Quit"
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/QuitButton" unique_id=297447126]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/default_color = Color(1, 0.9882353, 0.80784315, 1)
+theme_override_fonts/normal_font = ExtResource("7_oqads")
+theme_override_font_sizes/normal_font_size = 28
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer2/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/MarginContainer3/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

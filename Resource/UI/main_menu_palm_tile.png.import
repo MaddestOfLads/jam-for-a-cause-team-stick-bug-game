@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4a1sy40b1bl3"
-path="res://.godot/imported/Bridge.png-968379eb03661f6058f8f95bc7112783.ctex"
+uid="uid://6it2iqimes8c"
+path="res://.godot/imported/main_menu_palm_tile.png-41f9de9094686efe080a98683a5e8fce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resource/Sprite/Bridge.png"
-dest_files=["res://.godot/imported/Bridge.png-968379eb03661f6058f8f95bc7112783.ctex"]
+source_file="res://Resource/UI/main_menu_palm_tile.png"
+dest_files=["res://.godot/imported/main_menu_palm_tile.png-41f9de9094686efe080a98683a5e8fce.ctex"]
 
 [params]
 

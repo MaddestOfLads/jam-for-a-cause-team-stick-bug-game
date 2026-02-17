@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cda1173qadsi0"
-path="res://.godot/imported/description_bubbles.png-439721a98c453854e9f7081a82ada8d9.ctex"
+uid="uid://bnprr2gi6rkrn"
+path="res://.godot/imported/Golden_bridge.png-e288b1955397c09381d1acbef7959855.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resource/Sprite/description_bubbles.png"
-dest_files=["res://.godot/imported/description_bubbles.png-439721a98c453854e9f7081a82ada8d9.ctex"]
+source_file="res://Resource/Sprite/Bridges/Golden_bridge.png"
+dest_files=["res://.godot/imported/Golden_bridge.png-e288b1955397c09381d1acbef7959855.ctex"]
 
 [params]
 

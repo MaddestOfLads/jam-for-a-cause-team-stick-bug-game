@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b80x86a3sx0ge"
-path="res://.godot/imported/dialogue.png-6c989143af77b1c7da22e91f43e55fd8.ctex"
+uid="uid://bpxmearcep6jf"
+path="res://.godot/imported/Greetings Stranger!.png-79bf7a0974ff91259825e26497746b5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resource/Sprite/dialogue.png"
-dest_files=["res://.godot/imported/dialogue.png-6c989143af77b1c7da22e91f43e55fd8.ctex"]
+source_file="res://Resource/UI/Greetings Stranger!.png"
+dest_files=["res://.godot/imported/Greetings Stranger!.png-79bf7a0974ff91259825e26497746b5d.ctex"]
 
 [params]
 

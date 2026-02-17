@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqydl1cxl75ju"
-path="res://.godot/imported/dialogue_left_palm.png-a32ca69340f31ea287d61e1c6c86aaf5.ctex"
+uid="uid://peqfn6kra6im"
+path="res://.godot/imported/description_bubbles_trimmed.png-07c229a39800e59954f4553742b94d16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resource/Sprite/dialogue_left_palm.png"
-dest_files=["res://.godot/imported/dialogue_left_palm.png-a32ca69340f31ea287d61e1c6c86aaf5.ctex"]
+source_file="res://Resource/UI/description_bubbles_trimmed.png"
+dest_files=["res://.godot/imported/description_bubbles_trimmed.png-07c229a39800e59954f4553742b94d16.ctex"]
 
 [params]
 

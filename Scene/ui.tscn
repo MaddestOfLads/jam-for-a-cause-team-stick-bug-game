@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjqkjnfe00wvd"]
 
 [ext_resource type="Script" uid="uid://b4tosyx6ou84r" path="res://Script/ui.gd" id="1_3i1b0"]
-[ext_resource type="Texture2D" uid="uid://peqfn6kra6im" path="res://Resource/Sprite/description_bubbles_trimmed.png" id="2_bpjw8"]
+[ext_resource type="Texture2D" uid="uid://peqfn6kra6im" path="res://Resource/UI/description_bubbles_trimmed.png" id="2_bpjw8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bpjw8"]
 font_size = 24

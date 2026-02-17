@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnprr2gi6rkrn"
-path="res://.godot/imported/Golden_bridge.png-59210f994ac527268fe25d057ee4add0.ctex"
+uid="uid://cbvuhwtvp8d30"
+path="res://.godot/imported/Bridges icon.png-63c7895694a1ccf29204ded71addbf51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Resource/Sprite/Golden_bridge.png"
-dest_files=["res://.godot/imported/Golden_bridge.png-59210f994ac527268fe25d057ee4add0.ctex"]
+source_file="res://Resource/UI/Bridges icon.png"
+dest_files=["res://.godot/imported/Bridges icon.png-63c7895694a1ccf29204ded71addbf51.ctex"]
 
 [params]
 
