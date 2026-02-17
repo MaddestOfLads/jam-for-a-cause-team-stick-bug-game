@@ -4,8 +4,11 @@ class_name Map extends Node2D
 const _BRIDGE = preload("uid://bbfrx0mxarvxs")
 
 const _POPUP_PROMPT : PackedScene = preload("uid://dawwj2o4877c0")
+const _TUTORIAL_CONTENTS : PackedScene = preload("uid://b13cd1le2qq8e")
+const _TUTORIAL_BUTTON_TEXT : String = "Let's go!"
 const _VICTORY_CONTENTS : PackedScene = preload("uid://6hoftk26cgvr")
 const _VICTORY_BUTTON_TEXT : String = "Cool!"
+
 
 
 @export var camera : Camera2D = null
@@ -26,8 +29,10 @@ var _drag_end_entity: Node = null
 
 var _is_popup_present : bool = false
 
-#func _ready() -> void:
-	#popup(_VICTORY_CONTENTS, _VICTORY_BUTTON_TEXT) << HOW TO USE POPUPS
+var _victory_popup_has_already_been_shown : bool = false
+
+func _ready() -> void:
+	popup(_TUTORIAL_CONTENTS, _TUTORIAL_BUTTON_TEXT)
 
 func _on_popup_closed() -> void:
 	_is_popup_present = false
@@ -176,7 +181,11 @@ func _on_bridge_built(is_golden: bool) -> void:
 		ui.update_golden_bridges(golden_bridges)
 	else:
 		connected_bridges += 1
-		ui.update_connected_bridges(get_max_cluster_size())
+		var cluster_size = get_max_cluster_size()
+		ui.update_connected_bridges(cluster_size)
+		if cluster_size >= 27 and not _victory_popup_has_already_been_shown:
+			_victory_popup_has_already_been_shown = true
+			popup(_VICTORY_CONTENTS, _VICTORY_BUTTON_TEXT)
 
 func _on_bridge_burnt(is_golden: bool) -> void:
 	if is_golden:
