@@ -182,7 +182,7 @@ script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
 [node name="Rocks10" type="Line2D" parent="IslandAndBridgeRoot" unique_id=1182306677]
-points = PackedVector2Array(845, -194, 672, -6)
+points = PackedVector2Array(836, -156, 675, 26)
 script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
@@ -214,11 +214,6 @@ metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
 [node name="Rocks16" type="Line2D" parent="IslandAndBridgeRoot" unique_id=1088203569]
 points = PackedVector2Array(1429, -703, 1330, -591)
-script = ExtResource("6_54rcs")
-metadata/_custom_type_script = "uid://dxjfj7dev7coy"
-
-[node name="Rocks17" type="Line2D" parent="IslandAndBridgeRoot" unique_id=1126962627]
-points = PackedVector2Array(692, 587, 591, 682)
 script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 

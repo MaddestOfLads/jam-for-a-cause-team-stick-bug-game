@@ -115,6 +115,7 @@ func start_drawing_bridge(start_island : Island) -> void:
 	_drawn_bridge.bridge_burnt.connect(_on_bridge_burnt)
 	island_and_bridge_root.add_child(_drawn_bridge)
 	ui.set_prev(start_island)
+	ui.popup_ui.hide()
 
 func stop_drawing_bridge() -> void:
 	if (_hovered_entity == null or not _hovered_entity is Island) and _drawn_bridge != null:

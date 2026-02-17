@@ -34,6 +34,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -9.0
+offset_right = -13.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -43,7 +47,7 @@ race_description_label = NodePath("RaceDescContainer/RaceDescLabel")
 race_image_texture_rect = NodePath("RaceDescContainer/TextureRectContainer/RaceImageTextureRect")
 race_description_ui = NodePath("RaceDescContainer")
 race_description_ui_scale_multiplier = 0.35
-race_description_ui_position_offset_down = Vector2(-900, 200)
+race_description_ui_position_offset_down = Vector2(-900, 500)
 race_description_ui_position_offset_up = Vector2(-900, -1100)
 race_description_ui_position_offset_right = Vector2(200, -400)
 race_description_ui_position_offset_left = Vector2(-2500, -400)
@@ -70,6 +74,7 @@ mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PopupContainer" unique_id=555889398]
 layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="PopupLabel" type="Label" parent="PopupContainer/MarginContainer" unique_id=924038895]

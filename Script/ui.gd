@@ -65,13 +65,15 @@ func update_desc_ui_transforms():
 	if _curr_island:
 		race_description_ui.scale = _curr_island.get_global_transform_with_canvas().get_scale() * race_description_ui_scale_multiplier
 		var pos_offset = race_description_ui_position_offset_down
-		if(_curr_island.position.y > _curr_island.position.x):
-			if(_curr_island.position.y > -_curr_island.position.x):
+		var screen_island_pos = (_curr_island.get_global_transform_with_canvas().get_origin() - get_viewport_rect().size/2)/ get_viewport_rect().size
+		print(screen_island_pos)
+		if(screen_island_pos.y > screen_island_pos.x):
+			if(screen_island_pos.y > -screen_island_pos.x):
 				pos_offset = race_description_ui_position_offset_up
 			else:
 				pos_offset = race_description_ui_position_offset_right
 		else:
-			if(_curr_island.position.y > -_curr_island.position.x):
+			if(screen_island_pos.y > -screen_island_pos.x):
 				pos_offset = race_description_ui_position_offset_left
 			else:
 				pos_offset = race_description_ui_position_offset_down

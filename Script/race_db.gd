@@ -99,9 +99,38 @@ const RacePortraitDict := {
 	Races.Lovidovis: null,
 	Races.Pollies: preload("uid://cmun5sjj0trgj"),
 	Races.Splats: null,
-	Races.Bloobs: preload("uid://lhc3h8o7afbl"),
+	Races.Bloobs: preload("uid://lhc3h8o7afbl")
 }
 
+const IslandSpriteDict := {
+	Races.Obskurs: preload("uid://bkxca4f7agaiu"),
+	Races.Sparkies: preload("uid://bc5nkjkn3k51v"),
+	Races.Grumples: preload("uid://cj6eeikuimil8"),
+	Races.Tympanies: preload("uid://bpcvnf3an3auh"),
+	Races.Bookworms: preload("uid://ds8dr05qahplu"),
+	Races.Sniffies: preload("uid://dys6oix7kiu8p"),
+	Races.Partylooms: preload("uid://cyqb7uphp3cvl"),
+	Races.Zappyfunkies: preload("uid://el7txdcpw6t0"),
+	Races.Ews: preload("uid://bdaj6ugnkftc7"),
+	Races.Wooshywoosh: preload("uid://cwty6snde2qck"),
+	Races.Perfeaus: preload("uid://dcuc5c23b6v6s"),
+	Races.Rigorins: preload("uid://1rgtpx6u7x3d"),
+	Races.Icyglops: preload("uid://dedeax44w0k7"),
+	Races.Ferragons: preload("uid://cfsuh5ajtyk3n"),
+	Races.Magmen: preload("uid://mn8qap4u4g5s"),
+	Races.Swoopers: preload("uid://bvx7a5bu6bkm"),
+	Races.Goops: preload("uid://fx5aic4glyvj"),
+	Races.Gloops: preload("uid://cuem7sce6lf64"),
+	Races.Lazies: preload("uid://bnf5k2aliv5b1"),
+	Races.Joggernauts: preload("uid://dd2yorf33idg"),
+	Races.Masozhops: preload("uid://q5ajphlg6qy1"),
+	Races.Frewfrews: preload("uid://bf5dnou6wcnbi"),
+	Races.Paperies: preload("uid://cr6e1fbsu1fxr"),
+	Races.Lovidovis: preload("uid://tavscoat0a0g"),
+	Races.Pollies: preload("uid://blwlsxmdx2vgp"),
+	Races.Splats: preload("uid://c6i4fmfa3bba0"),
+	Races.Bloobs: preload("uid://xinhoyh5puy")
+}
 
 class BridgeResult:
 	var successful : bool

@@ -7,10 +7,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk6ow"]
 size = Vector2(128, 128)
 
-[node name="Island" type="Area2D" unique_id=2017080390 node_paths=PackedStringArray("radius_circle")]
+[node name="Island" type="Area2D" unique_id=2017080390 node_paths=PackedStringArray("radius_circle", "sprite")]
 z_index = 1
 script = ExtResource("1_bm5u3")
 radius_circle = NodePath("RadiusCircle")
+sprite = NodePath("Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=19922822]
 shape = SubResource("RectangleShape2D_sk6ow")

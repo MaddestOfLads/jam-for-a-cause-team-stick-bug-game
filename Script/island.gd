@@ -4,6 +4,8 @@ class_name Island extends Area2D
 @export var inhabiting_race: RaceDB.Races
 @export var radius_circle : RadiusCircle = null
 @export var base_radius : int = 3
+@export var sprite : Sprite2D = null
+
 
 const RADIUS_MULTIPLIER : int = 200
 
@@ -24,6 +26,7 @@ func _ready() -> void:
 	mouse_entered.connect(on_mouse_entered)
 	mouse_exited.connect(on_mouse_exited)
 	modulate = _default_modulate
+	sprite.texture = RaceDb.IslandSpriteDict[inhabiting_race]
 
 func on_mouse_entered():
 	modulate = _hovered_modulate
