@@ -98,7 +98,7 @@ const RacePortraitDict := {
 	Races.Paperies: preload("uid://bnl7jlfqcpr0s"),
 	Races.Lovidovis: preload("uid://cubvhh5b4kne3"),
 	Races.Pollies: preload("uid://cmun5sjj0trgj"),
-	Races.Splats: preload("uid://015d6c0k4qsq"),
+	Races.Splats: preload("uid://cvd22icb4jd28"),
 	Races.Bloobs: preload("uid://lhc3h8o7afbl")
 }
 

@@ -9,9 +9,12 @@ const _TUTORIAL_BUTTON_TEXT : String = "Let's go!"
 const _VICTORY_CONTENTS : PackedScene = preload("uid://6hoftk26cgvr")
 const _VICTORY_BUTTON_TEXT : String = "Cool!"
 
-const _CLICK_SFX : AudioStream = null
-const _BRIDGE_BUILT_SFX : AudioStream = null
-const _GOLD_BRIDGE_BUILT_SFX : AudioStream = null
+const _CLICK_SFX : AudioStream = preload("uid://bqewjgb8qqh4f")
+const _BRIDGE_BUILT_SFX : AudioStream = preload("uid://caf2tcyynkqxa")
+const _GOLD_BRIDGE_BUILT_SFX : AudioStream = preload("uid://de8a1vmb4leuj")
+const _BRIDGE_ERROR_SFX : AudioStream = preload("uid://bff8o2lytlwc2")
+const _BRIDGE_FAILED2_SFX : AudioStream = preload("uid://htbjvglimsjk")
+const _VICTORY_SFX : AudioStream = preload("uid://kvnxiesyyqnk")
 
 @export var camera : Camera2D = null
 @export var ui: Ui = null
@@ -91,6 +94,7 @@ func _unhandled_input(event: InputEvent) -> void:
 					ui.set_details(_hovered_entity)
 
 			elif _hovered_entity is Island:
+				play_sfx(_CLICK_SFX)
 				start_drawing_bridge(_hovered_entity)
 				_drag_start_entity = _hovered_entity
 				ui.set_details(_hovered_entity)
@@ -133,17 +137,20 @@ func stop_drawing_bridge() -> void:
 		
 	elif (_hovered_entity is Island and _hovered_entity == _drawn_bridge.island_1):
 		print("Can't bridge an island to itself!")
+		play_sfx(_BRIDGE_ERROR_SFX)
 		_drawn_bridge.queue_free()
 		ui.show_popup("Can't bridge an island to itself!")
 		pass
 		
 	elif (_hovered_entity is Island and _hovered_entity.is_other_island_already_connected(_drawn_bridge.island_1)):
 		print("Island already connected!")
+		play_sfx(_BRIDGE_ERROR_SFX)
 		ui.show_popup("Island already connected!")
 		_drawn_bridge.queue_free()
 		
 	else:
 		if(does_bridge_cross_rocks(_drawn_bridge)):
+			play_sfx(_BRIDGE_ERROR_SFX)
 			ui.show_popup("Can't bridge through rocks!")
 			return
 
@@ -153,6 +160,13 @@ func stop_drawing_bridge() -> void:
 
 		print("%s: %s" % [attempt_result.successful, attempt_result.popup_dialogue])
 
+		if(attempt_result.successful):
+			if(attempt_result.needed):
+				play_sfx(_BRIDGE_BUILT_SFX)
+			else:
+				play_sfx(_GOLD_BRIDGE_BUILT_SFX)
+		else:
+			play_sfx(_BRIDGE_FAILED2_SFX)
 		_drawn_bridge = null
 		_drag_start_entity = null
 		_drag_end_entity = null
@@ -190,6 +204,7 @@ func _on_bridge_built(is_golden: bool) -> void:
 		if cluster_size >= 27 and not _victory_popup_has_already_been_shown:
 			_victory_popup_has_already_been_shown = true
 			popup(_VICTORY_CONTENTS, _VICTORY_BUTTON_TEXT)
+			play_sfx(_VICTORY_SFX)
 
 func _on_bridge_burnt(is_golden: bool) -> void:
 	if is_golden:
@@ -207,3 +222,8 @@ func get_max_cluster_size() -> int:
 			var arr2 : Array[Island] = []
 			biggest_so_far = max(biggest_so_far, child.get_connected_islands(arr1, arr2).size())
 	return biggest_so_far
+
+func play_sfx(sfx : AudioStream):
+	if(sfx):
+		sfx_player.stream = sfx
+		sfx_player.play()

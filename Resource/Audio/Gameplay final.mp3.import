@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://f44nd1r7dlpl"
+path="res://.godot/imported/Gameplay final.mp3-edf2f74d25c8ce917451477e7e5e60b5.mp3str"
+
+[deps]
+
+source_file="res://Resource/Audio/Gameplay final.mp3"
+dest_files=["res://.godot/imported/Gameplay final.mp3-edf2f74d25c8ce917451477e7e5e60b5.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
