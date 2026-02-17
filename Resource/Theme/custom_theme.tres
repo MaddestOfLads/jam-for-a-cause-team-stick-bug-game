@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://ywn2pwldyj1q"]
 
+[ext_resource type="FontFile" uid="uid://d12i3uiuy3xio" path="res://Resource/Fonts/Chonky Cat.ttf" id="1_urrfc"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l50pa"]
 bg_color = Color(0.98039216, 0.91764706, 0.64705884, 1)
 border_width_left = 5
@@ -13,6 +15,7 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [resource]
+Label/fonts/font = ExtResource("1_urrfc")
 MarginContainer/constants/margin_bottom = 5
 MarginContainer/constants/margin_left = 5
 MarginContainer/constants/margin_right = 5

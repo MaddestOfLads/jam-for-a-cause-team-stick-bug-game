@@ -61,3 +61,22 @@ func get_effective_radius() -> int:
 func is_other_island_within_range(other : Island) -> bool:
 	var dist = position.distance_to(other.position)
 	return (dist <= get_effective_radius() and dist <= other.get_effective_radius())
+
+func get_neighbours() -> Array[Island]:
+	var islands : Array[Island] = []
+	for bridge in connected_bridges:
+		if self == bridge.island_1 and bridge.island_2 != null:
+			islands.append(bridge.island_2)
+		elif self == bridge.island_2 and bridge.island_1 != null:
+			islands.append(bridge.island_1)
+	return islands
+
+func get_connected_islands(already_connected : Array[Island], already_visited : Array[Island]) -> Array[Island]:
+	if self not in already_visited:
+		already_visited.append(self)
+	if self not in already_connected:
+		already_connected.append(self)
+		for neighbour in get_neighbours():
+			if neighbour not in already_visited:
+				neighbour.get_connected_islands(already_connected, already_visited)
+	return already_connected

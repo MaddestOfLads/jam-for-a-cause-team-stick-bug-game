@@ -147,7 +147,7 @@ script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 
 [node name="Rocks2" type="Line2D" parent="IslandAndBridgeRoot" unique_id=1685073149]
-points = PackedVector2Array(-590, 454, -131, 483)
+points = PackedVector2Array(-522, 462, -86, 486)
 script = ExtResource("6_54rcs")
 metadata/_custom_type_script = "uid://dxjfj7dev7coy"
 

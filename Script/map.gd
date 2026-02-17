@@ -176,7 +176,7 @@ func _on_bridge_built(is_golden: bool) -> void:
 		ui.update_golden_bridges(golden_bridges)
 	else:
 		connected_bridges += 1
-		ui.update_connected_bridges(connected_bridges)
+		ui.update_connected_bridges(get_max_cluster_size())
 
 func _on_bridge_burnt(is_golden: bool) -> void:
 	if is_golden:
@@ -184,4 +184,13 @@ func _on_bridge_burnt(is_golden: bool) -> void:
 		ui.update_golden_bridges(golden_bridges)
 	else:
 		connected_bridges -= 1
-		ui.update_connected_bridges(connected_bridges)
+		ui.update_connected_bridges(get_max_cluster_size())
+
+func get_max_cluster_size() -> int:
+	var biggest_so_far = 0
+	for child in island_and_bridge_root.get_children():
+		if child is Island:
+			var arr1 : Array[Island] = []
+			var arr2 : Array[Island] = []
+			biggest_so_far = max(biggest_so_far, child.get_connected_islands(arr1, arr2).size())
+	return biggest_so_far

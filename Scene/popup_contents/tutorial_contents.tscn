@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://b13cd1le2qq8e"]
+
+[ext_resource type="Texture2D" uid="uid://du2um47n54tyv" path="res://Resource/UI/Tutorial_Screenshot.png" id="1_5203n"]
+[ext_resource type="Texture2D" uid="uid://cbvuhwtvp8d30" path="res://Resource/UI/Bridges icon.png" id="2_36mif"]
+[ext_resource type="Texture2D" uid="uid://bw4owecxa3s61" path="res://Resource/UI/Gold bridge icon.png" id="3_km71x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_36mif"]
+font_size = 48
+font_color = Color(0.28512543, 0.111309014, 2.4065375e-08, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5203n"]
+font_size = 24
+font_color = Color(0.28512543, 0.111309014, 2.4065375e-08, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g44w3"]
+font_size = 24
+font_color = Color(0.28512543, 0.111309014, 2.4065375e-08, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_km71x"]
+font_size = 24
+font_color = Color(0.28512543, 0.111309014, 2.4065375e-08, 1)
+
+[node name="TutorialContents" type="VBoxContainer" unique_id=945040717]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=82958660]
+layout_mode = 2
+text = "How To Play"
+label_settings = SubResource("LabelSettings_36mif")
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="." unique_id=550674213]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="." unique_id=464785984]
+layout_mode = 2
+text = "Each island on this archipelago is home to an alien species!
+All of them are tired of meeting the same people every day.
+So, they've been trying to meet new people, branching out to other islands.
+However, not all pairs make good neighbors - and that's where you come in!"
+label_settings = SubResource("LabelSettings_5203n")
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="." unique_id=343644923]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="." unique_id=945766155]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer2" unique_id=1173048845]
+layout_mode = 2
+texture = ExtResource("2_36mif")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer2" unique_id=1233531867]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer2" unique_id=1591139743]
+layout_mode = 2
+text = "Click and drag to build a bridge from one island to another.
+Connect all islands into one cluster, and you'll win the game!"
+label_settings = SubResource("LabelSettings_g44w3")
+
+[node name="HSeparator3" type="HSeparator" parent="." unique_id=2098323892]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=928209157]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=2121209128]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+text = "Some islands' inhabitants have traits and pet peeves that will prevent them from bridging to others."
+label_settings = SubResource("LabelSettings_km71x")
+autowrap_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1013818444]
+layout_mode = 2
+texture = ExtResource("1_5203n")
+
+[node name="HSeparator4" type="HSeparator" parent="." unique_id=329832811]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="." unique_id=1720695113]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer3" unique_id=1162226276]
+layout_mode = 2
+texture = ExtResource("3_km71x")
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer3" unique_id=426611384]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer3" unique_id=528059290]
+custom_minimum_size = Vector2(768, 0)
+layout_mode = 2
+text = "Pairs of races that get along especially well will show unique flavor text, and the bridge connecting their islands will turn gold!
+Can you find all of them?"
+label_settings = SubResource("LabelSettings_km71x")
+autowrap_mode = 3

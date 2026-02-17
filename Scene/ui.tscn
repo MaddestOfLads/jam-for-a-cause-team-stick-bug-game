@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b4tosyx6ou84r" path="res://Script/ui.gd" id="1_3i1b0"]
 [ext_resource type="Texture2D" uid="uid://qg2jrsrwbcum" path="res://Resource/UI/description bubbles.png" id="2_urowa"]
+[ext_resource type="LabelSettings" uid="uid://88yjfig43y34" path="res://Resource/Fonts/label_settings_1.tres" id="3_ls17r"]
 [ext_resource type="Texture2D" uid="uid://cbvuhwtvp8d30" path="res://Resource/UI/Bridges icon.png" id="3_urowa"]
 [ext_resource type="Texture2D" uid="uid://bw4owecxa3s61" path="res://Resource/UI/Gold bridge icon.png" id="4_ls17r"]
 
@@ -12,10 +13,6 @@ font_color = Color(0.5137255, 0.39215687, 0.2784314, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_lfpiq"]
 font_size = 36
 font_color = Color(0.9137255, 0.8627451, 0.5686275, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_urowa"]
-font_size = 24
-font_color = Color(0.47058824, 0.2784314, 0.14901961, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ls17r"]
 font_size = 48
@@ -122,7 +119,7 @@ offset_right = 1662.857
 offset_bottom = 789.99994
 scale = Vector2(2, 2)
 text = "basdasdasd"
-label_settings = SubResource("LabelSettings_urowa")
+label_settings = ExtResource("3_ls17r")
 autowrap_mode = 3
 
 [node name="VBoxContainer" type="HBoxContainer" parent="RaceDescContainer" unique_id=529076931]
