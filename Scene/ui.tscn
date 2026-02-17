@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cjqkjnfe00wvd"]
 
 [ext_resource type="Script" uid="uid://b4tosyx6ou84r" path="res://Script/ui.gd" id="1_3i1b0"]
-[ext_resource type="Texture2D" uid="uid://peqfn6kra6im" path="res://Resource/UI/description_bubbles_trimmed.png" id="2_bpjw8"]
+[ext_resource type="Texture2D" uid="uid://qg2jrsrwbcum" path="res://Resource/UI/description bubbles.png" id="2_urowa"]
 [ext_resource type="Texture2D" uid="uid://cbvuhwtvp8d30" path="res://Resource/UI/Bridges icon.png" id="3_urowa"]
 [ext_resource type="Texture2D" uid="uid://bw4owecxa3s61" path="res://Resource/UI/Gold bridge icon.png" id="4_ls17r"]
 
@@ -10,7 +10,7 @@ font_size = 24
 font_color = Color(0.5137255, 0.39215687, 0.2784314, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lfpiq"]
-font_size = 20
+font_size = 36
 font_color = Color(0.9137255, 0.8627451, 0.5686275, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_urowa"]
@@ -99,16 +99,16 @@ offset_bottom = 1458.0
 grow_horizontal = 2
 scale = Vector2(0.35, 0.35)
 mouse_filter = 2
-texture = ExtResource("2_bpjw8")
+texture = ExtResource("2_urowa")
 
 [node name="RaceNameLabel" type="Label" parent="RaceDescContainer" unique_id=1042613564]
 layout_mode = 0
-offset_left = 37.14286
-offset_top = 91.42857
-offset_right = 192.85715
-offset_bottom = 144.28572
+offset_left = 40.0
+offset_top = 62.857147
+offset_right = 300.0
+offset_bottom = 117.14287
 scale = Vector2(2, 2)
-text = "(race name)"
+text = "Loremipsums"
 label_settings = SubResource("LabelSettings_lfpiq")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -127,10 +127,10 @@ autowrap_mode = 3
 
 [node name="VBoxContainer" type="HBoxContainer" parent="RaceDescContainer" unique_id=529076931]
 layout_mode = 0
-offset_left = 211.42857
-offset_top = 299.99997
-offset_right = 982.85706
-offset_bottom = 991.4286
+offset_left = 197.14285
+offset_top = 257.14288
+offset_right = 968.5713
+offset_bottom = 948.5715
 mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RaceDescContainer/VBoxContainer" unique_id=195171550]
