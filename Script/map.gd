@@ -3,6 +3,11 @@ class_name Map extends Node2D
 
 const _BRIDGE = preload("uid://bbfrx0mxarvxs")
 
+const _POPUP_PROMPT : PackedScene = preload("uid://dawwj2o4877c0")
+const _VICTORY_CONTENTS : PackedScene = preload("uid://6hoftk26cgvr")
+const _VICTORY_BUTTON_TEXT : String = "Cool!"
+
+
 @export var camera : Camera2D = null
 @export var ui: Ui = null
 @export var island_and_bridge_root : Node = null
@@ -17,14 +22,20 @@ var _drag_start_entity: Node = null
 var _drag_end_entity: Node = null
 var _is_dragging: bool = false
 
+var _is_popup_present : bool = false
 
 #func _ready() -> void:
-	## TODO: Move to island_and_bridge_root.gd?
-	#for node in island_and_bridge_root.get_children():
-		#if node is Island:
-			#node.island_hovered.connect(ui.set_details)
-			#node.island_no_longer_hovered.connect(ui.clear_details)
+	#popup(_VICTORY_CONTENTS, _VICTORY_BUTTON_TEXT) << HOW TO USE POPUPS
 
+func _on_popup_closed() -> void:
+	_is_popup_present = false
+
+func popup(contents : PackedScene, button_text : String):
+	var popup_prompt : ClosablePopupPrompt = _POPUP_PROMPT.instantiate()
+	add_child(popup_prompt)
+	_is_popup_present = true
+	popup_prompt.popup_closed.connect(_on_popup_closed)
+	popup_prompt.set_contents(contents, button_text)
 
 func _unhandled_input(event: InputEvent) -> void:
 	'''
@@ -41,7 +52,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		- If scroll up, zoom out
 		- If scroll down, zoom in
 	'''
-	
+	if(_is_popup_present):
+		return	
+
 	if event is InputEventMouseMotion:
 		_prev_hovered_entity = _hovered_entity
 		_hovered_entity = get_hovered_entity()
