@@ -116,7 +116,6 @@ class BridgeResult:
 
 var _island_data_variant: Variant = null
 var _tags_and_popups: Dictionary
-var _failure_messages: Dictionary
 
 
 func _ready() -> void:

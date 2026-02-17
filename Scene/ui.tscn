@@ -62,9 +62,11 @@ offset_top = -43.0
 offset_right = 266.0
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="PopupContainer" unique_id=555889398]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="PopupLabel" type="Label" parent="PopupContainer/MarginContainer" unique_id=924038895]
 custom_minimum_size = Vector2(1024, 0)
@@ -83,6 +85,7 @@ offset_right = 1256.0
 offset_bottom = 1458.0
 grow_horizontal = 2
 scale = Vector2(0.35, 0.35)
+mouse_filter = 2
 texture = ExtResource("2_bpjw8")
 
 [node name="RaceNameLabel" type="Label" parent="RaceDescContainer" unique_id=1042613564]
@@ -115,10 +118,12 @@ offset_left = 211.42857
 offset_top = 299.99997
 offset_right = 982.85706
 offset_bottom = 991.4286
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RaceDescContainer/VBoxContainer" unique_id=195171550]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="TraitsHeader" type="Label" parent="RaceDescContainer/VBoxContainer/VBoxContainer" unique_id=370742025]
 layout_mode = 2
@@ -132,11 +137,13 @@ label_settings = SubResource("LabelSettings_ls17r")
 
 [node name="VSeparator" type="VSeparator" parent="RaceDescContainer/VBoxContainer" unique_id=514434668]
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_bpjw8")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="RaceDescContainer/VBoxContainer" unique_id=1902246557]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 2
 
 [node name="HatedTraitsHeader" type="Label" parent="RaceDescContainer/VBoxContainer/VBoxContainer2" unique_id=1064715613]
 layout_mode = 2
@@ -161,7 +168,9 @@ offset_right = 901.14294
 offset_bottom = -1429.7144
 grow_horizontal = 2
 grow_vertical = 0
+mouse_filter = 2
 
 [node name="RaceImageTextureRect" type="TextureRect" parent="RaceDescContainer/TextureRectContainer" unique_id=1546514902]
 custom_minimum_size = Vector2(768, 1152)
 layout_mode = 2
+mouse_filter = 2

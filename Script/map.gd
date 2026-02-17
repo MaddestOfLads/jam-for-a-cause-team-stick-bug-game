@@ -41,7 +41,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		- If scroll up, zoom out
 		- If scroll down, zoom in
 	'''
-
+	
 	if event is InputEventMouseMotion:
 		_prev_hovered_entity = _hovered_entity
 		_hovered_entity = get_hovered_entity()
@@ -54,7 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif Input.is_action_pressed("left_click"):
 			if (_drawn_bridge != null):
 				_drawn_bridge.line.points[1] += (event.relative / camera.zoom)
-				
+
 				if(does_bridge_cross_rocks(_drawn_bridge)):
 					_drawn_bridge.modulate = _drawn_bridge._hovered_modulate
 				else:
